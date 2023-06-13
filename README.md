@@ -1,1 +1,1 @@
-# Jessica-Yoga-Studio
+# Yoga-Studio
