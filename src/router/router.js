@@ -13,7 +13,7 @@ const routes = [ // 將 routes 獨立出來有自己的變數，再使用 create
 
 
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHistory(import.meta.env.BASE_URL),
 
     routes 
 
