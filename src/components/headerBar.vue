@@ -1,6 +1,6 @@
 <template lang="pug">
 .headerBar
-    router-link(to="/" class="router-home")
+    router-link(to="./" class="router-home")
         .logo
     //- .c-container
     //-     .c-nav
