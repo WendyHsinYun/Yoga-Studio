@@ -1,47 +1,27 @@
-<template lang="pug">
-//- swiper.mySwiper(:speed='600' :parallax='true' :navigation='true' :modules='modules')
-//-     .parallax-bg(:style="{'background-image': 'url(https://swiperjs.com/demos/images/nature-1.jpg)'}" data-swiper-parallax='-10%')
-//-         .c-nav
-//-             .dot-1(data-text="Namaste")
-//-             .dot-2(data-text="瑜珈課")
-//-             .dot-3(data-text="機械皮拉提斯")
-//-             .dot-4(data-text="空中瑜珈")
-//-     swiper-slide
-//-         .title(data-swiper-parallax='-300') Slide 1
-//-         .subtitle(data-swiper-parallax='-200') Subtitle
-//-         .text(data-swiper-parallax='-100')
-//-         p
-//-             | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-//-             | dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
-//-             | laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
-//-             | Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
-//-             | Aliquam hendrerit lorem at elit facilisis rutrum. Ut at ullamcorper
-//-             | velit. Nulla ligula nisi, imperdiet ut lacinia nec, tincidunt ut
-//-             | libero. Aenean feugiat non eros quis feugiat.
-//-     swiper-slide
-//-         .title(data-swiper-parallax='-300') Slide 2
-//-         .subtitle(data-swiper-parallax='-200') Subtitle
-//-         .text(data-swiper-parallax='-100')
-//-         p
-//-             | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-//-             | dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
-//-             | laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
-//-             | Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
-//-             | Aliquam hendrerit lorem at elit facilisis rutrum. Ut at ullamcorper
-//-             | velit. Nulla ligula nisi, imperdiet ut lacinia nec, tincidunt ut
-//-             | libero. Aenean feugiat non eros quis feugiat.
-//-     swiper-slide
-//-         .title(data-swiper-parallax='-300') Slide 3
-//-         .subtitle(data-swiper-parallax='-200') Subtitle
-//-         .text(data-swiper-parallax='-100')
-//-         p
-//-             | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-//-             | dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
-//-             | laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
-//-             | Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
-//-             | Aliquam hendrerit lorem at elit facilisis rutrum. Ut at ullamcorper
-//-             | velit. Nulla ligula nisi, imperdiet ut lacinia nec, tincidunt ut
-//-             | libero. Aenean feugiat non eros quis feugiat.
+<template>
+  <swiper :navigation="true" :parallax="true" :modules="modules" @slideChange="handleSlideChange">
+    <div class="parallax-bg" :style="{'background-image': 'url(../src/assets/images/bg-line.png)'}" data-swiper-parallax="-30%"></div>
+    <div class="c-container">
+      <div class="c-nav">
+        <div class="dot-1" data-text="Namaste"></div>
+        <div class="dot-2" data-text="瑜珈課"></div>
+        <div class="dot-3" data-text="機械皮拉提斯"></div>
+        <div class="dot-4" data-text="空中瑜珈"></div>
+      </div>
+    </div>
+    <swiper-slide>
+      slide 1
+    </swiper-slide>
+    <swiper-slide>
+      Slide 2
+    </swiper-slide>
+    <swiper-slide>
+      Slide 3
+    </swiper-slide>
+    <swiper-slide>
+      Slide 4
+    </swiper-slide>
+  </swiper>
 </template>
 
 
@@ -51,16 +31,23 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Parallax, Pagination, Navigation } from "swiper";
+const modules = [Parallax, Pagination, Navigation];
 
 const components = {
   Swiper,
   SwiperSlide,
 };
 
-const modules = [Parallax, Pagination, Navigation];
 
 
-//
+import { ref } from 'vue';
+
+const rotation = ref(0);
+
+function handleSlideChange() {
+  rotation.value += 360;
+}
+
 </script>
 
   
@@ -85,12 +72,13 @@ body
 .swiper
   width: 100%
   height: 100%
-  background: #000
+  // background: #000
 
 .swiper-slide
+  width: 100%
+  height: 100%
   font-size: 18px
   color: #fff
-  -webkit-box-sizing: border-box
   box-sizing: border-box
   padding: 40px 60px
 
@@ -103,61 +91,63 @@ body
   -webkit-background-size: cover
   background-size: cover
   background-position: center
+  opacity: .2
 .c-container
-    width: 450px
-    height: 450px
-    top: -350px
-    left: 50%
-    transform: translateX(-50%)
+  width: 450px
+  height: 450px
+  bottom: 0px
+  left: 50%
+  transform: translateX(-50%)
+  border: 1px solid black
+  position: absolute
+  display: flex
+  justify-content: center
+  align-items: center
+  
+  .c-nav
+    width: 400px
+    height: 400px
+    border-radius: 50%
+    border: 1px solid #565151
+    opacity: .5
     position: absolute
     display: flex
     justify-content: center
     align-items: center
     
-    .c-nav
-        width: 400px
-        height: 400px
-        border-radius: 50%
+    .dot-1, .dot-2, .dot-3, .dot-4 
+        position: relative
+        width: 8px
+        height: 8px
         border: 1px solid #565151
-        opacity: .5
+        border-radius: 50%
+        background-color: #565151
+    .dot-1::after, .dot-2::after, .dot-3::after, .dot-4::after
+        content: attr(data-text)
+        letter-spacing: 1px
+        font-family: 'Playfair Display'
+        white-space: nowrap
         position: absolute
-        display: flex
-        justify-content: center
-        align-items: center
-        
-        .dot-1, .dot-2, .dot-3, .dot-4 
-            position: relative
-            width: 8px
-            height: 8px
-            border: 1px solid #565151
-            border-radius: 50%
-            background-color: #565151
-        .dot-1::after, .dot-2::after, .dot-3::after, .dot-4::after
-            content: attr(data-text)
-            letter-spacing: 1px
-            font-family: 'Playfair Display'
-            white-space: nowrap
-            position: absolute
-        .dot-1::after
-            top: 35px
-            right: -30px 
-        .dot-1
-            top: 45%
-        .dot-2::after
-            right: -80px
-            top: -5px 
-        .dot-2
-            right: -45%
-        .dot-3::after
-            top: -45px
-            right: -50px
-        .dot-3
-            top: -45%
-        .dot-4::after
-            top: -5px
-            right: 55px
-        .dot-4 
-            right: 45%
+    .dot-1::after
+        top: 35px
+        right: -30px 
+    .dot-1
+        top: 45%
+    .dot-2::after
+        right: -80px
+        top: -5px 
+    .dot-2
+        right: -45%
+    .dot-3::after
+        top: -45px
+        right: -50px
+    .dot-3
+        top: -45%
+    .dot-4::after
+        top: -5px
+        right: 55px
+    .dot-4 
+        right: 45%
 .swiper-slide
   .title
     font-size: 41px
