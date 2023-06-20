@@ -2,13 +2,13 @@
 "vueCompilerOptions": {
     "plugins": ["@volar/vue-language-plugin-pug"]
 },
-"include": [ // 告訴 VScode 這是這個專案的資料來源，於是相關的自動選擇應該只考慮這個資料夾中的檔案，而非 node_modules 資料夾
+"include": [ 
     "./src/**/*"
 ],
 "compilerOptions": {
-    "baseUrl": ".", // 指定了基本的路徑解析基準位置。這表示在解析非相對模組名稱時，它將以該基本路徑為起點進行解析。
+    "baseUrl": ".", 
     "paths": {
-        "@/*":["./src/*"] //  是一個路徑映射（path mapping）的設定，它將模組名稱 @/* 映射到相對於基本路徑的 ./src/*。這意味著當您在程式碼中引用 @/ 開頭的模組時，JavaScript 編譯器和 VSCode 將嘗試解析到相對於 ./src/ 的路徑。
+        "@/*":["./src/*"]
     }
 }
 }

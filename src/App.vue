@@ -10,6 +10,8 @@
 import { RouterView } from 'vue-router';
 import HeaderBar from './components/headerBar.vue';
 
+import Classroom from './views/Classroom.vue';
+
 
 </script>
 
@@ -29,4 +31,5 @@ import HeaderBar from './components/headerBar.vue';
   .swiper
     height: 100%
     width: 100%
+
 </style>
