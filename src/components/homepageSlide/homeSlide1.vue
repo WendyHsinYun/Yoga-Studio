@@ -25,6 +25,8 @@ function resetDot() {
   isDotScaled.value = false;
 }
 
+import gsap from 'gsap'
+
 </script>
 
 

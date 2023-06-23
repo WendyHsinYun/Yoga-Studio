@@ -1,6 +1,6 @@
 <template lang="pug">
 .slider-2
-    .dot-container 
+    router-link(to="/classes/yoga") 
         .dot(:class="{ 'dot-scaled': isDotScaled }"
             @mouseover="scaleDot"
             @mouseleave="resetDot")
@@ -36,7 +36,7 @@ function resetDot() {
     justify-content: center
     align-items: center
     flex-direction: column
-    .dot-container
+    a
         width: 300px
         height: 300px
         letter-spacing: 2.5px
@@ -46,6 +46,9 @@ function resetDot() {
         align-items: center
         flex-direction: column
         z-index: 6
+        text-decoration: none
+        color: black
+        cursor: default
         // border: 1px solid black
         .dot-scaled
             animation: scaleAnimation .6s ease-in-out
@@ -54,7 +57,7 @@ function resetDot() {
             height: 70px
             background-color: #FFA245
             border-radius: 50%
-            // cursor: url("./src/assets/images/mouse_solid.svg")
+            
         .title
             margin-top: 30px
             font-weight: 500

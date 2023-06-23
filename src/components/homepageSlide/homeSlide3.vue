@@ -1,6 +1,6 @@
 <template lang="pug">
 .slider-3
-    .dot-container 
+    router-link(to="/classes/KXPilates") 
         .dot(:class="{ 'dot-scaled': isDotScaled }"
             @mouseover="scaleDot"
             @mouseleave="resetDot")
@@ -36,7 +36,7 @@ function resetDot() {
     justify-content: center
     align-items: center
     flex-direction: column
-    .dot-container
+    a
         width: 300px
         height: 300px
         letter-spacing: 2.5px
@@ -46,7 +46,9 @@ function resetDot() {
         align-items: center
         flex-direction: column
         z-index: 6
-        // border: 1px solid black
+        text-decoration: none
+        color: black
+
         .dot-scaled
             animation: scaleAnimation .6s ease-in-out
         .dot 

@@ -3,25 +3,45 @@
     router-link(to="/" class="router-home")
         .logo
     nav
-        router-link(to="/") 首頁   
-        router-link(to="/classroom") 課程        
+        router-link(to="/" @mouseover='paramTrue' @mouseout='paramFalse') 課程
+        router-link(to="/calandar") 行事曆        
         router-link(to="/contact") 聯絡
+        //- router-link(to="/classes/yoga") YOGA      
+        //- router-link(to="/classes/KXPilates") KXPilates      
+        //- router-link(to="/classes/AerialYoga") AerialYoga
 </template>
       
       
 <script setup>
 import { RouterLink } from 'vue-router';
 import router from '../router/router';
-import Home from '../views/Home.vue';
-import Classroom from '../views/Classroom.vue';
-import Contact from '../views/Contact.vue';
+import Home from '@/views/Home.vue';
+import Calandar from '@/views/Calandar.vue';
+import Contact from '@/views/Contact.vue';
+import Yoga from '@/views/classes/Yoga.vue' 
+import KXPilates from '@/views/classes/KXPilates.vue' 
+import AerialYoga from '@/views/classes/AerialYoga.vue' 
+
 
 import { ref } from 'vue';
+
+const emit = defineEmits(['dotEvent'])
+
+const param = ref(false);
+
+function paramTrue() {
+    param.value = true;
+    emit('dotEvent', param.value);
+}
+
+function paramFalse() {
+    param.value = false;
+    emit('dotEvent', param.value);
+}
 
 </script>
     
 <style lang="sass" scoped>
-
 .headerBar
     width: 100%
     height: 100px
@@ -31,12 +51,10 @@ import { ref } from 'vue';
     display: flex
     justify-content: space-between
     align-items: center
-    // border: 0.1px solid black
     .router-home
         width: 40px
         height: 40px
         margin-left: 5%
-        // border: 0.1px solid black
         position: absolute
         .logo
             width: 100%
@@ -49,7 +67,6 @@ import { ref } from 'vue';
         display: flex
         justify-content: center
         align-items: center
-        // border: 1px solid red
         a
             text-decoration: none
             letter-spacing: 0.2em
@@ -77,7 +94,6 @@ import { ref } from 'vue';
     .headerBar
         nav
             margin-left: 60%
-            bordblue
             a
                 margin-right: -20px
        
