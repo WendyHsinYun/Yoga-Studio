@@ -9,31 +9,11 @@
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
-    <div id="custom-cursor"></div>
+
   </body>
 </html>
 
 
 <script>
-  const customCursor = document.getElementById('custom-cursor');
-  const screenWidth = window.innerWidth;
-  const thirdScreen = screenWidth / 3;
-  document.addEventListener('mousemove', (e) => {
-    const x = e.clientX;
-
-    if (x < thirdScreen) {
-      customCursor.style.transform = 'scaleX(-1)';  // 水平翻轉180度
-      customCursor.style.backgroundImage = 'url("./src/assets/images/mouse_right.svg")';
-    } else if (x > thirdScreen * 2) {
-      customCursor.style.transform = 'none';  // 不進行翻轉
-      customCursor.style.backgroundImage = 'url("./src/assets/images/mouse_right.svg")';
-    } else {
-      customCursor.style.transform = 'none';  // 不進行翻轉
-      customCursor.style.backgroundImage = 'url("./src/assets/images/mouse_center.svg")';
-    }
-
-    customCursor.style.left = x + 'px';
-    customCursor.style.top = e.clientY + 'px';
-  });
 
 </script>
