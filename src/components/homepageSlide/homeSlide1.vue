@@ -1,9 +1,7 @@
 <template lang="pug">
 .slider-1
     .dot-container 
-        .dot(:class="{ 'dot-scaled': isDotScaled }"
-            @mouseover="scaleDot"
-            @mouseleave="resetDot")
+        .dot
         .title 卡姊的瑜珈教室 
         .eng-title Welcome!
     .scrollReminder 滑動來繼續看
@@ -14,18 +12,6 @@
 
 
 <script setup>
-import { ref } from 'vue';
-
-const isDotScaled = ref(false);
-
-function scaleDot() {
-  isDotScaled.value = true;
-}
-function resetDot() {
-  isDotScaled.value = false;
-}
-
-import gsap from 'gsap'
 
 </script>
 
@@ -55,9 +41,6 @@ import gsap from 'gsap'
         align-items: center
         flex-direction: column
         z-index: 6
-        // border: 1px solid black
-        .dot-scaled
-            animation: scaleAnimation .6s ease-in-out
         .dot 
             width: 70px
             height: 70px

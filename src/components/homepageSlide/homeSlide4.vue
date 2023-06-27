@@ -54,7 +54,7 @@ function resetDot() {
         .dot 
             width: 70px
             height: 70px
-            background-color: #18AE66
+            background-color: #D2DA40
             border-radius: 50%
             // cursor: url("./src/assets/images/mouse_solid.svg")
         .title

@@ -3,12 +3,9 @@
     router-link(to="/" class="router-home")
         .logo
     nav
-        router-link(to="/" @mouseover='paramTrue' @mouseout='paramFalse') 課程
-        router-link(to="/calandar") 行事曆        
+        router-link(to="/about" @mouseover='paramTrue' @mouseout='paramFalse') 關於    
+        router-link(to="/classes/yoga") 課程
         router-link(to="/contact") 聯絡
-        //- router-link(to="/classes/yoga") YOGA      
-        //- router-link(to="/classes/KXPilates") KXPilates      
-        //- router-link(to="/classes/AerialYoga") AerialYoga
 </template>
       
       
@@ -16,7 +13,7 @@
 import { RouterLink } from 'vue-router';
 import router from '../router/router';
 import Home from '@/views/Home.vue';
-import Calandar from '@/views/Calandar.vue';
+import Calendar from '@/views/Calendar.vue';
 import Contact from '@/views/Contact.vue';
 import Yoga from '@/views/classes/Yoga.vue' 
 import KXPilates from '@/views/classes/KXPilates.vue' 
@@ -63,16 +60,16 @@ function paramFalse() {
     nav
         width: 100%
         height: 100%
-        margin-left: 70%
+        margin-left: 60%
         display: flex
         justify-content: center
         align-items: center
         a
             text-decoration: none
             letter-spacing: 0.2em
-            font-size: 18px
+            font-size: 16px
             color: #565151
-            margin-left: 20%
+            margin-left: 17%
             position: relative
             transition: transform 0.5s
             &::after

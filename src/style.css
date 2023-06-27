@@ -24,3 +24,50 @@ body {
   padding: 0;
   margin: 0;
 }
+
+:root {
+
+  --fc-page-bg-color: #fff;
+  --fc-neutral-text-color: #a3a3a3;
+  
+  --fc-button-bg-color: #909090;
+  --fc-button-border-color: none;
+  --fc-button-hover-bg-color: #3f3838;
+  --fc-button-hover-border-color: none;
+  --fc-button-active-bg-color: #515151;
+  --fc-button-active-border-color: none;
+
+  --fc-event-bg-color: #9b8c7b;
+  --fc-event-border-color: #9b8c7b;
+  --fc-event-text-color: #fff;
+  --fc-event-selected-overlay-color: rgba(0, 0, 0, 0.25);
+
+
+}
+
+.fc-toolbar-title {
+  color: #7a7a7a;
+  font-weight: 200;
+  font-size: 20px;
+}
+
+.fc-col-header-cell-cushion{
+  color: #7a7a7a;
+}
+
+.fc-daygrid-day-number{
+  color: #7a7a7a;
+}
+
+.fc-timegrid-axis-cushion{
+  color: #7a7a7a;
+  font-weight: 100;
+}
+.fc-timegrid-slot-label-cushion{
+  color: #7a7a7a;
+}
+
+.fc-multimonth-title{
+  color: #5a5a5a;
+  font-weight: thin;
+}
