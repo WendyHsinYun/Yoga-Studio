@@ -1,14 +1,15 @@
 <template lang="pug">
 .slider-4
-    router-link(to="/classes/AerialYoga")  
+    a(href="/classes/AerialYoga")  
         .dot(:class="{ 'dot-scaled': isDotScaled }"
             @mouseover="scaleDot"
             @mouseleave="resetDot")
         .title 空中瑜珈
         .eng-title Aerial Yoga
     .image-area
-        img.home-slider4-base(data-swiper-parallax="-200" src="@/assets/images/home-slider4-base.png")
-        img.home-slider4-role(data-swiper-parallax="100" src="@/assets/images/home-slider4-role.png")
+        img.home-slider4-role(data-swiper-parallax="0%" src="@/assets/images/home-slider4-role.webp")
+        img.home-slider4-base2(data-swiper-parallax="5%" src="@/assets/images/home-slider4-base2.webp")
+        img.home-slider4-base(data-swiper-parallax="-20%" src="@/assets/images/home-slider4-base.webp")
 </template>
 
 
@@ -36,6 +37,7 @@ function resetDot() {
     justify-content: center
     align-items: center
     flex-direction: column
+    overflow: hidden
     a
         width: 300px
         height: 300px
@@ -78,20 +80,22 @@ function resetDot() {
         height: 100%
         position: absolute
         box-sizing: border-box
-        // transform: rotate(-5deg)
-        // border: 1px solid black
         .home-slider4-base
-            width: 130%
-            height: auto
-            left: -250px
-            bottom: -200px
+            width: 100%
+            left: 40%
+            bottom: -120px
             position: absolute
+        .home-slider4-base2
+            width: 100%
+            position: absolute
+            bottom: -5%
+            left: -10%
         .home-slider4-role
-            width: 70%
+            width: 17%
             height: auto
-            bottom: 0px
+            bottom: 20%
             position: absolute
-            left: 400px
+            left: 65%
 @keyframes scaleAnimation 
     0% 
         transform: scale(1)

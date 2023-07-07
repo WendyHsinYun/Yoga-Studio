@@ -1,14 +1,14 @@
 <template lang="pug">
 .slider-3
-    router-link(to="/classes/KXPilates") 
+    a(href="/classes/KXPilates") 
         .dot(:class="{ 'dot-scaled': isDotScaled }"
             @mouseover="scaleDot"
             @mouseleave="resetDot")
         .title 機械皮拉提斯
         .eng-title KX Pilates
     .image-area
-        img.home-slider3-base(data-swiper-parallax="100" src="@/assets/images/home-slider3-base.png")
-        img.home-slider3-role(data-swiper-parallax="-400" src="@/assets/images/home-slider3-role.png")
+        img.home-slider3-base(data-swiper-parallax="-10%" src="@/assets/images/home-slider3-base.webp")
+        img.home-slider3-role(data-swiper-parallax="20%" src="@/assets/images/home-slider3-role.webp")
 </template>
 
 
@@ -36,6 +36,7 @@ function resetDot() {
     justify-content: center
     align-items: center
     flex-direction: column
+    overflow: hidden
     a
         width: 300px
         height: 300px
@@ -80,18 +81,17 @@ function resetDot() {
         box-sizing: border-box
         // transform: rotate(-5deg)
         // border: 1px solid black
-        .home-slider3-base
-            width: 100%
-            height: auto
-            left: 100px
-            bottom: -70px
-            position: absolute
         .home-slider3-role
-            width: 75%
-            height: auto
-            bottom: -30px
             position: absolute
-            left: -50px
+            width: 20%
+            bottom: 50px
+            left: 5%
+        .home-slider3-base
+            position: absolute
+            width: 160vw
+            bottom: -50px
+            right: -30%
+            
 @keyframes scaleAnimation 
     0% 
         transform: scale(1)

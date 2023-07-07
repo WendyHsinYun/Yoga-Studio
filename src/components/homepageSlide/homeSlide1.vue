@@ -6,8 +6,9 @@
         .eng-title Welcome!
     .scrollReminder 滑動來繼續看
     .image-area
-        img.home-slider1-role(data-swiper-parallax="20%" src="@/assets/images/home-slider1-role.png")
-        img.home-slider1-base(data-swiper-parallax="5%" src="@/assets/images/home-slider1-base.png")
+        img.home-slider1-base(data-swiper-parallax="-10%" src="@/assets/images/home-slider1-base.webp")
+        img.home-slider1-role(data-swiper-parallax="30%" src="@/assets/images/home-slider1-role.webp")
+        img.home-slider1-base2(data-swiper-parallax="10%" src="@/assets/images/home-slider1-base2.webp")
 </template>
 
 
@@ -16,7 +17,7 @@
 </script>
 
 
-<style lang="sass">
+<style lang="sass" scoped>
 .swiper-button-next, .swiper-button-prev, .swiper-button-disabled, .swiper-button-disabled::after  
   --swiper-navigation-size: 500px
   --swiper-navigation-top-offset: 40%
@@ -31,6 +32,7 @@
     justify-content: center
     align-items: center
     flex-direction: column
+    overflow: hidden
     .dot-container
         width: 300px
         height: 300px
@@ -68,117 +70,132 @@
         height: 100%
         position: absolute
         box-sizing: border-box
-        transform: rotate(-5deg)
+        .home-slider1-role
+            position: absolute
+            width: 20%
+            bottom: 50px
+            left: 10%
+        .home-slider1-base
+            position: absolute
+            width: 100vw
+            bottom: -50px
+            right: 10%
+        .home-slider1-base2
+            position: absolute
+            width: 100%
+            left: 50%
+            bottom: -50px
 
-@media (min-width: 1800px)
-    .image-area
-        .home-slider1-role
-            width: 100%
-            bottom: -5%
-            position: absolute
-        .home-slider1-base
-            width: 135%
-            left: -25%
-            bottom: -50%
-            position: absolute
-@media (min-width: 1600px) and (max-width: 1800px)
-    .image-area
-        .home-slider1-role
-            width: 100%
-            height: auto
-            bottom: 0%
-            left: -10%
-            position: absolute
-        .home-slider1-base
-            width: 125%
-            height: auto
-            left: -20%
-            bottom: -35%
-            position: absolute
-@media (min-width: 1400px) and (max-width: 1600px)
-    .image-area   
-        .home-slider1-role
-            width: 95%
-            height: auto
-            bottom: 0%
-            left: -10%
-            position: absolute
-        .home-slider1-base
-            width: 130%
-            height: auto
-            left: -25%
-            bottom: -35%
-            position: absolute
-@media (min-width: 1200px) and (max-width: 1400px)
-    .image-area   
-        .home-slider1-role
-            width: 120%
-            height: auto
-            bottom: 0%
-            left: -15%
-            position: absolute
-        .home-slider1-base
-            width: 120%
-            height: auto
-            left: -20%
-            bottom: -25%
-            position: absolute
-@media (min-width: 850px) and (max-width: 1200px)
-    .image-area   
-        .home-slider1-role
-            width: 150%
-            height: auto
-            bottom: -5%
-            left: -20%
-            position: absolute
-        .home-slider1-base
-            width: 115%
-            height: auto
-            left: -20%
-            bottom: -15%
-            position: absolute
-@media (min-width: 600px) and (max-width: 850px)
-    .image-area   
-        .home-slider1-role
-            width: 170%
-            height: auto
-            bottom: -5%
-            left: -25%
-            position: absolute
-        .home-slider1-base
-            width: 130%
-            height: auto
-            left: -25%
-            bottom: -15%
-            position: absolute
-@media (min-width: 430px) and (max-width: 600px)
-    .image-area   
-        .home-slider1-role
-            width: 210%
-            height: auto
-            bottom: 0%
-            left: -35%
-            position: absolute
-        .home-slider1-base
-            width: 130%
-            height: auto
-            left: -25%
-            bottom: -6%
-            position: absolute
-@media (min-width: 0px) and (max-width: 430px)
-    .image-area   
-        .home-slider1-role
-            width: 230%
-            height: auto
-            bottom: 0%
-            left: -40%
-            position: absolute
-        .home-slider1-base
-            width: 130%
-            height: auto
-            left: -25%
-            bottom: -4%
-            position: absolute
+        
+// @media (min-width: 1800px)
+//     .image-area
+//         .home-slider1-role
+//             width: 100%
+//             bottom: -5%
+//             position: absolute
+//         .home-slider1-base
+//             width: 135%
+//             left: -25%
+//             bottom: -50%
+//             position: absolute
+// @media (min-width: 1600px) and (max-width: 1800px)
+//     .image-area
+//         .home-slider1-role
+//             width: 100%
+//             height: auto
+//             bottom: 0%
+//             left: -10%
+//             position: absolute
+//         .home-slider1-base
+//             width: 125%
+//             height: auto
+//             left: -20%
+//             bottom: -35%
+//             position: absolute
+// @media (min-width: 1400px) and (max-width: 1600px)
+//     .image-area   
+//         .home-slider1-role
+//             width: 95%
+//             height: auto
+//             bottom: 0%
+//             left: -10%
+//             position: absolute
+//         .home-slider1-base
+//             width: 130%
+//             height: auto
+//             left: -25%
+//             bottom: -35%
+//             position: absolute
+// @media (min-width: 1200px) and (max-width: 1400px)
+//     .image-area   
+//         .home-slider1-role
+//             width: 120%
+//             height: auto
+//             bottom: 0%
+//             left: -15%
+//             position: absolute
+//         .home-slider1-base
+//             width: 120%
+//             height: auto
+//             left: -20%
+//             bottom: -25%
+//             position: absolute
+// @media (min-width: 850px) and (max-width: 1200px)
+//     .image-area   
+//         .home-slider1-role
+//             width: 150%
+//             height: auto
+//             bottom: -5%
+//             left: -20%
+//             position: absolute
+//         .home-slider1-base
+//             width: 115%
+//             height: auto
+//             left: -20%
+//             bottom: -15%
+//             position: absolute
+// @media (min-width: 600px) and (max-width: 850px)
+//     .image-area   
+//         .home-slider1-role
+//             width: 170%
+//             height: auto
+//             bottom: -5%
+//             left: -25%
+//             position: absolute
+//         .home-slider1-base
+//             width: 130%
+//             height: auto
+//             left: -25%
+//             bottom: -15%
+//             position: absolute
+// @media (min-width: 430px) and (max-width: 600px)
+//     .image-area   
+//         .home-slider1-role
+//             width: 210%
+//             height: auto
+//             bottom: 0%
+//             left: -35%
+//             position: absolute
+//         .home-slider1-base
+//             width: 130%
+//             height: auto
+//             left: -25%
+//             bottom: -6%
+//             position: absolute
+// @media (min-width: 0px) and (max-width: 430px)
+//     .image-area   
+//         .home-slider1-role
+//             width: 230%
+//             height: auto
+//             bottom: 0%
+//             left: -40%
+//             position: absolute
+//         .home-slider1-base
+//             width: 130%
+//             height: auto
+//             left: -25%
+//             bottom: -4%
+//             position: absolute
 @keyframes scaleAnimation 
     0% 
         transform: scale(1)

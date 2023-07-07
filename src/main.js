@@ -1,11 +1,20 @@
+
 import { createApp } from 'vue'
-import './style.css' // 針對 index.html
+import './style.css' 
 import App from '@/App.vue'
 import router from '@/router/router.js'
+import vuetify from './plugins/vuetify'
+import 'vuetify/dist/vuetify.min.css'
 
-createApp(App) 
-.use(router)
-.mount('#app')
+import { loadFonts } from './plugins/webfontloader'
 
-// 將App.vue的內容顯示到id = 'app' 的tag裡面
+
+// import { VueFire, VueFireDatabaseOptionsAPI, VueFireFirestoreOptionsAPI } from 'vuefire'
+
+// loadFonts()
+
+createApp(App)
+  .use(vuetify)
+  .use(router)
+  .mount('#app')
 
