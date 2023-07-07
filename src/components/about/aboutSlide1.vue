@@ -5,7 +5,6 @@
         .title 卡姊的故事 
         .eng-title About Jessica
     .scrollReminder 滑動來繼續看
-    .image-area
 
 </template>
 
@@ -16,12 +15,12 @@
 
 
 <style lang="sass" scoped>
-.swiper-button-next, .swiper-button-prev, .swiper-button-disabled, .swiper-button-disabled::after  
-    --swiper-navigation-size: 500px
-    --swiper-navigation-top-offset: 40%
-    --swiper-navigation-sides-offset: 20px
-    --swiper-navigation-color: none
-    opacity: 0
+// .swiper-button-next, .swiper-button-prev, .swiper-button-disabled, .swiper-button-disabled::after  
+//     --swiper-navigation-size: 500px
+//     --swiper-navigation-top-offset: 40%
+//     --swiper-navigation-sides-offset: 20px
+//     --swiper-navigation-color: none
+//     opacity: 0
 
 .slider-1
     width: 100%

@@ -1,6 +1,11 @@
 <template lang="pug">
-swiper.swiper(:parallax='true' :modules='modules' :navigation="true" :speed="1000" ref="swiper" :mousewheel="true")
-    //- .parallax-bg(:style="{'background-image': 'url(../src/assets/images/bg-line.png)'}" data-swiper-parallax='-30%')
+swiper(
+    :parallax='true' 
+    :modules='modules' 
+    :navigation="true" 
+    :speed="1000" ref="swiper" 
+    :mousewheel="true")
+    .parallax-bg(:style="{'background-image': 'url(../src/assets/images/bg-line.webp)'}" data-swiper-parallax='-15%')
     swiper-slide 
         aboutSlide1
     swiper-slide 
@@ -45,23 +50,28 @@ gsap.registerPlugin(ScrollTrigger);
 
 </script>
 
-<style lang='sass' scoped>
+<style lang='sass'>
     
-.parallax-bg
-    position: absolute
-    left: 0
-    top: 0
-    width: 120%
-    height: 100%
-    background-size: cover
-    background-position: center
-    opacity: .1
+.swiper-button-next, .swiper-button-prev, .swiper-button-disabled, .swiper-button-disabled::after  
+    --swiper-navigation-size: 500px
+    --swiper-navigation-top-offset: 40%
+    --swiper-navigation-sides-offset: 20px
+    --swiper-navigation-color: none
+    opacity: 0
 
-swiper
+.swiper
     width: 100%
     height: 100%
-    // z-index: 3
-    swiper-slide
+    overflow: initial
+    .parallax-bg
+        position: absolute
+        left: 0%
+        top: 0%
+        width: 120%
+        height: 100%
+        background-position: center
+        opacity: .1
+    .swiper-slide
         width: 100%
         height: 100%
         display: flex

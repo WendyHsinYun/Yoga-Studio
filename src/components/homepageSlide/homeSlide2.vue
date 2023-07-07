@@ -1,16 +1,15 @@
 <template lang="pug">
 .slider-2
-    router-link(to="/classes/yoga") 
+    a(href="/classes/yoga")
         .dot(:class="{ 'dot-scaled': isDotScaled }"
             @mouseover="scaleDot"
             @mouseleave="resetDot")
         .title 瑜珈課 
         .eng-title Yoga Class
     .image-area
-        img.home-slider2-base(data-swiper-parallax="200" src="@/assets/images/home-slider2-base.png")
-        img.home-slider2-role(data-swiper-parallax="-500" src="@/assets/images/home-slider2-role.png")
+        img.home-slider2-base(data-swiper-parallax="-20%" src="@/assets/images/home-slider2-base.webp")
+        img.home-slider2-role(data-swiper-parallax="0%" src="@/assets/images/home-slider2-role.webp")
 </template>
-
 
 <script setup>
 import { ref } from 'vue';
@@ -36,6 +35,7 @@ function resetDot() {
     justify-content: center
     align-items: center
     flex-direction: column
+    overflow: hidden
     a
         width: 300px
         height: 300px
@@ -79,20 +79,16 @@ function resetDot() {
         height: 100%
         position: absolute
         box-sizing: border-box
-        // transform: rotate(-5deg)
-        // border: 1px solid black
-        .home-slider2-base
-            width: 100%
-            height: auto
-            left: 370px
-            bottom: -700px
-            position: absolute
         .home-slider2-role
-            width: 70%
-            height: auto
-            bottom: 0px
             position: absolute
-            left: 250px
+            width: 15%
+            bottom: 50px
+            left: 70%
+        .home-slider2-base
+            position: absolute
+            width: 100vw
+            bottom: -10%
+            left: 10%
 @keyframes scaleAnimation 
     0% 
         transform: scale(1)

@@ -1,20 +1,192 @@
 <template lang="pug">
-.root 
+v-container(
+  style=" overflow: hidden ;" 
+  justify="center" )
+  v-row(
+    justify="center" 
+    style=" background-color: none; margin-top: 100px ")
+    v-col.flex-column(
+      style="background-color: none; " 
+      align="center" 
+      cols="5" )
+      .text-center(
+        style="font-family: NotoSansHK; color: #FFA042; font-weight: 800; font-size: 20px; letter-spacing: 1.5px; line-height: 35px;") 聯絡卡姊
+      .text-center
+          .cardText line：jessica0125 
+          .cardText phone : 0937849328 
+          .cardText email : jt126129@gmail.com
+      v-img(
+        src="src/assets/images/contact.webp" 
+        height="350" 
+        center 
+        style="transform: translateY(-50px)")
+    v-col(
+      cols="4" 
+      style="background-color: none; " )
+      v-form(
+        fast-fail 
+        @submit.prevent="sendEmail"  
+        ref="form" 
+        style="color: #2A2A2A;")
+        v-text-field(
+          density="compact" 
+          variant="underlined" 
+          v-model='name.value.value' 
+          :counter='20' 
+          :error-messages='name.errorMessage.value' 
+          label='名字' 
+          ref="nameField")
+        v-text-field(
+          density="compact" 
+          variant="underlined" 
+          v-model='phone.value.value' 
+          :counter='10' 
+          :error-messages='phone.errorMessage.value' 
+          label='手機' 
+          ref="phoneField")
+        v-text-field(
+          variant="underlined" 
+          v-model='email.value.value' 
+          :error-messages='email.errorMessage.value' 
+          label='E-mail' 
+          ref="emailField")
+        v-select(
+          variant="underlined" 
+          v-model='select.value.value' 
+          :items="items" 
+          :error-messages='select.errorMessage.value' 
+          label='想了解的課程' 
+          density="compact" 
+          name="subject" 
+          ref="selectField")
+        v-text-field(
+          density="compact" 
+          variant="underlined" 
+          v-model='message.value.value' 
+          :error-messages='message.errorMessage.value'  
+          label='填寫您的問題' 
+          ref="messageField")
+        v-row(
+          justify="center" 
+          style="margin-top: 10px")
+          v-btn.me-3(
+            style="background-color: #FFA245; color: aliceblue; margin-left: 10px" 
+            rounded="lg" 
+            type="submit") 送出 
+          v-btn(
+            style="background-color: #FFA245; color: aliceblue;" 
+            rounded="lg" 
+            @click='handleReset') 清除
+          v-col(
+            style="color: #FFA245; font-size: 12px; ") 留下資料後，卡姊將會盡速聯絡您
+
 
 </template>
-  
-<script setup>
-
-</script>
-
 
 <style lang='sass' scoped>
-.root 
-  width: 100%
-  height: 100%
-  // background-color: #fff
-  display: flex
-  flex-direction: column
-  position: absolute
-  top: 0px
-  </style>
+.text-center
+  margin-top: 10px
+  .cardText
+    font-size: 14px
+    color: #909090
+    font-family: 'Playfair Display'
+    letter-spacing: 1.5px
+</style>
+
+
+
+<script setup>
+import { ref } from 'vue'
+import { useField, useForm } from 'vee-validate'
+
+import emailjs from 'emailjs-com';
+
+
+const { handleSubmit, handleReset } = useForm({
+  validationSchema: {
+    name(value) {
+      if (value?.length >= 2) return true
+
+      return '名字至少需要兩個字元'
+    },
+    phone(value) {
+      if (value?.length > 9 && /[0-9-]+/.test(value)) return true
+
+      return '手機至少需要九個數字'
+    },
+    email(value) {
+      if (/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i.test(value)) return true
+
+      return '必須為有效的信箱地址'
+    },
+    select(value) {
+      if (value) return true
+
+      return '請選擇一堂課'
+    },
+    message(value) {
+      if (value?.length >= 2) return true
+
+      return '請概述您的問題內容'
+    }
+  },
+})
+
+const name = useField('name')
+const phone = useField('phone')
+const email = useField('email')
+const select = useField('select')
+const message = useField('message')
+
+const items = ref([
+  '瑜珈課', 
+  '機械皮拉提斯', 
+  '空中瑜珈', 
+  '其他（客製化課程）'
+])
+
+
+const nameField = ref('');
+const phoneField = ref('');
+const emailField = ref('');
+const selectField = ref('');
+const messageField = ref('');
+
+const formData = ref({})
+
+const submit = handleSubmit(values => {
+  formData.value = values;
+  console.log(JSON.stringify(formData.value, null, 2))
+})
+
+
+
+const sendEmail = () => {
+  submit().then(() => {
+    emailjs.send(
+      'service_f17lxl7', 
+      'template_3694268',     
+      {
+        user_email: formData.value.email,
+        from_name: formData.value.name,
+        reply_to : "wendyhsinyun@gmail.com",
+        to_name: "卡姊",
+        phone: formData.value.phone,
+        select: formData.value.select,
+        message: formData.value.message,
+      }, 
+      'OUQqOz6igY5YaEUO8')
+      .then(() => {
+          alert('郵件已成功發送！請至信箱檢查您寄出的信件內容');
+      })
+      .then(() => {
+        handleReset()
+      })
+      .catch((error) => {
+        console.log('FAILED...', error.text);
+      });
+    });
+};
+
+
+</script>

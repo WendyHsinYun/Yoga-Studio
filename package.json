@@ -1,24 +1,35 @@
 {
   "name": "vue-yoga-app",
-  "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "private": true,
   "scripts": {
+    "serve": "vite preview",
+    "build": "vite build",
     "dev": "vite",
-    "build": "vite build --base=/Yoga-Studio/",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.11.0",
     "@fullcalendar/core": "^6.1.8",
     "@fullcalendar/daygrid": "^6.1.8",
     "@fullcalendar/google-calendar": "^6.1.8",
     "@fullcalendar/multimonth": "^6.1.8",
     "@fullcalendar/timegrid": "^6.1.8",
     "@fullcalendar/vue3": "^6.1.8",
+    "@mdi/font": "5.9.55",
+    "axios": "^1.4.0",
+    "emailjs-com": "^3.2.0",
+    "firebase": "^9.23.0",
     "gsap": "^3.12.1",
+    "roboto-fontface": "*",
     "swiper": "^8.4.7",
+    "vee-validate": "^4.10.2",
     "vue": "^3.2.47",
-    "vue-router": "^4.2.2"
+    "vue-axios": "^3.5.2",
+    "vue-router": "^4.2.2",
+    "vuefire": "^3.1.0",
+    "vuetify": "^3.0.0-beta.0",
+    "webfontloader": "^1.0.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.1.0",
@@ -29,6 +40,9 @@
     "pug": "^3.0.2",
     "sass": "^1.63.3",
     "vite": "^4.3.9",
-    "vite-plugin-eslint": "^1.8.1"
-  }
+    "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-vuetify": "^1.0.0-alpha.12",
+    "vue-cli-plugin-vuetify": "~2.5.8"
+  },
+  "type": "module"
 }

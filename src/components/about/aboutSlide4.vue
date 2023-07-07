@@ -6,6 +6,7 @@
             br 
             br
             | 讓我們跟卡姊一起擁抱瑜珈，讓身心優雅盛放。
+    img.about-slider4-role(data-swiper-parallax="10%" src="@/assets/images/about-slider4-role.webp")
 
 
 </template>
@@ -17,12 +18,12 @@
 
 
 <style lang="sass" scoped>
-.swiper-button-next, .swiper-button-prev, .swiper-button-disabled, .swiper-button-disabled::after  
-    --swiper-navigation-size: 500px
-    --swiper-navigation-top-offset: 40%
-    --swiper-navigation-sides-offset: 20px
-    --swiper-navigation-color: none
-    opacity: 0
+// .swiper-button-next, .swiper-button-prev, .swiper-button-disabled, .swiper-button-disabled::after  
+//     --swiper-navigation-size: 500px
+//     --swiper-navigation-top-offset: 40%
+//     --swiper-navigation-sides-offset: 20px
+//     --swiper-navigation-color: none
+//     opacity: 0
 
 .slider-4
     width: 100%
@@ -38,6 +39,12 @@
         color: #4A4A4A
         letter-spacing: 2.5px
         font-family: 'Playfair Display'
-        // border: 1px solid black
+        // border: 1px solid black    
+    .about-slider4-role
+        position: absolute
+        bottom: 5%
+        width: 25%
+        left: 45%
+
 
 </style>
