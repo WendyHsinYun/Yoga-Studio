@@ -5,7 +5,10 @@ swiper(
     :navigation="true" 
     :speed="1000" ref="swiper" 
     :mousewheel="true")
-    .parallax-bg(:style="{'background-image': 'url(../src/assets/images/bg-line.webp)'}" data-swiper-parallax='-15%')
+    .parallax-bg(
+        slot="container-start"
+        :style="{'background': 'url(../src/assets/images/bg-line.webp) no-repeat' }"
+        data-swiper-parallax='-45%')
     swiper-slide 
         aboutSlide1
     swiper-slide 
@@ -15,6 +18,7 @@ swiper(
     swiper-slide
         aboutSlide4
 
+mouseHorizontal
 </template>
 
 <script setup>
@@ -30,23 +34,14 @@ import 'swiper/css';
 
 import "swiper/css/navigation";
 
+import mouseHorizontal from '@/components/mouseHorizontal.vue';
+
 const components = {
     Swiper,
     SwiperSlide,
 };
 
 const modules = [Parallax,  Navigation, Mousewheel];
-
-
-import { onMounted, onUnmounted, ref } from 'vue';
-
-import gsap from 'gsap';
-
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-
-gsap.registerPlugin(ScrollTrigger);
-
 
 </script>
 
@@ -62,15 +57,16 @@ gsap.registerPlugin(ScrollTrigger);
 .swiper
     width: 100%
     height: 100%
-    overflow: initial
     .parallax-bg
         position: absolute
-        left: 0%
-        top: 0%
-        width: 120%
-        height: 100%
+        left: 0
+        bottom: -50px
+        width: 250%
+        height: 400px
+        -webkit-background-size: cover
         background-position: center
         opacity: .1
+        // border: 1px solid red
     .swiper-slide
         width: 100%
         height: 100%

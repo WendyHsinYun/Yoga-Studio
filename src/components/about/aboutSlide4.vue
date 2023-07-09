@@ -44,7 +44,7 @@
         position: absolute
         bottom: 5%
         width: 25%
-        left: 45%
+        left: 55%
 
 
 </style>

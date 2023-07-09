@@ -3,22 +3,23 @@
     router-link(to="/" class="router-home")
         .logo
     nav
-        router-link.link(to="/about" @mouseover='paramTrue' @mouseout='paramFalse') 關於    
+        router-link.link(to="/about") 關於
         .menu
-            v-list(density="compact"  v-model:opened='open' style=" background: none; color: #565151")
-                v-list-group(value='課程')
-                    template(v-slot:activator='{ props }')
-                        v-list-item(
-                            v-bind='props'
-                            title='課程')
+            v-menu
+                template(v-slot:activator='{ props }')
+                    v-btn( 
+                        v-bind='props' 
+                        variant="text" 
+                        style="letter-spacing: 0.3em; font-size: 16px") 課程
+                v-list(style="color: #565151")
                     v-list-item(
-                        v-for='(child, i) in yogaClass' 
-                        :key='i' 
-                        :title='child.title' 
-                        :value='child.title'
-                        link
+                        v-for='(child, i) in yogaClass' :key='i' 
+                        :value='child.title' 
+                        link  
                         :to="child.link"
-                        )
+                        @click = 'window.location.reload(true);')
+                        v-list-item-title {{ child.title }}
+
         router-link.link(to="/contact") 聯絡
 </template>
       
@@ -32,30 +33,24 @@ import Contact from '@/views/Contact.vue';
 
 import { ref } from 'vue';
 
-const open = ref(['Users'])
-
 const yogaClass = [
-  { title: '瑜珈', link: '/classes/yoga', icon: 'mdi-cog-outline' },
-  { title: '機械皮拉提斯', link: '/classes/KXPilates', icon: 'mdi-cog-outline' },
-  { title: '空中瑜珈', link: '/classes/AerialYoga', icon: 'mdi-cog-outline' },
+  { title: '瑜珈', link: '/classes/yoga'},
+  { title: '機械皮拉提斯', link: '/classes/KXPilates'},
+  { title: '空中瑜珈', link: '/classes/AerialYoga'},
 ];
 
-// const closeMenu = () => {
-//   open.value = !false; // 设置 open 的值为 false
-// };
-// const emit = defineEmits(['dotEvent'])
 
-const param = ref(false);
+// const param = ref(false);
 
-function paramTrue() {
-    param.value = true;
-    emit('dotEvent', param.value);
-}
+// function paramTrue() {
+//     param.value = true;
+//     emit('dotEvent', param.value);
+// }
 
-function paramFalse() {
-    param.value = false;
-    emit('dotEvent', param.value);
-}
+// function paramFalse() {
+//     param.value = false;
+//     emit('dotEvent', param.value);
+// }
 
 </script>
     
@@ -82,28 +77,25 @@ function paramFalse() {
     nav
         height: 100%
         width: 100%
-        margin-left: 50%
+        margin-left: 70%
         display: flex
         justify-content: start
         align-items: start
         color: #565151
         // background-color: pink
-        .menu
-            margin-left: 100px
-            margin-top: 35px
+
         .link
-            margin-left: 70px
+            margin-left: 15%
             margin-top: 50px
             position: relative
             transition: transform 0.5s
             // background-color: white
-            padding: 0px 0px
             display: flex
             justify-content: center
             align-content: center
             white-space: nowrap
             text-decoration: none
-            letter-spacing: 0.2em
+            letter-spacing: 0.3em
             font-size: 16px
             color: #565151
             &::after
@@ -120,7 +112,11 @@ function paramFalse() {
             width: 100%
         .link:not(:hover)::after
             transform: scaleX(0)
-            
+
+        .menu
+            margin-top: 44px
+            margin-left: 18%
+            // background-color: #fff          
             
 @media (max-width: 1600px)
     .headerBar

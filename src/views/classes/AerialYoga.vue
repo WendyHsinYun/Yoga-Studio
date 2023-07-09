@@ -81,7 +81,7 @@ dotAnimation = gsap.to(".dot", {
     pin: true,
     scrub: true,
     // markers: true,
-    start: "-200% 0%",
+    start: "-180% 0%",
     end: "+=3000px",
   },
   ease: 'power2.out'

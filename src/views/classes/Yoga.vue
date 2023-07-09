@@ -1,5 +1,6 @@
 <template lang="pug">
 .root
+  mouseVertical
   .overlay(
     v-show="clicking"
     @click.stop="showForm")
@@ -66,6 +67,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import carouselSwiper from '@/components/carouselSwiper.vue'
 import feedbackForm from '@/components/feedbackForm.vue';
 
+import mouseVertical from '@/components/mouseVertical.vue';
 
 // animation
 
@@ -81,7 +83,7 @@ onMounted(() => {
       pin: true,
       scrub: true,
       // markers: true,
-      start: "-200% 0%",
+      start: "-180% 0%",
       end: "+=3500px",
     },
     ease: 'power2.out'

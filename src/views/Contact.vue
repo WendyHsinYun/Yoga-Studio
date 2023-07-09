@@ -1,20 +1,25 @@
 <template lang="pug">
-v-container(
-  style=" overflow: hidden ;" 
-  justify="center" )
-  v-row(
-    justify="center" 
-    style=" background-color: none; margin-top: 100px ")
+v-container.d-flex(
+  style=" position: absolute;background-color: none; width: 100%; height: 100%; top: 0; left: 0;" 
+  justify="center" 
+  align="center"
+  )
+  v-row.text-center(
+    justify="space-evenly"
+    style=" background-color: none;margin-top: 7%; " align="start" 
+    )
     v-col.flex-column(
-      style="background-color: none; " 
+      style="background-color: none; user-select: text; height : 70% " 
       align="center" 
-      cols="5" )
+      cols="5"
+      
+      )
       .text-center(
         style="font-family: NotoSansHK; color: #FFA042; font-weight: 800; font-size: 20px; letter-spacing: 1.5px; line-height: 35px;") 聯絡卡姊
       .text-center
-          .cardText line：jessica0125 
-          .cardText phone : 0937849328 
-          .cardText email : jt126129@gmail.com
+        .cardText line：jessica0125 
+        .cardText phone : 0937849328 
+        .cardText email : jt126129@gmail.com
       v-img(
         src="src/assets/images/contact.webp" 
         height="350" 
@@ -22,7 +27,8 @@ v-container(
         style="transform: translateY(-50px)")
     v-col(
       cols="4" 
-      style="background-color: none; " )
+      style="background-color: none; " 
+      )
       v-form(
         fast-fail 
         @submit.prevent="sendEmail"  
@@ -84,6 +90,8 @@ v-container(
 </template>
 
 <style lang='sass' scoped>
+* 
+  cursor: default
 .text-center
   margin-top: 10px
   .cardText

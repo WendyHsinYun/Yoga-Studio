@@ -18,13 +18,6 @@
 
 
 <style lang="sass" scoped>
-.swiper-button-next, .swiper-button-prev, .swiper-button-disabled, .swiper-button-disabled::after  
-  --swiper-navigation-size: 500px
-  --swiper-navigation-top-offset: 40%
-  --swiper-navigation-sides-offset: 20px
-  --swiper-navigation-color: none
-  opacity: 0
-
 .slider-1
     width: 100%
     height: 100%
@@ -87,115 +80,24 @@
             bottom: -50px
 
         
-// @media (min-width: 1800px)
+// @media (max-width: 1000px)
 //     .image-area
 //         .home-slider1-role
+//             position: absolute
+//             width: 20%
+//             bottom: 30px
+//             left: 10%
+//         .home-slider1-base
+//             position: absolute
+//             width: 100vw
+//             bottom: -50px
+//             right: 10%
+//         .home-slider1-base2
+//             position: absolute
 //             width: 100%
-//             bottom: -5%
-//             position: absolute
-//         .home-slider1-base
-//             width: 135%
-//             left: -25%
-//             bottom: -50%
-//             position: absolute
-// @media (min-width: 1600px) and (max-width: 1800px)
-//     .image-area
-//         .home-slider1-role
-//             width: 100%
-//             height: auto
-//             bottom: 0%
-//             left: -10%
-//             position: absolute
-//         .home-slider1-base
-//             width: 125%
-//             height: auto
-//             left: -20%
-//             bottom: -35%
-//             position: absolute
-// @media (min-width: 1400px) and (max-width: 1600px)
-//     .image-area   
-//         .home-slider1-role
-//             width: 95%
-//             height: auto
-//             bottom: 0%
-//             left: -10%
-//             position: absolute
-//         .home-slider1-base
-//             width: 130%
-//             height: auto
-//             left: -25%
-//             bottom: -35%
-//             position: absolute
-// @media (min-width: 1200px) and (max-width: 1400px)
-//     .image-area   
-//         .home-slider1-role
-//             width: 120%
-//             height: auto
-//             bottom: 0%
-//             left: -15%
-//             position: absolute
-//         .home-slider1-base
-//             width: 120%
-//             height: auto
-//             left: -20%
-//             bottom: -25%
-//             position: absolute
-// @media (min-width: 850px) and (max-width: 1200px)
-//     .image-area   
-//         .home-slider1-role
-//             width: 150%
-//             height: auto
-//             bottom: -5%
-//             left: -20%
-//             position: absolute
-//         .home-slider1-base
-//             width: 115%
-//             height: auto
-//             left: -20%
-//             bottom: -15%
-//             position: absolute
-// @media (min-width: 600px) and (max-width: 850px)
-//     .image-area   
-//         .home-slider1-role
-//             width: 170%
-//             height: auto
-//             bottom: -5%
-//             left: -25%
-//             position: absolute
-//         .home-slider1-base
-//             width: 130%
-//             height: auto
-//             left: -25%
-//             bottom: -15%
-//             position: absolute
-// @media (min-width: 430px) and (max-width: 600px)
-//     .image-area   
-//         .home-slider1-role
-//             width: 210%
-//             height: auto
-//             bottom: 0%
-//             left: -35%
-//             position: absolute
-//         .home-slider1-base
-//             width: 130%
-//             height: auto
-//             left: -25%
-//             bottom: -6%
-//             position: absolute
-// @media (min-width: 0px) and (max-width: 430px)
-//     .image-area   
-//         .home-slider1-role
-//             width: 230%
-//             height: auto
-//             bottom: 0%
-//             left: -40%
-//             position: absolute
-//         .home-slider1-base
-//             width: 130%
-//             height: auto
-//             left: -25%
-//             bottom: -4%
-//             position: absolute
+//             left: 50%
+//             bottom: -50px
+
 @keyframes scaleAnimation 
     0% 
         transform: scale(1)
