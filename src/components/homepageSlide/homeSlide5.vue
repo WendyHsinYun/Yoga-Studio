@@ -1,15 +1,15 @@
 <template lang="pug">
-.slider-4
-    a(href="/classes/KXPilates") 
+.slider-5
+    a(href="/classes/AerialYoga")  
         .dot(:class="{ 'dot-scaled': isDotScaled }"
             @mouseover="scaleDot"
             @mouseleave="resetDot")
-        .title 機械皮拉提斯 KX Pilates
-        .intro 利用器材輔助，提升身體感受力，針對局部的肌力加強。
+        .title 空中瑜珈 Aerial Yoga
+        .intro 利用懸吊的掛布，透過地心引力增加身體協調、平衡及穩定性
     .image-area
-        img.home-slider4-base(data-swiper-parallax="-10%" src="@/assets/images/home-slider1-base2.webp")
-        img.home-slider4-role(data-swiper-parallax="0%" src="@/assets/images/home-slider3-role.webp")
-        img.home-slider4-machine(data-swiper-parallax="-30%" src="@/assets/images/home-slider4-machine.webp")
+        img.home-slider5-role(data-swiper-parallax="0%" src="@/assets/images/home-slider4-role.webp")
+        img.home-slider5-base2(data-swiper-parallax="5%" src="@/assets/images/home-slider4-base2.webp")
+        img.home-slider5-base(data-swiper-parallax="-20%" src="@/assets/images/home-slider4-base.webp")
 </template>
 
 
@@ -30,7 +30,7 @@ function resetDot() {
 
 <style lang="sass" scoped>
 
-.slider-4
+.slider-5
     width: 100%
     height: 100%
     display: flex    
@@ -58,7 +58,7 @@ function resetDot() {
         .dot 
             width: 60px
             height: 60px
-            background-color: #9f7f60
+            background-color: #D2DA40
             border-radius: 50%
             // cursor: url("./src/assets/images/mouse_solid.svg")
         .title
@@ -70,33 +70,34 @@ function resetDot() {
             font-weight: 100
             margin-top: 20px
             opacity: .5
-
+    .scrollReminder
+        font-family: 'Noto Sans HK'
+        font-weight: 100
+        font-size: 10pt
+        margin-top: 20px
+        letter-spacing: 2px
+        opacity: .5
     .image-area
         width: 100%
         height: 100%
         position: absolute
         box-sizing: border-box
-        // transform: rotate(-5deg)
-        // border: 1px solid black
-        .home-slider4-role
+        .home-slider5-base
+            width: 100%
+            left: 40%
+            bottom: -120px
             position: absolute
-            width: 15%
-            left: 80px
-            bottom: 100px
-            left: 15%
-            z-index: 2  
-            // border: 1px solid black
-        .home-slider4-base
+        .home-slider5-base2
+            width: 100%
             position: absolute
-            width: 130vw
-            bottom: -15%
-            left: -3%
-        .home-slider4-machine
+            bottom: -5%
+            left: -10%
+        .home-slider5-role
+            width: 17%
+            height: auto
+            bottom: 20%
             position: absolute
-            width: 25vw
-            left: 10%
-            bottom: 0
-            
+            left: 65%
 @keyframes scaleAnimation 
     0% 
         transform: scale(1)
@@ -113,79 +114,76 @@ function resetDot() {
 
 
 @media (min-width: 980px) and (max-width: 1280px)
-    .slider-4
+    .slider-5
         a
             transform: translateY(-25%)
         .image-area
-            .home-slider4-role
+            .home-slider5-role
                 position: absolute
                 width: 15%
                 left: 80px
                 bottom: 15%
-                left: 15%
-                z-index: 2
+                left: 65%
                 // border: 1px solid black
-            .home-slider4-base
+            .home-slider5-base
+                width: 100%
+                left: 40%
+                bottom: -120px
                 position: absolute
-                width: 110vw
-                bottom: -10%
-                left: -3%
-            .home-slider4-machine
+            .home-slider5-base2
+                width: 100%
                 position: absolute
-                width: 25vw
-                left: 10%
-                bottom: 3%
+                bottom: -5%
+                left: -10%
 
-@media (min-width: 700px) and (max-width: 980px)
-    .slider-4
+@media (min-width: 450px) and (max-width: 980px)
+    .slider-5
         a
             transform: translateY(-25%)
         .image-area        
-            .home-slider4-role
+            .home-slider5-role
                 position: absolute
                 width: 23%
-                left: 80px
                 bottom: 10%
-                left: 12%
+                left: 65%
                 z-index: 2
                 // border: 1px solid black
-            .home-slider4-base
+            .home-slider5-base
+                width: 100%
+                left: 40%
+                bottom: -80px
                 position: absolute
-                width: 130vw
-                bottom: -6%
-                left: -3%
-            .home-slider4-machine
+            .home-slider5-base2
+                width: 100%
                 position: absolute
-                width: 30vw
-                left: 8%
-                bottom: 3%
+                bottom: -2%
+                left: -10%
 
-@media (min-width: 450px) and (max-width: 700px)
+@media (min-width: 500px) and (max-width: 700px)
 
-    .slider-4
+    .slider-5
         a
             transform: translateY(-25%)
         .image-area
-            .home-slider4-role
+            .home-slider5-role
                 position: absolute
-                width: 30%
-                left: 80px
+                width: 28%
                 bottom: 10%
-                left: 10%
+                left: 60%
                 z-index: 2
-            .home-slider4-base
+            .home-slider5-base
+                width: 100%
+                left: 40%
+                bottom: -5%
                 position: absolute
-                width: 130vw
-                bottom: -2%
-                left: -3%
-            .home-slider4-machine
+            .home-slider5-base2
+                width: 100%
                 position: absolute
-                width: 35vw
-                left: 8%
-                bottom: 3%
+                bottom: 0%
+                left: -10%
 
-@media (min-width: 0px) and (max-width: 450px)
-    .slider-4
+@media (min-width: 0px) and (max-width: 500px)
+    .slider-5
         a
             transform: translateY(-25%)
             .dot
@@ -196,22 +194,20 @@ function resetDot() {
             .intro
                 font-size: 0.9rem
         .image-area
-            .home-slider4-role
+            .home-slider5-role
                 position: absolute
                 width: 35%
-                left: 80px
                 bottom: 10%
-                left: 15%
-                z-index: 2
-            .home-slider4-base
+                left: 32%
+            .home-slider5-base            
+                width: 130%
+                left: -15%
+                bottom: -30px
                 position: absolute
-                width: 130vw
-                bottom: 0%
-                left: -3%
-            .home-slider4-machine
+            .home-slider5-base2
+                width: 100%
                 position: absolute
-                width: 40vw
-                left: 12%
-                bottom: 3%
+                bottom: -5%
+                left: -10%
 
 </style>

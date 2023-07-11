@@ -25,6 +25,9 @@ v-container.d-flex(
         height="350" 
         center 
         style="transform: translateY(-50px)")
+          template(v-slot:placeholder='')
+              .d-flex.align-center.justify-center.fill-height
+                v-progress-circular(color='grey-lighten-4' indeterminate='')
     v-col(
       cols="4" 
       style="background-color: none; " 

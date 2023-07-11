@@ -1,7 +1,8 @@
 <template lang="pug">
 .headerBar
-    router-link(to="/" class="router-home")
+    router-link.router-home(to="/") 
         .logo
+        .home Home
     nav
         router-link.link(to="/about") 關於
         .menu
@@ -66,14 +67,29 @@ const yogaClass = [
     align-items: center
     
     .router-home
-        width: 40px
+        width: 50px
         height: 40px
         margin-left: 5%
         position: absolute
+        text-decoration: none
         .logo
             width: 100%
             height: 100%
             background: url('/lotus.svg') center/contain no-repeat
+        .home
+            width: 100%
+            // border: 1px solid #565151
+            letter-spacing: 3px
+            font-size: 16px
+            color: #565151
+            font-family: "Playfair Display"
+            font-weight: 700
+            text-align: center
+            // margin-bottom: 5px
+            // padding-right: 5px
+    .router-home:hover
+        opacity: .5
+            
     nav
         height: 100%
         width: 100%
@@ -122,7 +138,7 @@ const yogaClass = [
     .headerBar
         nav
             margin-left: 60%
-            a
+            .link, .menu
                 margin-right: -20px
        
 @media (max-width: 1200px)
@@ -138,19 +154,29 @@ const yogaClass = [
             a
                 margin-right: -50px
                 font-size: 16px
-@media (max-width: 700px)
+@media (min-width: 500px) and (max-width: 700px)
+    .headerBar  
+        .router-home
+            .home
+                font-size: 12px
+        nav
+            margin-left: 35%
+            .link, .menu
+                margin-right: -30px
+                font-size: 16px
+@media (min-width: 0px) and (max-width: 500px)
     .headerBar
+        .router-home
+            .logo
+                width: 90%
+                height: 90%
+            .home
+                font-size: 11px
+                transform: translateX(-2px)
         nav
             margin-left: 20%
-            a
+            .link, .menu
                 margin-right: -30px
-                font-size: 14px
-@media (max-width: 400px)
-    .headerBar
-        nav
-            margin-left: 0%
-            a
-                margin-right: -30px
-                font-size: 14px
+                font-size: 16px
 </style>
     

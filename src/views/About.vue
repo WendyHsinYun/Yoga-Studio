@@ -24,7 +24,8 @@ mouseHorizontal
 <script setup>
 
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Parallax,  Navigation, Mousewheel } from "swiper";
+import { Parallax, Navigation, Mousewheel } from "swiper";
+
 import aboutSlide1 from '@/components/about/aboutSlide1.vue';
 import aboutSlide2 from '@/components/about/aboutSlide2.vue';
 import aboutSlide3 from '@/components/about/aboutSlide3.vue';

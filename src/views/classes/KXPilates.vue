@@ -22,7 +22,7 @@
         style = "letter-spacing: 2px; border-radius: 20px; font-size: 16px;  white-space: wrap; padding: 50px;"
         ) 點擊！留言給卡姊
     img.role3(src="@/assets/images/vertical-role3.webp")
-    
+    img.machine(src="@/assets/images/home-slider4-machine.webp")
   section.calendar 
     .info-container 
       .info-container-bar
@@ -208,7 +208,7 @@ onMounted(() => {
       .dot 
         width: 70px
         height: 70px
-        background-color: #787878
+        background-color: #9f7f60
         border-radius: 50%
       .title
         margin-top: 95px
@@ -242,14 +242,19 @@ onMounted(() => {
       z-index: 5
   .feedback
     flex: 1
-    
+    .role3:hover
+      transform: rotate(47deg) 
     .role3
-      height: 75vh
+      height: 70vh
       position: absolute
-      top: 20%
+      top: 35%
+      transform: rotate(54deg)
       z-index: 2
-
-
+    .machine
+      position: absolute
+      width: 40%
+      top: 70%
+      transform: rotate(5deg) scaleX(-1)
   .calendar
     flex: 3
     background-color: #fff

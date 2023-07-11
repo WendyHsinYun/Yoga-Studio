@@ -87,7 +87,7 @@ const formatData = (feedbacks) => {
         padding: 20px
         border: 1px solid #515151 
         border-radius: 30px
-        background-color: #fff
+        background-color: #F9F9FB
         color: #616161
         letter-spacing: 1.5px
         h4

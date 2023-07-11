@@ -1,11 +1,4 @@
 <template lang="pug">
-//- .c-container
-//-   .c-nav
-//-       .dot-1(data-text="Namaste")
-//-       .dot-2(data-text="瑜珈課")
-//-       .dot-3(data-text="機械皮拉提斯")
-//-       .dot-4(data-text="空中瑜珈")
-
 swiper(
   :parallax='true' 
   :modules='modules' 
@@ -13,14 +6,20 @@ swiper(
   :speed="1000" 
   :mousewheel="true" 
   v-show="!loading")
+  .parallax-bg(
+    slot="container-start"
+    :style="{'background': 'url(../src/assets/images/bg-line.webp) no-repeat' }"
+    data-swiper-parallax='-20%')
   swiper-slide
     homeSlide1
-  swiper-slide(v-show="!loading") 
+  swiper-slide 
     homeSlide2
-  swiper-slide(v-show="!loading")
+  swiper-slide
     homeSlide3
-  swiper-slide(v-show="!loading") 
+  swiper-slide 
     homeSlide4
+  swiper-slide 
+    homeSlide5
 
 v-container.flex-column(
     style="background-color: none; position: absolute; top: 0; left: 0; "
@@ -29,12 +28,19 @@ v-container.flex-column(
   loadingPage
 
 mouseHorizontal
+
+//- .c-container
+//-   .c-nav
+//-       .dot-1(data-text="Namaste")
+//-       .dot-2(data-text="瑜珈課")
+//-       .dot-3(data-text="機械皮拉提斯")
+//-       .dot-4(data-text="空中瑜珈")
 </template>
 
 <script setup>
 
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Navigation, Mousewheel } from "swiper";
+import { Parallax, Navigation, Mousewheel } from "swiper";
 
 import { ref, onMounted, onUnmounted, computed } from 'vue';
 
@@ -45,6 +51,7 @@ import homeSlide1 from '../components/homepageSlide/homeSlide1.vue';
 import homeSlide2 from '../components/homepageSlide/homeSlide2.vue';
 import homeSlide3 from '../components/homepageSlide/homeSlide3.vue';
 import homeSlide4 from '../components/homepageSlide/homeSlide4.vue';
+import homeSlide5 from '../components/homepageSlide/homeSlide5.vue';
 
 import loadingPage from '../components/loadingPage.vue';
 
@@ -55,7 +62,7 @@ const components = {
   SwiperSlide,
 };
 
-const modules = [ Navigation, Mousewheel];
+const modules = [ Parallax, Navigation, Mousewheel];
 
 
 // loading
@@ -75,28 +82,6 @@ onMounted(() => {
   }, 100);
 
 });
-// import gsap from 'gsap';
-
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-
-// gsap.registerPlugin(ScrollTrigger);
-
-// onMounted(() => {
-//   gsap.to(".c-container", {
-//     rotation: 360,
-//     scrollTrigger: 
-//     { trigger: '.c-container',
-//       horizontal: true,
-//       // pin: true,
-//       // toggleActions: "play pause reverse none"
-//       scrub: true,
-//       markers: true,
-//       // start: "-500% 0%",
-//       // end: '+=4000',
-//     },
-//   })
-// })
 
 
 </script>
@@ -112,6 +97,15 @@ onMounted(() => {
 .swiper
   width: 100vw
   height: 100vh
+  .parallax-bg
+    position: absolute
+    left: 0
+    bottom: -25px
+    width: 250%
+    height: 400px
+    -webkit-background-size: cover
+    background-position: center
+    opacity: .1
 // .c-container
 //   width: 450px
 //   height: 450px
