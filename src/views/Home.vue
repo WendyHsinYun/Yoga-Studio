@@ -1,31 +1,28 @@
 <template lang="pug">
-swiper(
-  :parallax='true' 
-  :modules='modules' 
-  :navigation="true" 
-  :speed="1000" 
-  :mousewheel="true" 
-  v-show="!loading")
-  .parallax-bg(
-    slot="container-start"
-    :style="{'background': 'url(../src/assets/images/bg-line.webp) no-repeat' }"
-    data-swiper-parallax='-20%')
-  swiper-slide
-    homeSlide1
-  swiper-slide 
-    homeSlide2
-  swiper-slide
-    homeSlide3
-  swiper-slide 
-    homeSlide4
-  swiper-slide 
-    homeSlide5
 
-v-container.flex-column(
-    style="background-color: none; position: absolute; top: 0; left: 0; "
-    v-show="loading"
-    )
-  loadingPage
+loadingPage
+//- swiper(
+//-   :parallax='true' 
+//-   :modules='modules' 
+//-   :navigation="true" 
+//-   :speed="1000" 
+//-   :mousewheel="true" 
+//-   v-show="!loading")
+//-   .parallax-bg(
+//-     slot="container-start"
+//-     :style="{'background': 'url(../src/assets/images/bg-line.webp) no-repeat' }"
+//-     data-swiper-parallax='-20%')
+//-   swiper-slide
+//-     homeSlide1
+//-   swiper-slide 
+//-     homeSlide2
+//-   swiper-slide
+//-     homeSlide3
+//-   swiper-slide 
+//-     homeSlide4
+//-   swiper-slide 
+//-     homeSlide5
+
 
 mouseHorizontal
 

@@ -8,10 +8,10 @@
         .menu
             v-menu
                 template(v-slot:activator='{ props }')
-                    v-btn( 
+                    v-btn.selection( 
                         v-bind='props' 
                         variant="text" 
-                        style="letter-spacing: 0.3em; font-size: 16px") 課程
+                        style="letter-spacing: 0.3em; ") 課程
                 v-list(style="color: #565151")
                     v-list-item(
                         v-for='(child, i) in yogaClass' :key='i' 
@@ -132,6 +132,8 @@ const yogaClass = [
         .menu
             margin-top: 44px
             margin-left: 18%
+            .selection
+                font-size: 16px
             // background-color: #fff          
             
 @media (max-width: 1600px)
@@ -164,7 +166,7 @@ const yogaClass = [
             .link, .menu
                 margin-right: -30px
                 font-size: 16px
-@media (min-width: 0px) and (max-width: 500px)
+@media (min-width: 340px) and (max-width: 500px)
     .headerBar
         .router-home
             .logo
@@ -178,5 +180,24 @@ const yogaClass = [
             .link, .menu
                 margin-right: -30px
                 font-size: 16px
+
+@media (min-width: 0px) and (max-width: 340px)
+    .headerBar
+        .router-home
+            .logo
+                width: 90%
+                height: 90%
+            .home
+                font-size: 11px
+                transform: translateX(-2px)
+        nav
+            margin-left: 30%
+            .link
+                margin-right: -35px
+                font-size: 14px
+            .menu
+                margin-right: -20px
+                .selection
+                    font-size: 14px
 </style>
     

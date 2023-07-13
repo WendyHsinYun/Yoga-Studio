@@ -95,4 +95,14 @@ const formatData = (feedbacks) => {
           letter-spacing: 2px
         h5
           line-height: 24px
+
+
+@media (min-width: 450px) and (max-width: 830px)
+  .swiper-container
+    width: 200%
+
+@media (min-width: 0px) and (max-width: 450px)
+  .swiper-container
+    width: 300%
+    left: -50%
 </style>

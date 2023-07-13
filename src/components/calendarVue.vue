@@ -1,24 +1,41 @@
 <template lang="pug">
 .calendar-container
-  h2 課程行事曆
-  div(ref='calendarEl')
+  .calendar-title 課程行事曆
+  .calendar(ref='calendarEl')
 </template>
 
 <style lang="sass" scoped>
+
+.fc 
+  .fc-button
+    padding: 0px
 .calendar-container
-  width: 60%
+  width: 75%
   aspect-ratio: 4/3
-  margin-top: 80px
+  margin-top: 5%
+  margin-bottom: 5%
   text-align: center
-  h2 
+  
+  .calendar-title 
     font-size: 24px
     color: #626262
-    letter-spacing: 3px
+    letter-spacing: 4px
     font-weight: thin
     margin-bottom: 50px
-  div
+    // border: 1px solid #626262
+  .calendar
     height: 100%
     width: 100%
+
+@media (min-width: 0px) and (max-width: 700px)
+  .calendar-container
+    .calendar-title
+      position: absolute
+      font-size: 20px
+      left: 50%
+      transform: translateX(-50%)
+    .calendar
+      margin-top: 100px
 </style>
 
 
@@ -53,8 +70,8 @@ onMounted(() => {
         center: "title",
         right: "dayGridMonth,timeGridWeek,multiMonthYear"
     },
-    // height: 700,
-    // aspectRatio: .5,
+    height: 700,
+    aspectRatio: 3/4,
     // initialView: 'multiMonthYear', 
     // initialView: 'timeGridWeek',
     initialView: 'dayGridMonth',

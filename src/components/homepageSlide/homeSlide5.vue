@@ -120,10 +120,9 @@ function resetDot() {
         .image-area
             .home-slider5-role
                 position: absolute
-                width: 15%
-                left: 80px
+                width: 18%
                 bottom: 15%
-                left: 65%
+                left: 70%
                 // border: 1px solid black
             .home-slider5-base
                 width: 100%
@@ -167,9 +166,9 @@ function resetDot() {
         .image-area
             .home-slider5-role
                 position: absolute
-                width: 28%
-                bottom: 10%
-                left: 60%
+                width: 22%
+                bottom: 14%
+                left: 67%
                 z-index: 2
             .home-slider5-base
                 width: 100%
@@ -210,4 +209,63 @@ function resetDot() {
                 bottom: -5%
                 left: -10%
 
+
+@media (min-height: 490px) and (max-height: 600px)
+    .slider-5
+        a 
+            transform: translateY(-40px)
+            .dot 
+                width: 50px
+                height: 50px
+            .title
+                font-size: 1.1rem
+            .intro
+                font-size: .95rem
+
+@media (min-height: 390px) and (max-height: 490px)
+    .slider-5
+        a 
+            transform: translateY(-10px)
+            .dot 
+                width: 50px
+                height: 50px
+            .title
+                font-size: 1rem
+            .intro
+                font-size: .8rem
+        .image-area
+            .home-slider5-role
+                position: absolute
+                width: 20%
+                bottom: 19%
+                left: 70%
+
+@media (min-height: 0px) and (max-height: 390px)
+    .slider-5
+        a 
+            transform: translateY(0px)
+            .dot 
+                width: 40px
+                height: 40px
+            .title
+                font-size: 1rem
+                transform: translateY(-10px)
+            .intro
+                display: none
+        .image-area
+            .home-slider5-role
+                position: absolute
+                width: 15%
+                bottom: 15%
+                left: 70%
+            .home-slider5-base
+                width: 100%
+                left: 40%
+                bottom: -12%
+                position: absolute
+            .home-slider5-base2
+                width: 100%
+                position: absolute
+                bottom: 0%
+                left: -10%
 </style>

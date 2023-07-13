@@ -167,12 +167,17 @@
     .slider-1
         .dot-container 
             transform: translateY(-25%)
+            .title
+                font-size: 1rem
+            .eng-title
+                font-size: 0.8rem
         .scrollReminder
+            font-size: 0.7rem
             transform: translateY(-80px)
         .image-area        
             .home-slider1-role
                 position: absolute
-                width: 45%
+                width: 40%
                 bottom: 8%
                 left: 5%
             .home-slider1-base2
@@ -187,4 +192,43 @@
                 bottom: 0%
                 left: -10%
 
+@media (min-height: 470px) and (max-height: 600px)
+    .slider-1
+        .dot-container 
+            transform: translateY(-5%)
+            .dot 
+                width: 50px
+                height: 50px
+            .title
+                font-size: 1.1rem
+            .eng-title
+                font-size: 0.8rem
+        .scrollReminder
+            transform: translateY(-30px)
+            font-size: 0.8rem
+@media (min-height: 0px) and (max-height: 470px)
+    .slider-1
+        .dot-container 
+            transform: translateY(-5%)
+            .dot 
+                width: 50px
+                height: 50px
+            .title
+                font-size: 1.1rem
+            .eng-title
+                display: none
+        .scrollReminder
+            transform: translateY(-75px)
+            font-size: 0.8rem
+        .image-area
+            .home-slider1-role
+                position: absolute
+                bottom: 7%
+                width: 20%
+                left: 7%
+            .home-slider1-base
+                width: 100%
+                position: absolute
+                bottom: -10%
+                left: -10%
 </style>

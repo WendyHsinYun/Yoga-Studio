@@ -1,18 +1,20 @@
 <template lang="pug">
-v-container.d-flex(
-  style=" position: absolute;background-color: none; width: 100%; height: 100%; top: 0; left: 0;" 
+v-container(
+  style=" background-color: none; width: 100vw ; height: 100vh; " 
   justify="center" 
   align="center"
   )
-  v-row.text-center(
+  v-row.text-center.d-flex(
     justify="space-evenly"
-    style=" background-color: none;margin-top: 7%; " align="start" 
+    style=" background-color: none; margin-top: 7%; " 
+    align="start" 
     )
-    v-col.flex-column(
-      style="background-color: none; user-select: text; height : 70% " 
+    v-col.flex-column.mt-10(
+      style="background-color: pink; user-select: text; " 
       align="center" 
-      cols="5"
-      
+      cols="6"
+      sm="4"
+      xs="1"
       )
       .text-center(
         style="font-family: NotoSansHK; color: #FFA042; font-weight: 800; font-size: 20px; letter-spacing: 1.5px; line-height: 35px;") 聯絡卡姊
@@ -28,9 +30,12 @@ v-container.d-flex(
           template(v-slot:placeholder='')
               .d-flex.align-center.justify-center.fill-height
                 v-progress-circular(color='grey-lighten-4' indeterminate='')
-    v-col(
-      cols="4" 
-      style="background-color: none; " 
+    v-col.mt-10.h-50(
+      align="center"
+      cols="7" 
+      sm="4"
+      xs="1"
+      style="background-color: pink; " 
       )
       v-form(
         fast-fail 
@@ -78,12 +83,12 @@ v-container.d-flex(
         v-row(
           justify="center" 
           style="margin-top: 10px")
-          v-btn.me-3(
-            style="background-color: #FFA245; color: aliceblue; margin-left: 10px" 
+          v-btn(
+            style=" background-color: #FFA245; color: aliceblue; margin-left: 10px" 
             rounded="lg" 
             type="submit") 送出 
-          v-btn(
-            style="background-color: #FFA245; color: aliceblue;" 
+          v-btn.ml-2(
+            style=" background-color: #FFA245; color: aliceblue;" 
             rounded="lg" 
             @click='handleReset') 清除
           v-col(
@@ -102,6 +107,7 @@ v-container.d-flex(
     color: #909090
     font-family: 'Playfair Display'
     letter-spacing: 1.5px
+
 </style>
 
 

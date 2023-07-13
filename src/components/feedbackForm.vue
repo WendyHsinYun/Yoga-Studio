@@ -23,12 +23,6 @@ v-form(
   //-   style="color: whitesmoke; width: 15%; margin-top: 20px; border-radius: 15px") 關閉
 </template>
 
-<style lang="sass">
-
-
-</style>
-
-
 <script setup>
 
 import { ref } from 'vue';

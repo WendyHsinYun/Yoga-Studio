@@ -15,13 +15,6 @@
 
 
 <style lang="sass" scoped>
-// .swiper-button-next, .swiper-button-prev, .swiper-button-disabled, .swiper-button-disabled::after  
-//     --swiper-navigation-size: 500px
-//     --swiper-navigation-top-offset: 40%
-//     --swiper-navigation-sides-offset: 20px
-//     --swiper-navigation-color: none
-//     opacity: 0
-
 .slider-1
     width: 100%
     height: 100%
@@ -60,13 +53,69 @@
         margin-top: 20px
         letter-spacing: 2px
         opacity: .5
-    .image-area
-        width: 100%
-        height: 100%
-        position: absolute
-        box-sizing: border-box
-        transform: rotate(-5deg)
+
+@media(min-height: 440px ) and (max-height: 650px )
+    .slider-1
+        .dot-container
+            .title
+                margin-top: 30px
+                font-weight: 500
+                font-size: 1.1rem
+                opacity: .5
+            .eng-title
+                font-weight: 100
+                margin-top: 20px
+                font-size: .9rem
+                opacity: .5
+        .scrollReminder
+            margin-top: -20px
+            letter-spacing: 2px
+            font-size: .75rem
+            opacity: .5
 
 
+@media(min-height: 0px ) and (max-height: 440px )
+    .slider-1
+        .dot-container
+            .dot 
+                width: 60px
+                height: 60px
+            .title
+                margin-top: 25px
+                font-weight: 500
+                font-size: 1rem
+                opacity: .5
+            .eng-title
+                font-weight: 100
+                margin-top: 15px
+                font-size: .8rem
+                opacity: .5
+        .scrollReminder
+            margin-top: -65px
+            letter-spacing: 2px
+            font-size: .6rem
+            opacity: .5
 
+@media(min-width: 0px ) and (max-width: 340px )
+    .slider-1
+        .dot-container
+            transform: translateY(-10%)
+            .dot 
+                width: 60px
+                height: 60px
+            .title
+                margin-top: 25px
+                font-weight: 500
+                font-size: 1rem
+                opacity: .5
+            .eng-title
+                font-weight: 100
+                margin-top: 15px
+                font-size: .8rem
+                opacity: .5
+        .scrollReminder
+            margin-top: -65px
+            letter-spacing: 2px
+            font-size: .6rem
+            opacity: .5
 </style>

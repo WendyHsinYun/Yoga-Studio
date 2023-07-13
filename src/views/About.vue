@@ -49,7 +49,7 @@ const modules = [Parallax,  Navigation, Mousewheel];
 <style lang='sass'>
     
 .swiper-button-next, .swiper-button-prev, .swiper-button-disabled, .swiper-button-disabled::after  
-    --swiper-navigation-size: 500px
+    --swiper-navigation-size: 300px
     --swiper-navigation-top-offset: 40%
     --swiper-navigation-sides-offset: 20px
     --swiper-navigation-color: none

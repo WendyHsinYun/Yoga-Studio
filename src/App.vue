@@ -35,7 +35,7 @@ import AerialYoga from './views/classes/AerialYoga.vue';
   box-sizing: border-box
   position: absolute
   top: 0px
-
+  // border: 1px solid #565151
 
 
 </style>

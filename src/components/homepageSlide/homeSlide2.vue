@@ -97,7 +97,7 @@ function resetDot() {
         .home-slider2-base
             position: absolute
             width: 110vw
-            bottom: -300px
+            bottom: -30%
             left: 20%
 
 @keyframes scaleAnimation 
@@ -130,7 +130,7 @@ function resetDot() {
         .dot-container
             width: 250px
             height: 350px
-            transform: translateY(-5%)
+            transform: translateY(-15px)
             .title
                 font-size: 1rem
             .experience
@@ -142,7 +142,7 @@ function resetDot() {
                 left: 70%
             .home-slider2-base
                 width: 110vw
-                bottom: -15%
+                bottom: -100px
                 left: 0%
 
 @media (min-width: 450px) and (max-width: 700px)
@@ -150,7 +150,7 @@ function resetDot() {
         .dot-container
             width: 250px
             height: 350px
-            transform: translateY(-5%)
+            transform: translateY(-15px)
             .dot
                 width: 50px
                 height: 50px
@@ -165,7 +165,7 @@ function resetDot() {
                 left: 65%
             .home-slider2-base
                 width: 120vw
-                bottom: -8%
+                bottom: -10%
                 left: -10%
 
 @media (min-width: 0px) and (max-width: 450px)
@@ -191,4 +191,76 @@ function resetDot() {
                 bottom: -5%
                 left: -10%
 
+
+@media (min-height: 470px) and (max-height: 600px)
+    .slider-2
+        .dot-container 
+            transform: translateY(20%)
+            .dot 
+                width: 50px
+                height: 50px
+            .title
+                font-size: 1.1rem
+            .experience
+                font-size: 0.8rem
+@media (min-height: 0px) and (max-height: 470px)
+    .slider-2
+        .dot-container 
+            transform: translateY(25%)
+            .dot 
+                width: 50px
+                height: 50px
+            .title
+                font-size: 1rem
+            .experience
+                line-height: 23px
+
+
+
+@media (min-height: 540px) and (max-height: 600px)
+    .slider-2
+        .dot-container  
+            transform: translateY(30px)
+            .dot 
+                width: 50px
+                height: 50px
+            .title
+                font-size: 1.1rem
+            .experience
+                font-size: .95rem
+
+@media (min-height: 480px) and (max-height: 540px)
+    .slider-2
+        .dot-container  
+            transform: translateY(50px)
+            .dot 
+                width: 50px
+                height: 50px
+            .title
+                font-size: 1rem
+            .experience
+                font-size: .8rem
+
+
+@media (min-height: 0px) and (max-height: 480px)
+    .slider-2
+        .dot-container  
+            transform: translateY(70px)
+            .dot 
+                width: 40px
+                height: 40px
+            .title
+                font-size: 1rem
+            .experience
+                font-size: .75rem
+
+        .image-area
+            .home-slider2-role
+                width: 22%
+                bottom: 50px
+                left: 70%
+            .home-slider2-base
+                width: 110vw
+                bottom: -130px
+                left: 0%
 </style>

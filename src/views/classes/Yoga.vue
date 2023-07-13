@@ -34,27 +34,20 @@
           h2 課程收費
           p 每次 250 元到 450 元
   section.gallery
-    v-container(style =" border: 1px solid none; ")
-      v-row.justify-center.imgRow1(style="border: 1px solid none;")
-        v-col.d-flex(cols='8' style="border: 1px solid none; " )
-          v-img.yogaImg.bg-grey-lighten-2.mr-2( :src="image1" cover='' style="aspect-ratio: 4/3; box-shadow: -3px 3px 3px 0 rgba(0,0,0,0.3) ; width: 30%; border-radius: 5%;" lazy-src="https://picsum.photos/id/11/100/60")
+    v-container.w-auto(style =" border: 1px solid none; ")
+      v-row.imgRow1.justify-center.align-center( style='border: 1px solid none; ')
+        v-col(v-for='image in imagesR1' :key='image' cols='6' style='border: 1px solid none;')
+          v-img.yogaImg.bg-grey-lighten-2.mr-2(:src='image' cover='' style='aspect-ratio: 4/3; box-shadow: -3px 3px 3px 0 rgba(0,0,0,0.3) ; width: 100%; border-radius: 5%;' lazy-src='https://picsum.photos/id/11/100/60')
             template(v-slot:placeholder='')
               .d-flex.align-center.justify-center.fill-height
                 v-progress-circular(color='grey-lighten-4' indeterminate='')
-          v-img.yogaImg.bg-grey-lighten-2.ml-2( :src="image2" cover='' style="aspect-ratio: 4/3; box-shadow: -3px 3px 3px 0 rgba(0,0,0,0.3) ; width: 30%; border-radius: 5%;" lazy-src="https://picsum.photos/id/11/100/60")
+      v-row.imgRow2.justify-center.align-center( style='border: 1px solid none;')
+        v-col(v-for='image in imagesR2' :key='image' cols='6' style='border: 1px solid none;')
+          v-img.yogaImg.bg-grey-lighten-2.mr-2(:src='image' cover='' style='aspect-ratio: 4/3; box-shadow: -3px 3px 3px 0 rgba(0,0,0,0.3) ; width: 100%; border-radius: 5%;' lazy-src='https://picsum.photos/id/11/100/60')
             template(v-slot:placeholder='')
               .d-flex.align-center.justify-center.fill-height
                 v-progress-circular(color='grey-lighten-4' indeterminate='')
-      v-row.justify-center.imgRow2(style="border: 1px solid none;")
-        v-col.d-flex(cols='8')
-          v-img.yogaImg.bg-grey-lighten-2.mr-2( :src="image3" cover='' style="aspect-ratio: 4/3; box-shadow: -3px 3px 3px 0 rgba(0,0,0,0.3) ; width: 30%; border-radius: 5%;" lazy-src="https://picsum.photos/id/11/100/60")
-            template(v-slot:placeholder='')
-              .d-flex.align-center.justify-center.fill-height
-                v-progress-circular(color='grey-lighten-4' indeterminate='')
-          v-img.yogaImg.bg-grey-lighten-2.ml-2( :src="image4" cover='' style="aspect-ratio: 4/3; box-shadow: -3px 3px 3px 0 rgba(0,0,0,0.3) ; width: 30%; border-radius: 5%;" lazy-src="https://picsum.photos/id/11/100/60")
-            template(v-slot:placeholder='')
-              .d-flex.align-center.justify-center.fill-height
-                v-progress-circular(color='grey-lighten-4' indeterminate='')
+
   section.feedback
     carouselSwiper(style="position: absolute; top: 10%;")
     v-btn(style="height: 350px; width: 250px; opacity: 0; position: absolute; z-index: 3; transform: translateY(50px);"
@@ -65,16 +58,15 @@
         style = "letter-spacing: 2px; border-radius: 20px; font-size: 16px;  white-space: wrap; padding: 50px;"
         ) 點擊！留言給卡姊
     img.role2(src="@/assets/images/vertical-role2.webp")
-    
-  section.calendar 
     .container-bar
+  section.calendar 
     CalendarVue
-    router-link(to="/contact" style="position: absolute ; bottom: 150px;")
-      v-btn(size="x-large" rounded="xl" style=" padding: 30px 50px; text-align: center; align-content: center; letter-spacing: .8rem ; color: #626262 ;") 預約課程
+    router-link.btnRouter(to="/contact" style="margin-bottom: 50px; margin-top: 100px;")
+      v-btn.reserveBtn 預約課程
       
   section.footer
     a.prev(href="/classes/AerialYoga") 空中瑜珈
-    v-btn#pagetop(size="large" rounded="xl " @click="toTop" variant="outlined" style="left: 50%; transform: translateX(-50%); position: absolute; letter-spacing: 3px;") 回到頂端 
+    v-btn#pagetop(@click="toTop" variant="outlined") 回到頂端 
     a.next(href="/classes/KXPilates") 機械式皮拉提斯
 
 mouseHorizontal
@@ -84,6 +76,7 @@ mouseHorizontal
 <style lang='sass' scoped>
 * 
   cursor: default
+
 
 .root 
   width: 100%
@@ -110,7 +103,8 @@ mouseHorizontal
     flex-direction: column
     position: relative
   .titleContainer
-    height: 120vh
+    height: 130vh
+    border: 1px solid black
     .dot-container
       width: 300px
       height: 300px
@@ -120,6 +114,7 @@ mouseHorizontal
       justify-content: center
       align-items: center
       flex-direction: column
+      border: 1px solid black
       .dot 
         width: 70px
         height: 70px
@@ -143,16 +138,17 @@ mouseHorizontal
       letter-spacing: 2.5px
       opacity: .8
   .preface
-    border: 1px solid black
-    height: 140vh
+    // border: 1px solid black
+    height: 100vh
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
     .prefaceContent
-      position: absolute
+      position: relative
       display: flex
       flex-direction: column
-      top: 20%
-      left: 50%
       width: 30%
-      transform: translateX(-50%)
       color: #626262
       // border: 1px solid black
       z-index: 5
@@ -168,20 +164,22 @@ mouseHorizontal
         
       
     .info-container
-      position: absolute
+      position: relative
       width: 100%
       // height: 600px
       display: flex
       flex-direction: column
-      top: 400px
+      top: 300px
 
       .infoRow
         position: relative
         width: 100%
         height: 200px
         display: flex
-        // background-color: pink 
+        // background-color: wheat 
         justify-content: center
+        align-items: center
+        flex-direction: row
 
         .infoCard
           position: relative
@@ -201,12 +199,21 @@ mouseHorizontal
             margin-top: 10px
   
   .gallery
-    border: 1px solid black
+    border: 1px solid blue
     height: 150vh
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    padding: 15%
     .yogaImg:hover
       opacity: .9
+    .imgRow1
+      flex-direction: row
+
   .feedback
     height: 90vh
+    border: 1px solid black
     .role2:hover
       transform: translateY(-15px)    
     .role2
@@ -214,21 +221,29 @@ mouseHorizontal
       position: absolute
       top: 20%
       z-index: 2
-
+    .container-bar
+      height: 100px
+      width: 100%
+      bottom: 0px
+      background-color: #D8C5AD
+      position: absolute
 
   .calendar
     background-color: #F9F9FB
     justify-content: start
     border: 1px solid black
-    height: 230vh
-    .container-bar
-      height: 100px
-      width: 100%
-      top: 0px
-      background-color: #D8C5AD
-      position: relative
-      margin-bottom: 50px
-
+    height: auto
+    padding: 50px 0px
+    .btnRouter
+      .reserveBtn
+        padding: 30px 50px
+        text-align: center
+        align-content: center
+        letter-spacing: .8rem
+        color: #626262
+        font-size: 18px
+        border-radius: 30px
+      
   .footer
     height: 30vh
     background-color: #626262
@@ -236,7 +251,16 @@ mouseHorizontal
     letter-spacing: 3px
     flex-direction: row
     justify-content: center
-    
+    #pagetop
+      left: 50% 
+      transform: translateX(-50%) 
+      position: absolute 
+      letter-spacing: 6px 
+      border-radius: 30px
+      padding: 2% 3% 
+      display: flex 
+      vertical-align: center
+
     .prev
       position: relative
       padding-right: 1em
@@ -282,6 +306,314 @@ mouseHorizontal
       padding: 0.2em
       transform: translate(20px, -25%) rotate(45deg)
 
+
+@media (min-width: 790px) and (max-width: 1024px)
+  .root
+    .gallery
+      height: 250vh
+      padding: 0%
+      .imgRow1, .imgRow2
+        flex-direction: column
+
+
+@media (min-width: 700px) and (max-width: 790px)
+  .root
+    .preface
+      .prefaceContent
+        width: 50%
+        h2
+          font-size: 1.25rem
+        p
+          font-size: .9rem
+      .info-container        
+        h2
+          font-size: 1.25rem
+        p
+          font-size: .9rem
+    .gallery
+      height: 250vh
+      padding: 0%
+      .imgRow1, .imgRow2
+        flex-direction: column
+    .calendar
+      height: 80%
+      .btnRouter
+        .reserveBtn
+          font-size: 14px
+          border-radius: 20px
+          padding: 20px 20px
+          letter-spacing: 8px
+    .footer
+      font-size: 14px
+@media (min-width: 600px) and (max-width: 700px)
+  .root
+    .titleContainer
+      .dot-container
+        .dot 
+          width: 60px
+          height: 60px
+        .title
+          font-size: 2.5rem
+        .eng-title
+          font-size: 1rem
+          margin-top: 20px
+    .preface
+      height: 200vh
+      .prefaceContent
+        width: 50%
+        h2
+          font-size: 1.25rem
+        p
+          font-size: .9rem
+      .info-container
+        width: 100% 
+        // border: 1px solid black
+        .row2
+          margin-top: 50px       
+        .infoRow
+          flex-direction: column
+          height: 300px        
+
+          .infoCard
+            h2
+              font-size: 1.25rem
+            p
+              font-size: .9rem
+    .calendar
+      height: 70%
+      .btnRouter
+        .reserveBtn
+          font-size: 14px
+          border-radius: 20px
+          padding: 20px 20px
+          letter-spacing: 8px
+    .gallery
+      height: 200vh
+      justify-content: center
+      padding: 0%
+      .imgRow1, .imgRow2
+        flex-direction: column
+    .feedback
+      .role2
+        height: 60vh
+        position: absolute
+        top: 30%
+        z-index: 2
+
+    .footer
+      font-size: 12px
+      #pagetop
+        font-size: 12px
+      .prev
+        position: relative
+        text-decoration: none
+        color: #EBEBEB
+      .prev::before
+        display: none
+      .prev::after
+        content: ""
+        border: solid
+        border-width: 0.15em 0.15em 0 0
+        display: inline-block
+        padding: 0.2em
+        transform: translate(-80px, -25%) rotate(-135deg)
+        
+      
+      .next
+        position: relative
+        text-decoration: none
+        color: #EBEBEB
+      .next::before
+        display: none
+      .next::after
+        content: ""
+        border: solid
+        border-width: 0.15em 0.15em 0 0
+        display: inline-block
+        padding: 0.2em
+        transform: translate(10px, -25%) rotate(45deg)
+
+@media (min-width: 470px) and (max-width: 600px)
+  .root
+      .titleContainer
+        .dot-container
+          .dot 
+            width: 60px
+            height: 60px
+          .title
+            font-size: 2.5rem
+          .eng-title
+            font-size: 1rem
+            margin-top: 20px
+      .calendar
+        height: 60%
+        .btnRouter
+          .reserveBtn
+            font-size: 14px
+            border-radius: 20px
+            padding: 20px 20px
+            letter-spacing: 8px
+      .preface
+        height: 200vh
+        .prefaceContent
+          width: 50%
+          h2
+            font-size: 1.25rem
+          p
+            font-size: .9rem
+        .info-container
+          width: 100% 
+          // border: 1px solid black
+          .row2
+            margin-top: 50px       
+          .infoRow
+            flex-direction: column
+            height: 300px        
+
+            .infoCard
+              h2
+                font-size: 1.25rem
+              p
+                font-size: .9rem
+      .gallery
+        height: 160vh
+        justify-content: center
+        padding: 0%
+        .imgRow1, .imgRow2
+          flex-direction: column
+      .feedback
+        .role2
+          height: 60vh
+          position: absolute
+          top: 30%
+          z-index: 2
+      .footer
+        font-size: 10px
+        #pagetop
+          font-size: 10px
+          padding: 1% 3%
+        .prev
+          position: relative
+          text-decoration: none
+          color: #EBEBEB
+        .prev::before
+          display: none
+        .prev::after
+          content: ""
+          border: solid
+          border-width: 0.15em 0.15em 0 0
+          display: inline-block
+          padding: 0.2em
+          transform: translate(-70px, -25%) rotate(-135deg)
+        
+        .next
+          position: relative
+          text-decoration: none
+          color: #EBEBEB
+        .next::before
+          display: none
+        .next::after
+          content: ""
+          border: solid
+          border-width: 0.15em 0.15em 0 0
+          display: inline-block
+          padding: 0.2em
+          transform: translate(10px, -25%) rotate(45deg)
+
+
+  
+@media (min-width: 0px) and (max-width: 470px)
+  .root
+    .titleContainer
+      .dot-container
+        .dot 
+          width: 60px
+          height: 60px
+        .title
+          font-size: 2.5rem
+        .eng-title
+          font-size: 1rem
+          margin-top: 20px
+    .calendar
+      height: 60%        
+      .btnRouter
+        .reserveBtn
+          font-size: 12px
+          border-radius: 20px
+          padding: 18px 18px
+          letter-spacing: 6px
+
+    .preface
+      height: 200vh
+      .prefaceContent
+        width: 50%
+        h2
+          font-size: 1.25rem
+        p
+          font-size: .9rem
+      .info-container
+        width: 100% 
+        // border: 1px solid black
+        .row2
+          margin-top: 50px       
+        .infoRow
+          flex-direction: column
+          height: 300px        
+
+          .infoCard
+            h2
+              font-size: 1.25rem
+            p
+              font-size: .9rem
+    .gallery
+      height: 160vh
+      justify-content: center
+      padding: 0%
+      .imgRow1, .imgRow2
+        flex-direction: column
+    .feedback
+      .role2
+        height: 60vh
+        position: absolute
+        top: 30%
+        z-index: 2
+    .footer
+      font-size: 8px
+      letter-spacing: 1px
+      #pagetop
+        font-size: 8px
+        padding: 1% 3%
+      .prev
+        position: relative
+        text-decoration: none
+        color: #EBEBEB
+        transform: translateX(25px)
+        
+      .prev::before
+        display: none
+      .prev::after
+        content: ""
+        border: solid
+        border-width: 0.15em 0.15em 0 0
+        display: inline-block
+        padding: 0.2em
+        transform: translate(-55px, -25%) rotate(-135deg)
+      
+      .next
+        position: relative
+        text-decoration: none
+        color: #EBEBEB
+        transform: translateX(-15px)
+      .next::before
+        display: none
+      .next::after
+        content: ""
+        border: solid
+        border-width: 0.15em 0.15em 0 0
+        display: inline-block
+        padding: 0.2em
+        transform: translate(10px, -25%) rotate(45deg)
+
 </style>
 
 
@@ -290,11 +622,7 @@ mouseHorizontal
 <script setup>
 
 
-import { onMounted, onUnmounted, ref  } from 'vue';
-
-import gsap from 'gsap';
-
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { onMounted, onUnmounted, ref, onBeforeUnmount  } from 'vue';
 
 import { RouterLink } from 'vue-router';
 import router from '@/router/router';
@@ -306,10 +634,22 @@ import mouseHorizontal from '@/components/mouseHorizontal.vue';
 
 // image URL
 
-const image1 = new URL('../../assets/images/yoga/image1.webp', import.meta.url).href
-const image2 = new URL('../../assets/images/yoga/image2.webp', import.meta.url).href
-const image3 = new URL('../../assets/images/yoga/image3.webp', import.meta.url).href
-const image4 = new URL('../../assets/images/yoga/image4.webp', import.meta.url).href
+const imagesR1 = [
+  new URL('../../assets/images/yoga/image1.webp', import.meta.url).href,
+  new URL('../../assets/images/yoga/image2.webp', import.meta.url).href,
+];
+
+const imagesR2 = [
+  new URL('../../assets/images/yoga/image3.webp', import.meta.url).href,
+  new URL('../../assets/images/yoga/image4.webp', import.meta.url).href
+];
+
+
+
+// const image1 = new URL('../../assets/images/yoga/image1.webp', import.meta.url).href
+// const image2 = new URL('../../assets/images/yoga/image2.webp', import.meta.url).href
+// const image3 = new URL('../../assets/images/yoga/image3.webp', import.meta.url).href
+// const image4 = new URL('../../assets/images/yoga/image4.webp', import.meta.url).href
 
 // back to top
 
@@ -340,6 +680,10 @@ onMounted(() => {
 
 // animation
 
+import gsap from 'gsap';
+
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 gsap.registerPlugin(ScrollTrigger);
 
 let dotAnimation;
@@ -351,15 +695,19 @@ onMounted(() => {
       trigger: '.dot',
       pin: true,
       scrub: true,
-      // markers: true,
-      start: "-200% 10%",
+      markers: true,
+      start: "-200px 10%",
       end: "+=3500px",
     },
     ease: 'power2.out'
   });
+})
 
 
-  gsap.fromTo(
+
+const handleResize = () => {
+  if (window.innerWidth > 1280) {
+    gsap.fromTo(
     ".fade-span",
     { opacity: .9 },
     { 
@@ -381,7 +729,7 @@ onMounted(() => {
       y: -50,
       scrollTrigger: {
         trigger: ".prefaceContent",
-        start: "-300px 60%",
+        start: "-50% 50%",
         markers: true,
         toggleActions: "play pause resume reverse",
         duration: 5
@@ -391,13 +739,13 @@ onMounted(() => {
 
   gsap.fromTo(
     ".row1", 
-    { opacity: 0, y: 0 },
+    { opacity: 0, y: -150 },
     { 
       opacity: .9,
-      y: -50,
+      y: -200,
       scrollTrigger: {
         trigger: ".row1",
-        start: "-300px 50%",
+        start: "-200% 50%",
         // markers: true,
         toggleActions: "play pause resume reverse",
         duration: 5
@@ -407,13 +755,13 @@ onMounted(() => {
 
   gsap.fromTo(
     ".row2", 
-    { opacity: 0, y: 0 },
+    { opacity: 0, y: -150 },
     { 
       opacity: .9,
-      y: -50,
+      y: -200,
       scrollTrigger: {
         trigger: ".row2",
-        start: "-300px 50%",
+        start: "-200% 50%",
         // markers: true,
         toggleActions: "play pause resume reverse",
         duration: 5
@@ -470,8 +818,19 @@ onMounted(() => {
       }
     }
   );
-  
-})
+  } 
+};
+
+onMounted(() => {
+  window.addEventListener('resize', handleResize);
+  handleResize(); // 初始化時檢查一次
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', handleResize);
+});
+
+
 
 // form
 

@@ -143,20 +143,20 @@ function resetDot() {
         .image-area        
             .home-slider4-role
                 position: absolute
-                width: 23%
+                width: 21%
                 left: 80px
-                bottom: 10%
+                bottom: 12%
                 left: 12%
                 z-index: 2
                 // border: 1px solid black
             .home-slider4-base
                 position: absolute
                 width: 130vw
-                bottom: -6%
+                bottom: -4%
                 left: -3%
             .home-slider4-machine
                 position: absolute
-                width: 30vw
+                width: 28vw
                 left: 8%
                 bottom: 3%
 
@@ -165,22 +165,25 @@ function resetDot() {
     .slider-4
         a
             transform: translateY(-25%)
+            .title
+                font-size: 1rem
+            .intro
+                font-size: 0.8rem
         .image-area
             .home-slider4-role
                 position: absolute
-                width: 30%
-                left: 80px
-                bottom: 10%
+                width: 20%
+                bottom: 12%
                 left: 10%
                 z-index: 2
             .home-slider4-base
                 position: absolute
                 width: 130vw
-                bottom: -2%
+                bottom: -5%
                 left: -3%
             .home-slider4-machine
                 position: absolute
-                width: 35vw
+                width: 32vw
                 left: 8%
                 bottom: 3%
 
@@ -192,9 +195,9 @@ function resetDot() {
                 width: 50px
                 height: 50px
             .title
-                font-size: 1.1rem
+                font-size: 1rem
             .intro
-                font-size: 0.9rem
+                font-size: 0.8rem
         .image-area
             .home-slider4-role
                 position: absolute
@@ -214,4 +217,76 @@ function resetDot() {
                 left: 12%
                 bottom: 3%
 
+
+@media (min-height: 490px) and (max-height: 600px)
+    .slider-4
+        a 
+            transform: translateY(-40px)
+            .dot 
+                width: 50px
+                height: 50px
+            .title
+                font-size: 1.1rem
+            .intro
+                font-size: .95rem
+
+@media (min-height: 390px) and (max-height: 490px)
+    .slider-4
+        a 
+            transform: translateY(-10px)
+            .dot 
+                width: 50px
+                height: 50px
+            .title
+                font-size: 1rem
+            .intro
+                font-size: .85rem
+        .image-area
+            .home-slider4-role
+                position: absolute
+                width: 12%
+                bottom: 15%
+                left: 15%
+                z-index: 2
+            .home-slider4-base
+                position: absolute
+                width: 110vw
+                bottom: -15%
+                left: -3%
+            .home-slider4-machine
+                position: absolute
+                width: 22vw
+                left: 10%
+                bottom: 3%
+
+
+@media (min-height: 0px) and (max-height: 390px)
+    .slider-4
+        a 
+            transform: translateY(0px)
+            .dot 
+                width: 40px
+                height: 40px
+            .title
+                font-size: 1rem
+                transform: translateY(-10px)
+            .intro
+                display: none
+        .image-area
+            .home-slider4-role
+                position: absolute
+                width: 12%
+                bottom: 15%
+                left: 15%
+                z-index: 2
+            .home-slider4-base
+                position: absolute
+                width: 110vw
+                bottom: -15%
+                left: -3%
+            .home-slider4-machine
+                position: absolute
+                width: 22vw
+                left: 10%
+                bottom: 3%
 </style>
