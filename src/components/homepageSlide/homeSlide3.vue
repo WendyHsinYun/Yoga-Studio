@@ -1,16 +1,15 @@
 <template lang="pug">
 .slider-3
-    a(href="/classes/KXPilates") 
+    a(href="/classes/yoga")
         .dot(:class="{ 'dot-scaled': isDotScaled }"
             @mouseover="scaleDot"
             @mouseleave="resetDot")
-        .title 機械皮拉提斯
-        .eng-title KX Pilates
+        .title 瑜珈課 Yoga
+        .intro 透過墊上運動，就能矯正體態、加強體能與消耗熱量。
     .image-area
-        img.home-slider3-base(data-swiper-parallax="-10%" src="@/assets/images/home-slider3-base.webp")
-        img.home-slider3-role(data-swiper-parallax="20%" src="@/assets/images/home-slider3-role.webp")
+        img.home-slider3-base(data-swiper-parallax="-20%" src="@/assets/images/home-slider2-base.webp")
+        img.home-slider3-role(data-swiper-parallax="0%" src="@/assets/images/home-slider2-role.webp")
 </template>
-
 
 <script setup>
 import { ref } from 'vue';
@@ -49,48 +48,42 @@ function resetDot() {
         z-index: 6
         text-decoration: none
         color: black
-
+        cursor: default
+        // border: 1px solid black
+        transform: translateY(-50px)
         .dot-scaled
             animation: scaleAnimation .6s ease-in-out
         .dot 
-            width: 70px
-            height: 70px
-            background-color: #787878
+            width: 60px
+            height: 60px
+            background-color: #FFA245
             border-radius: 50%
-            // cursor: url("./src/assets/images/mouse_solid.svg")
+            
         .title
             margin-top: 30px
             font-weight: 500
             font-size: 1.25rem
             opacity: .5
-        .eng-title
+        .intro
             font-weight: 100
             margin-top: 20px
             opacity: .5
-    .scrollReminder
-        font-family: 'Noto Sans HK'
-        font-weight: 100
-        font-size: 10pt
-        margin-top: 20px
-        letter-spacing: 2px
-        opacity: .5
     .image-area
         width: 100%
         height: 100%
         position: absolute
         box-sizing: border-box
-        // transform: rotate(-5deg)
-        // border: 1px solid black
         .home-slider3-role
             position: absolute
-            width: 20%
+            width: 15%
             bottom: 50px
-            left: 5%
+            left: 70%
         .home-slider3-base
             position: absolute
-            width: 160vw
-            bottom: -50px
-            right: -30%
+            width: 100vw
+            bottom: -12%
+            left: 10%
+
             
 @keyframes scaleAnimation 
     0% 
@@ -106,4 +99,130 @@ function resetDot() {
 
 
 
+
+@media (min-width: 980px) and (max-width: 1280px)
+    .slider-3
+        a
+            transform: translateY(-25%)
+        .image-area
+            .home-slider3-role
+                width: 17%
+                bottom: 50px
+                left: 65%
+            .home-slider3-base
+                width: 110vw
+                bottom: -80px
+                left: 5%
+
+@media (min-width: 700px) and (max-width: 980px)
+    .slider-3
+        a
+            transform: translateY(-25%)
+        .image-area
+            .home-slider3-role
+                width: 22%
+                bottom: 50px
+                left: 65%
+            .home-slider3-base
+                width: 110vw
+                bottom: -5%
+                left: 5%
+
+@media (min-width: 450px) and (max-width: 700px)
+
+    .slider-3
+        a
+            transform: translateY(-25%)
+            .title
+                font-size: 1rem
+            .intro
+                font-size: 0.8rem
+        .image-area
+            .home-slider3-role
+                width: 30%
+                bottom: 50px
+                left: 60%
+            .home-slider3-base
+                width: 110vw
+                bottom: 0%
+                left: 5%
+
+@media (min-width: 0px) and (max-width: 450px)
+    .slider-3
+        a
+            transform: translateY(-25%)
+            .dot
+                width: 50px
+                height: 50px
+            .title
+                font-size: 1rem
+            .intro
+                font-size: 0.8rem
+        .image-area
+            .home-slider3-role
+                width: 40%
+                bottom: 50px
+                left: 45%
+            .home-slider3-base
+                width: 120vw
+                bottom: 0%
+                left: -10%
+
+
+@media (min-height: 540px) and (max-height: 600px)
+    .slider-3
+        a 
+            transform: translateY(-40px)
+            .dot 
+                width: 50px
+                height: 50px
+            .title
+                font-size: 1.1rem
+            .intro
+                font-size: .95rem
+
+@media (min-height: 390px) and (max-height: 540px)
+    .slider-3
+        a 
+            transform: translateY(-10px)
+            .dot 
+                width: 50px
+                height: 50px
+            .title
+                font-size: 1rem
+            .intro
+                font-size: .85rem
+        .image-area
+            .home-slider3-role
+                width: 25%
+                bottom: 30px
+                left: 70%
+            .home-slider3-base
+                width: 120vw
+                bottom: -10%
+                left: -5%
+
+
+@media (min-height: 0px) and (max-height: 390px)
+    .slider-3
+        a 
+            transform: translateY(-10px)
+            .dot 
+                width: 40px
+                height: 40px
+            .title
+                font-size: 1rem
+                transform: translateY(-10px)
+            .intro
+                display: none
+
+        .image-area
+            .home-slider3-role
+                width: 18%
+                bottom: 30px
+                left: 65%
+            .home-slider3-base
+                width: 120vw
+                bottom: -15%
+                left: -5%
 </style>

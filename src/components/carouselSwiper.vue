@@ -87,7 +87,7 @@ const formatData = (feedbacks) => {
         padding: 20px
         border: 1px solid #515151 
         border-radius: 30px
-        background-color: #fff
+        background-color: #F9F9FB
         color: #616161
         letter-spacing: 1.5px
         h4
@@ -95,4 +95,14 @@ const formatData = (feedbacks) => {
           letter-spacing: 2px
         h5
           line-height: 24px
+
+
+@media (min-width: 450px) and (max-width: 830px)
+  .swiper-container
+    width: 200%
+
+@media (min-width: 0px) and (max-width: 450px)
+  .swiper-container
+    width: 300%
+    left: -50%
 </style>

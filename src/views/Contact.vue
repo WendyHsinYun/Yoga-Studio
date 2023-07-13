@@ -1,28 +1,42 @@
 <template lang="pug">
 v-container(
-  style=" overflow: hidden ;" 
-  justify="center" )
-  v-row(
-    justify="center" 
-    style=" background-color: none; margin-top: 100px ")
-    v-col.flex-column(
-      style="background-color: none; " 
+  style=" background-color: none; width: 100vw ; height: 100vh; " 
+  justify="center" 
+  align="center"
+  )
+  v-row.text-center.d-flex(
+    justify="space-evenly"
+    style=" background-color: none; margin-top: 7%; " 
+    align="start" 
+    )
+    v-col.flex-column.mt-10(
+      style="background-color: pink; user-select: text; " 
       align="center" 
-      cols="5" )
+      cols="6"
+      sm="4"
+      xs="1"
+      )
       .text-center(
         style="font-family: NotoSansHK; color: #FFA042; font-weight: 800; font-size: 20px; letter-spacing: 1.5px; line-height: 35px;") 聯絡卡姊
       .text-center
-          .cardText line：jessica0125 
-          .cardText phone : 0937849328 
-          .cardText email : jt126129@gmail.com
+        .cardText line：jessica0125 
+        .cardText phone : 0937849328 
+        .cardText email : jt126129@gmail.com
       v-img(
         src="src/assets/images/contact.webp" 
         height="350" 
         center 
         style="transform: translateY(-50px)")
-    v-col(
-      cols="4" 
-      style="background-color: none; " )
+          template(v-slot:placeholder='')
+              .d-flex.align-center.justify-center.fill-height
+                v-progress-circular(color='grey-lighten-4' indeterminate='')
+    v-col.mt-10.h-50(
+      align="center"
+      cols="7" 
+      sm="4"
+      xs="1"
+      style="background-color: pink; " 
+      )
       v-form(
         fast-fail 
         @submit.prevent="sendEmail"  
@@ -69,12 +83,12 @@ v-container(
         v-row(
           justify="center" 
           style="margin-top: 10px")
-          v-btn.me-3(
-            style="background-color: #FFA245; color: aliceblue; margin-left: 10px" 
+          v-btn(
+            style=" background-color: #FFA245; color: aliceblue; margin-left: 10px" 
             rounded="lg" 
             type="submit") 送出 
-          v-btn(
-            style="background-color: #FFA245; color: aliceblue;" 
+          v-btn.ml-2(
+            style=" background-color: #FFA245; color: aliceblue;" 
             rounded="lg" 
             @click='handleReset') 清除
           v-col(
@@ -84,6 +98,8 @@ v-container(
 </template>
 
 <style lang='sass' scoped>
+* 
+  cursor: default
 .text-center
   margin-top: 10px
   .cardText
@@ -91,6 +107,7 @@ v-container(
     color: #909090
     font-family: 'Playfair Display'
     letter-spacing: 1.5px
+
 </style>
 
 

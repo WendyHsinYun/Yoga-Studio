@@ -1,7 +1,7 @@
 <template lang="pug">
 v-form(
   @submit.prevent='addFeedback'   
-  style ="position: absolute; width: 45%; height: 0px; top: 220vh ; left: 30vw; background-color: pink; z-index: 10;")
+  style ="position: absolute; width: 45%; height: 0px; top: 420vh ; left: 30vw; background-color: pink; z-index: 10;")
   v-text-field(
     hide-details="true"
     density="comfortable"
@@ -22,12 +22,6 @@ v-form(
   //- v-btn.ml-5(color='success' 
   //-   style="color: whitesmoke; width: 15%; margin-top: 20px; border-radius: 15px") 關閉
 </template>
-
-<style lang="sass">
-
-
-</style>
-
 
 <script setup>
 

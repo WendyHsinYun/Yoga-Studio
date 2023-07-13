@@ -5,7 +5,10 @@ swiper(
     :navigation="true" 
     :speed="1000" ref="swiper" 
     :mousewheel="true")
-    .parallax-bg(:style="{'background-image': 'url(../src/assets/images/bg-line.webp)'}" data-swiper-parallax='-15%')
+    .parallax-bg(
+        slot="container-start"
+        :style="{'background': 'url(../src/assets/images/bg-line.webp) no-repeat' }"
+        data-swiper-parallax='-45%')
     swiper-slide 
         aboutSlide1
     swiper-slide 
@@ -15,12 +18,14 @@ swiper(
     swiper-slide
         aboutSlide4
 
+mouseHorizontal
 </template>
 
 <script setup>
 
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Parallax,  Navigation, Mousewheel } from "swiper";
+import { Parallax, Navigation, Mousewheel } from "swiper";
+
 import aboutSlide1 from '@/components/about/aboutSlide1.vue';
 import aboutSlide2 from '@/components/about/aboutSlide2.vue';
 import aboutSlide3 from '@/components/about/aboutSlide3.vue';
@@ -30,6 +35,8 @@ import 'swiper/css';
 
 import "swiper/css/navigation";
 
+import mouseHorizontal from '@/components/mouseHorizontal.vue';
+
 const components = {
     Swiper,
     SwiperSlide,
@@ -37,23 +44,12 @@ const components = {
 
 const modules = [Parallax,  Navigation, Mousewheel];
 
-
-import { onMounted, onUnmounted, ref } from 'vue';
-
-import gsap from 'gsap';
-
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-
-gsap.registerPlugin(ScrollTrigger);
-
-
 </script>
 
 <style lang='sass'>
     
 .swiper-button-next, .swiper-button-prev, .swiper-button-disabled, .swiper-button-disabled::after  
-    --swiper-navigation-size: 500px
+    --swiper-navigation-size: 300px
     --swiper-navigation-top-offset: 40%
     --swiper-navigation-sides-offset: 20px
     --swiper-navigation-color: none
@@ -62,15 +58,16 @@ gsap.registerPlugin(ScrollTrigger);
 .swiper
     width: 100%
     height: 100%
-    overflow: initial
     .parallax-bg
         position: absolute
-        left: 0%
-        top: 0%
-        width: 120%
-        height: 100%
+        left: 0
+        bottom: -50px
+        width: 250%
+        height: 400px
+        -webkit-background-size: cover
         background-position: center
         opacity: .1
+        // border: 1px solid red
     .swiper-slide
         width: 100%
         height: 100%

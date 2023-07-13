@@ -1,14 +1,24 @@
 <template lang="pug">
 .slider-2
-    a(href="/classes/yoga")
-        .dot(:class="{ 'dot-scaled': isDotScaled }"
+    .dot-container
+        a.dot(:class="{ 'dot-scaled': isDotScaled }"
+            href="/about"
             @mouseover="scaleDot"
             @mouseleave="resetDot")
-        .title 瑜珈課 
-        .eng-title Yoga Class
+        .title 卡姊師資經歷
+        .experience
+            | RYT 200 美國瑜珈聯盟瑜珈師資證照
+            br
+            | AFAA 國際皮拉提斯師資證照
+            br 
+            | KX 機械皮拉提斯教練培訓
+            br
+            | 30 小時空瑜師資培訓
+            br
+            | 體育署初級體適能指導員
     .image-area
-        img.home-slider2-base(data-swiper-parallax="-20%" src="@/assets/images/home-slider2-base.webp")
-        img.home-slider2-role(data-swiper-parallax="0%" src="@/assets/images/home-slider2-role.webp")
+        img.home-slider2-base(data-swiper-parallax="-20%" src="@/assets/images/home-slider2-intro.webp")
+        img.home-slider2-role(data-swiper-parallax="10%" src="@/assets/images/intro.webp")
 </template>
 
 <script setup>
@@ -36,44 +46,44 @@ function resetDot() {
     align-items: center
     flex-direction: column
     overflow: hidden
-    a
+    .dot-container
         width: 300px
-        height: 300px
+        height: 400px
         letter-spacing: 2.5px
         font-family: 'Playfair Display'
         display: flex
-        justify-content: center
+        justify-content: start
         align-items: center
         flex-direction: column
         z-index: 6
         text-decoration: none
-        color: black
+        color: #727171
         cursor: default
+        white-space: nowrap
         // border: 1px solid black
+        transform: translateY(50px)
+        .dot
+            width: 60px
+            height: 60px
+            background-color: #EB5F7D
+            border-radius: 50%
         .dot-scaled
             animation: scaleAnimation .6s ease-in-out
-        .dot 
-            width: 70px
-            height: 70px
-            background-color: #FFA245
-            border-radius: 50%
-            
+
         .title
-            margin-top: 30px
+            margin-top: 25px
             font-weight: 500
             font-size: 1.25rem
-            opacity: .5
-        .eng-title
+            white-space: nowrap
+            position: relative
+            font-weight: 500
+        .experience
             font-weight: 100
-            margin-top: 20px
-            opacity: .5
-    .scrollReminder
-        font-family: 'Noto Sans HK'
-        font-weight: 100
-        font-size: 10pt
-        margin-top: 20px
-        letter-spacing: 2px
-        opacity: .5
+            margin-top: 15px
+            line-height: 30px
+            font-size: 0.9rem 
+            // opacity: .5
+
     .image-area
         width: 100%
         height: 100%
@@ -86,9 +96,10 @@ function resetDot() {
             left: 70%
         .home-slider2-base
             position: absolute
-            width: 100vw
-            bottom: -10%
-            left: 10%
+            width: 110vw
+            bottom: -30%
+            left: 20%
+
 @keyframes scaleAnimation 
     0% 
         transform: scale(1)
@@ -102,5 +113,154 @@ function resetDot() {
         transform: scale(1)
 
 
+@media (min-width: 980px) and (max-width: 1280px)
+    .slider-2
+        .image-area
+            .home-slider2-role
+                width: 20%
+                bottom: 50px
+                left: 70%
+            .home-slider2-base
+                width: 100vw
+                bottom: -150px
+                left: 20%
 
+@media (min-width: 700px) and (max-width: 980px)
+    .slider-2
+        .dot-container
+            width: 250px
+            height: 350px
+            transform: translateY(-15px)
+            .title
+                font-size: 1rem
+            .experience
+                font-size: 0.8rem
+        .image-area
+            .home-slider2-role
+                width: 25%
+                bottom: 50px
+                left: 70%
+            .home-slider2-base
+                width: 110vw
+                bottom: -100px
+                left: 0%
+
+@media (min-width: 450px) and (max-width: 700px)
+    .slider-2
+        .dot-container
+            width: 250px
+            height: 350px
+            transform: translateY(-15px)
+            .dot
+                width: 50px
+                height: 50px
+            .title
+                font-size: 1rem
+            .experience
+                font-size: 0.8rem
+        .image-area
+            .home-slider2-role
+                width: 30%
+                bottom: 50px
+                left: 65%
+            .home-slider2-base
+                width: 120vw
+                bottom: -10%
+                left: -10%
+
+@media (min-width: 0px) and (max-width: 450px)
+    .slider-2
+        .dot-container
+            width: 250px
+            height: 350px
+            transform: translateY(-5%)
+            .dot
+                width: 50px
+                height: 50px
+            .title
+                font-size: 16px
+            .experience
+                font-size: 13px
+        .image-area
+            .home-slider2-role
+                width: 45%
+                bottom: 50px
+                left: 50%
+            .home-slider2-base
+                width: 120vw
+                bottom: -5%
+                left: -10%
+
+
+@media (min-height: 470px) and (max-height: 600px)
+    .slider-2
+        .dot-container 
+            transform: translateY(20%)
+            .dot 
+                width: 50px
+                height: 50px
+            .title
+                font-size: 1.1rem
+            .experience
+                font-size: 0.8rem
+@media (min-height: 0px) and (max-height: 470px)
+    .slider-2
+        .dot-container 
+            transform: translateY(25%)
+            .dot 
+                width: 50px
+                height: 50px
+            .title
+                font-size: 1rem
+            .experience
+                line-height: 23px
+
+
+
+@media (min-height: 540px) and (max-height: 600px)
+    .slider-2
+        .dot-container  
+            transform: translateY(30px)
+            .dot 
+                width: 50px
+                height: 50px
+            .title
+                font-size: 1.1rem
+            .experience
+                font-size: .95rem
+
+@media (min-height: 480px) and (max-height: 540px)
+    .slider-2
+        .dot-container  
+            transform: translateY(50px)
+            .dot 
+                width: 50px
+                height: 50px
+            .title
+                font-size: 1rem
+            .experience
+                font-size: .8rem
+
+
+@media (min-height: 0px) and (max-height: 480px)
+    .slider-2
+        .dot-container  
+            transform: translateY(70px)
+            .dot 
+                width: 40px
+                height: 40px
+            .title
+                font-size: 1rem
+            .experience
+                font-size: .75rem
+
+        .image-area
+            .home-slider2-role
+                width: 22%
+                bottom: 50px
+                left: 70%
+            .home-slider2-base
+                width: 110vw
+                bottom: -130px
+                left: 0%
 </style>
