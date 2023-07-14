@@ -1,25 +1,21 @@
 <template lang="pug">
-v-container.d-flex.flex-column(style="height: 100vh; width: 100vw; background-color:none ;")
-  v-row.h-10(
+v-container.d-flex.flex-column.vC(style="height: 100vh; width: 100vw; background-color: none ;")
+  v-row.row1.h-10(
     justify="center" 
-    align="center"
-    style="background-color: none; margin-top: 10%" 
-      )
+    align="center")
     .progressNum.pl-5 {{ progress }} %
-  v-row.spin-row( 
+  v-row.row2( 
     cols="6" 
-    style="height: 30vh ; background-color: wheat;"
     justify="center"
     align="center")
-    .r-col.mx-auto(style=" background-color: pink; width: 30%; aspect-ratio: 1/1 ;  ")
+    .r-col.mx-auto(style=" background-color: none; width: 45vh; aspect-ratio: 1 ;  ")
       .circular.mx-auto( style="border: 1rem solid #2DD98A; width: 100%; height: 100% ; border-radius: 50%;" )
-        v-img.ml-3.mt-5(
+        v-img.ml-3.mt-5.spinning(
           src="src/assets/images/loading.webp"
           center
           style="{ width: '80%'}")
-  v-row(justify="center"  
-    style="height: 15vh; background-color: none;")
-    .remind.mt-5
+  v-row.row3(justify="center" )
+    .remind
       .warmup
         .letter-holder
           div(v-for='(letter, index) in letters' 
@@ -31,31 +27,44 @@ v-container.d-flex.flex-column(style="height: 100vh; width: 100vw; background-co
 
 <style lang="sass" scoped>
 
-.spinning 
-  animation: spin .8s ease-in-out infinite
 
+.vC
+  position: absolute
+  top: 0
+  left: 0
+  .row1
+    background-color: none
+    margin-top: 10%
+    .progressNum
+      color: #2DD98A
+      font-size: 32px
+      font-family: 'Playfair Display'
+  .row2
+    height: 40vh 
+    background-color: none
+    .spinning 
+      animation: spin .8s ease-in-out infinite
+  .row3
+    height: 15vh 
+    background-color: none
 
-.progressNum
-  color: #2DD98A
-  font-size: 32px
-  font-family: 'Playfair Display'
+    .remind
+      color: #2DD98A
+      font-size: 20px
+      font-family: 'Playfair Display'
+      letter-spacing: 2px
+      position: relative
+      white-space: nowrap
+      margin-top: 10px
+      .warmup
+        animation-name: loading
+        animation-duration: 1.2s
+        animation-iteration-count: infinite
+        animation-direction: linear
+        .letter-holder
+          padding: 16px
+          display: flex
 
-.remind
-  color: #2DD98A
-  font-size: 20px
-  font-family: 'Playfair Display'
-  letter-spacing: 2px
-  position: relative //相對於偽元素而言
-  white-space: nowrap
-  .letter-holder
-    padding: 16px
-    display: flex
-
-  .warmup .letter
-    animation-name: loading
-    animation-duration: 1.2s
-    animation-iteration-count: infinite
-    animation-direction: linear
 
 @keyframes loading
   0%
@@ -69,8 +78,33 @@ v-container.d-flex.flex-column(style="height: 100vh; width: 100vw; background-co
     transform: rotate(0deg)
   to 
     transform: rotate(360deg)
+  
+
+@media (min-width: 0px) and (max-width: 840px)
+  .vC
+    .row1
+      margin-top: 80px
+      .progressNum
+        font-size: 28px
+    .row2
+      margin-top: 30px
+      height: 40vh 
 
 
+@media (min-height: 0px) and (max-height: 450px)
+  .vC
+    .row1
+      margin-top: 80px
+      .progressNum
+        font-size: 24px
+    .row2
+      margin-top: 30px
+      height: 40vh 
+    .row3
+      margin-top: 5%
+      // height: 40vh 
+      .remind
+        font-size: 16px
 
 </style>
 

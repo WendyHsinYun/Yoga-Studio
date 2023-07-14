@@ -1,98 +1,97 @@
 <template lang="pug">
-v-container(
-  style=" background-color: none; width: 100vw ; height: 100vh; " 
-  justify="center" 
-  align="center"
-  )
-  v-row.text-center.d-flex(
-    justify="space-evenly"
-    style=" background-color: none; margin-top: 7%; " 
-    align="start" 
-    )
-    v-col.flex-column.mt-10(
-      style="background-color: pink; user-select: text; " 
-      align="center" 
-      cols="6"
-      sm="4"
-      xs="1"
+.contact-container
+  section.sec1
+    v-row(
+      justify="center"
+      style=" background-color: none; " 
+      align="start" 
       )
-      .text-center(
-        style="font-family: NotoSansHK; color: #FFA042; font-weight: 800; font-size: 20px; letter-spacing: 1.5px; line-height: 35px;") 聯絡卡姊
-      .text-center
-        .cardText line：jessica0125 
-        .cardText phone : 0937849328 
-        .cardText email : jt126129@gmail.com
-      v-img(
-        src="src/assets/images/contact.webp" 
-        height="350" 
-        center 
-        style="transform: translateY(-50px)")
-          template(v-slot:placeholder='')
+      v-col.flex-column.text-center(
+        style="background-color: none; user-select: text; "
+        justify="start"    
+        cols="9"
+        )
+        .cardTitle 聯絡卡姊
+        .cardContent
+          .cardText line：jessica0125 
+          .cardText phone : 0937849328 
+          .cardText email : jt126129@gmail.com
+        v-img(
+          src="src/assets/images/contact.webp" 
+          height="300" 
+          center 
+          style="transform: translateY(-30px)")
+            template(v-slot:placeholder='')
               .d-flex.align-center.justify-center.fill-height
                 v-progress-circular(color='grey-lighten-4' indeterminate='')
-    v-col.mt-10.h-50(
-      align="center"
-      cols="7" 
-      sm="4"
-      xs="1"
-      style="background-color: pink; " 
+  section.sec2
+    v-row(
+      justify="center"
+      style=" background-color: none; " 
+      align="start" 
       )
-      v-form(
-        fast-fail 
-        @submit.prevent="sendEmail"  
-        ref="form" 
-        style="color: #2A2A2A;")
-        v-text-field(
-          density="compact" 
-          variant="underlined" 
-          v-model='name.value.value' 
-          :counter='20' 
-          :error-messages='name.errorMessage.value' 
-          label='名字' 
-          ref="nameField")
-        v-text-field(
-          density="compact" 
-          variant="underlined" 
-          v-model='phone.value.value' 
-          :counter='10' 
-          :error-messages='phone.errorMessage.value' 
-          label='手機' 
-          ref="phoneField")
-        v-text-field(
-          variant="underlined" 
-          v-model='email.value.value' 
-          :error-messages='email.errorMessage.value' 
-          label='E-mail' 
-          ref="emailField")
-        v-select(
-          variant="underlined" 
-          v-model='select.value.value' 
-          :items="items" 
-          :error-messages='select.errorMessage.value' 
-          label='想了解的課程' 
-          density="compact" 
-          name="subject" 
-          ref="selectField")
-        v-text-field(
-          density="compact" 
-          variant="underlined" 
-          v-model='message.value.value' 
-          :error-messages='message.errorMessage.value'  
-          label='填寫您的問題' 
-          ref="messageField")
-        v-row(
-          justify="center" 
-          style="margin-top: 10px")
-          v-btn(
-            style=" background-color: #FFA245; color: aliceblue; margin-left: 10px" 
-            rounded="lg" 
-            type="submit") 送出 
-          v-btn.ml-2(
-            style=" background-color: #FFA245; color: aliceblue;" 
-            rounded="lg" 
-            @click='handleReset') 清除
-          v-col(
-            style="color: #FFA245; font-size: 12px; ") 留下資料後，卡姊將會盡速聯絡您
+      v-col(
+        justify="start"
+        align="center"
+        cols="9" 
+        style="background-color: none; " 
+        )
+        .formTitle 填寫表單
+        v-form(
+          fast-fail 
+          @submit.prevent="sendEmail"  
+          ref="form" 
+          style="color: #2A2A2A;")
+          v-text-field(
+            density="compact" 
+            variant="underlined" 
+            v-model='name.value.value' 
+            :counter='20' 
+            :error-messages='name.errorMessage.value' 
+            label='名字' 
+            ref="nameField")
+          v-text-field(
+            density="compact" 
+            variant="underlined" 
+            v-model='phone.value.value' 
+            :counter='10' 
+            :error-messages='phone.errorMessage.value' 
+            label='手機' 
+            ref="phoneField")
+          v-text-field(
+            variant="underlined" 
+            v-model='email.value.value' 
+            :error-messages='email.errorMessage.value' 
+            label='E-mail' 
+            ref="emailField")
+          v-select(
+            variant="underlined" 
+            v-model='select.value.value' 
+            :items="items" 
+            :error-messages='select.errorMessage.value' 
+            label='想了解的課程' 
+            density="compact" 
+            name="subject" 
+            ref="selectField")
+          v-text-field(
+            density="compact" 
+            variant="underlined" 
+            v-model='message.value.value' 
+            :error-messages='message.errorMessage.value'  
+            label='填寫您的問題' 
+            ref="messageField")
+          v-row(style=" margin-top: 0px" 
+            justify="start" align="center")
+            v-btn(
+              style=" background-color: #FFA245; color: aliceblue; margin-left: 10px" 
+              rounded="lg" 
+              type="submit") 送出 
+            v-btn.ml-4(
+              style=" background-color: #FFA245; color: aliceblue; " 
+              rounded="lg" 
+              @click='handleReset') 清除
+            v-col(
+              style="color: #FFA245; font-size: 12px; ") 留下資料後，卡姊將會盡速聯絡您
 
 
 </template>
@@ -100,14 +99,104 @@ v-container(
 <style lang='sass' scoped>
 * 
   cursor: default
-.text-center
-  margin-top: 10px
-  .cardText
-    font-size: 14px
-    color: #909090
-    font-family: 'Playfair Display'
-    letter-spacing: 1.5px
 
+.contact-container
+  width: 100%
+  height: 100%
+  display: flex
+  justify-content: center
+  align-items: start
+  flex-direction: row
+  // overflow: hidden
+  background-color: #F9F9FB
+  section
+    position: relative
+    background-color: none
+    width: 50% 
+    // height: 100%
+    justify-content: center
+    align-items: center
+    padding-top: 100px
+  .sec1
+    .cardTitle
+      margin: 10px 0px
+      font-family: NotoSansHK
+      color: #FFA042
+      font-weight: 800
+      font-size: 20px
+      letter-spacing: 1.5px
+      line-height: 35px
+    .cardContent
+      .cardText
+        font-size: 14px
+        color: #909090
+        font-family: 'Playfair Display'
+        letter-spacing: 1.5px
+        white-space: nowrap
+  .sec2
+    padding-right: 100px
+ 
+    .formTitle 
+      margin: 10px 0px
+      font-family: NotoSansHK
+      color: #FFA042
+      font-weight: 800
+      font-size: 20px
+      letter-spacing: 1.5px
+      line-height: 35px
+
+  .contact-container
+    &::after
+      content: ""
+      background-color: rgba(256, 256, 256, .8)
+      z-index: 5
+
+@media(min-width: 400px) and (max-width: 660px)
+  .contact-container
+    flex-direction: column
+    height: auto
+    align-items: center
+    section
+      width: 70%
+    .sec2
+      padding-top: 50px
+      padding-bottom: 100px 
+      padding-right: 0px
+      width: 70% 
+
+@media(min-width: 0px) and (max-width: 400px)
+  .contact-container
+    flex-direction: column
+    height: auto
+    align-items: center
+    section
+      width: 70%
+    .sec1
+      .cardTitle
+        font-size: 18px
+      .cardContent
+        .cardText
+          font-size: 12px
+    .sec2
+      padding-top: 50px
+      padding-bottom: 100px 
+      padding-right: 0px
+      width: 70% 
+      .formTitle
+        font-size: 18px
+
+
+// @media(min-height: 0px) and (max-height: 800px)
+//   .contact-container
+//     flex-direction: column
+//     height: auto
+//     section
+//       width: 70%
+//     .sec2
+//       padding-top: 50px
+//       padding-bottom: 100px 
+//       padding-right: 0px
+//       width: 70% 
 </style>
 
 

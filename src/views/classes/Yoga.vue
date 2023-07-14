@@ -104,7 +104,6 @@ mouseHorizontal
     position: relative
   .titleContainer
     height: 130vh
-    border: 1px solid black
     .dot-container
       width: 300px
       height: 300px
@@ -114,7 +113,6 @@ mouseHorizontal
       justify-content: center
       align-items: center
       flex-direction: column
-      border: 1px solid black
       .dot 
         width: 70px
         height: 70px
@@ -138,7 +136,6 @@ mouseHorizontal
       letter-spacing: 2.5px
       opacity: .8
   .preface
-    // border: 1px solid black
     height: 100vh
     display: flex
     flex-direction: column
@@ -150,7 +147,6 @@ mouseHorizontal
       flex-direction: column
       width: 30%
       color: #626262
-      // border: 1px solid black
       z-index: 5
       text-align: center
       justify-content: center
@@ -166,7 +162,6 @@ mouseHorizontal
     .info-container
       position: relative
       width: 100%
-      // height: 600px
       display: flex
       flex-direction: column
       top: 300px
@@ -176,7 +171,6 @@ mouseHorizontal
         width: 100%
         height: 200px
         display: flex
-        // background-color: wheat 
         justify-content: center
         align-items: center
         flex-direction: row
@@ -185,9 +179,7 @@ mouseHorizontal
           position: relative
           width: 200px
           height: 200px
-          color: #515151
-          // z-index: 5
-          // background-color: pink        
+          color: #515151      
           margin: 30px
           text-align: center
           color: #626262
@@ -199,7 +191,6 @@ mouseHorizontal
             margin-top: 10px
   
   .gallery
-    border: 1px solid blue
     height: 150vh
     display: flex
     flex-direction: column
@@ -213,7 +204,6 @@ mouseHorizontal
 
   .feedback
     height: 90vh
-    border: 1px solid black
     .role2:hover
       transform: translateY(-15px)    
     .role2
@@ -231,7 +221,6 @@ mouseHorizontal
   .calendar
     background-color: #F9F9FB
     justify-content: start
-    border: 1px solid black
     height: auto
     padding: 50px 0px
     .btnRouter
@@ -266,15 +255,6 @@ mouseHorizontal
       padding-right: 1em
       text-decoration: none
       color: #EBEBEB
-    .prev::before
-      content: ""
-      position: absolute
-      top: 50%
-      right: 0
-      transform: translate(-123px, -50%) rotate(90deg)
-      width: 0.15rem
-      height: 100%
-      background-color: #EBEBEB
     .prev::after
       content: ""
       border: solid
@@ -289,15 +269,6 @@ mouseHorizontal
       margin-left: 50%
       text-decoration: none
       color: #EBEBEB
-    .next::before
-      content: ""
-      position: absolute
-      top: 50%
-      right: 0
-      transform: translate(10px, -50%) rotate(90deg)
-      width: 0.15rem
-      height: 100%
-      background-color: #EBEBEB
     .next::after
       content: ""
       border: solid
@@ -310,7 +281,7 @@ mouseHorizontal
 @media (min-width: 790px) and (max-width: 1024px)
   .root
     .gallery
-      height: 250vh
+      height: 280vh
       padding: 0%
       .imgRow1, .imgRow2
         flex-direction: column
@@ -331,7 +302,7 @@ mouseHorizontal
         p
           font-size: .9rem
     .gallery
-      height: 250vh
+      height: 270vh
       padding: 0%
       .imgRow1, .imgRow2
         flex-direction: column
@@ -367,7 +338,6 @@ mouseHorizontal
           font-size: .9rem
       .info-container
         width: 100% 
-        // border: 1px solid black
         .row2
           margin-top: 50px       
         .infoRow
@@ -408,8 +378,6 @@ mouseHorizontal
         position: relative
         text-decoration: none
         color: #EBEBEB
-      .prev::before
-        display: none
       .prev::after
         content: ""
         border: solid
@@ -423,8 +391,6 @@ mouseHorizontal
         position: relative
         text-decoration: none
         color: #EBEBEB
-      .next::before
-        display: none
       .next::after
         content: ""
         border: solid
@@ -462,8 +428,7 @@ mouseHorizontal
           p
             font-size: .9rem
         .info-container
-          width: 100% 
-          // border: 1px solid black
+          width: 100%
           .row2
             margin-top: 50px       
           .infoRow
@@ -496,8 +461,6 @@ mouseHorizontal
           position: relative
           text-decoration: none
           color: #EBEBEB
-        .prev::before
-          display: none
         .prev::after
           content: ""
           border: solid
@@ -510,8 +473,6 @@ mouseHorizontal
           position: relative
           text-decoration: none
           color: #EBEBEB
-        .next::before
-          display: none
         .next::after
           content: ""
           border: solid
@@ -552,8 +513,7 @@ mouseHorizontal
         p
           font-size: .9rem
       .info-container
-        width: 100% 
-        // border: 1px solid black
+        width: 100%
         .row2
           margin-top: 50px       
         .infoRow
@@ -589,8 +549,6 @@ mouseHorizontal
         color: #EBEBEB
         transform: translateX(25px)
         
-      .prev::before
-        display: none
       .prev::after
         content: ""
         border: solid
@@ -604,8 +562,6 @@ mouseHorizontal
         text-decoration: none
         color: #EBEBEB
         transform: translateX(-15px)
-      .next::before
-        display: none
       .next::after
         content: ""
         border: solid
@@ -644,13 +600,6 @@ const imagesR2 = [
   new URL('../../assets/images/yoga/image4.webp', import.meta.url).href
 ];
 
-
-
-// const image1 = new URL('../../assets/images/yoga/image1.webp', import.meta.url).href
-// const image2 = new URL('../../assets/images/yoga/image2.webp', import.meta.url).href
-// const image3 = new URL('../../assets/images/yoga/image3.webp', import.meta.url).href
-// const image4 = new URL('../../assets/images/yoga/image4.webp', import.meta.url).href
-
 // back to top
 
 
@@ -688,25 +637,23 @@ gsap.registerPlugin(ScrollTrigger);
 
 let dotAnimation;
 
+
 onMounted(() => {
+
   dotAnimation = gsap.to(".dot", {
     scale: 12,
     scrollTrigger: {
       trigger: '.dot',
       pin: true,
       scrub: true,
-      markers: true,
+      // markers: true,
       start: "-200px 10%",
       end: "+=3500px",
     },
     ease: 'power2.out'
   });
-})
 
 
-
-const handleResize = () => {
-  if (window.innerWidth > 1280) {
     gsap.fromTo(
     ".fade-span",
     { opacity: .9 },
@@ -730,7 +677,7 @@ const handleResize = () => {
       scrollTrigger: {
         trigger: ".prefaceContent",
         start: "-50% 50%",
-        markers: true,
+        // markers: true,
         toggleActions: "play pause resume reverse",
         duration: 5
       }
@@ -819,16 +766,7 @@ const handleResize = () => {
     }
   );
   } 
-};
-
-onMounted(() => {
-  window.addEventListener('resize', handleResize);
-  handleResize(); // 初始化時檢查一次
-});
-
-onBeforeUnmount(() => {
-  window.removeEventListener('resize', handleResize);
-});
+)
 
 
 
@@ -838,7 +776,6 @@ const clicking = ref(false);
 
 const showForm = () => {
   clicking.value = !clicking.value;
-  // console.log(`showform :  ${clicking.value}`);
 }
 
 

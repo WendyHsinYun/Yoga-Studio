@@ -20,17 +20,16 @@
                         :to="child.link"
                         @click = 'window.location.reload(true);')
                         v-list-item-title {{ child.title }}
-
         router-link.link(to="/contact") 聯絡
 </template>
       
       
 <script setup>
+
 import { RouterLink } from 'vue-router';
 import router from '../router/router';
 import Home from '@/views/Home.vue';
 import Contact from '@/views/Contact.vue';
-
 
 import { ref } from 'vue';
 
@@ -40,18 +39,6 @@ const yogaClass = [
   { title: '空中瑜珈', link: '/classes/AerialYoga'},
 ];
 
-
-// const param = ref(false);
-
-// function paramTrue() {
-//     param.value = true;
-//     emit('dotEvent', param.value);
-// }
-
-// function paramFalse() {
-//     param.value = false;
-//     emit('dotEvent', param.value);
-// }
 
 </script>
     
@@ -78,15 +65,12 @@ const yogaClass = [
             background: url('/lotus.svg') center/contain no-repeat
         .home
             width: 100%
-            // border: 1px solid #565151
             letter-spacing: 3px
             font-size: 16px
             color: #565151
             font-family: "Playfair Display"
             font-weight: 700
             text-align: center
-            // margin-bottom: 5px
-            // padding-right: 5px
     .router-home:hover
         opacity: .5
             
@@ -98,14 +82,12 @@ const yogaClass = [
         justify-content: start
         align-items: start
         color: #565151
-        // background-color: pink
 
         .link
             margin-left: 15%
             margin-top: 50px
             position: relative
             transition: transform 0.5s
-            // background-color: white
             display: flex
             justify-content: center
             align-content: center
@@ -133,8 +115,7 @@ const yogaClass = [
             margin-top: 44px
             margin-left: 18%
             .selection
-                font-size: 16px
-            // background-color: #fff          
+                font-size: 16px    
             
 @media (max-width: 1600px)
     .headerBar

@@ -91,7 +91,7 @@
 @media(min-height: 460px ) and (max-height: 560px )
     .slider-3
         .content            
-            width: 60%
+            width: 50%
             transform: translateY(5%)
             font-size: 13px
             height: 300px

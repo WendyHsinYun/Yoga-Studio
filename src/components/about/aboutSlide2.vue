@@ -81,13 +81,13 @@
 @media(min-height: 460px ) and (max-height: 560px )
     .slider-2
         .content
-            width: 60%
+            width: 50%
             transform: translateY(5%)
             font-size: 14px
             height: 300px
             line-height: 36px
         .about-slider2-role
-            width: 15%
+            width: 10%
 
 @media(min-height: 0px ) and (max-height: 460px )
     .slider-2
