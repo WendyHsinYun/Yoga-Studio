@@ -57,7 +57,7 @@
         location="start"
         style = "letter-spacing: 2px; border-radius: 20px; font-size: 16px;  white-space: wrap; padding: 50px;"
         ) 點擊！留言給卡姊
-    img.role3(src="@/assets/images/vertical-role3.webp")
+    img.role3(src="@/assets/images/loading.webp")
     img.machine(src="@/assets/images/home-slider4-machine.webp")
     .container-bar
   section.calendar 
@@ -208,18 +208,15 @@ mouseHorizontal
 
   .feedback
     height: 90vh
-    .role3:hover
-      transform: rotate(47deg) 
     .role3
-      height: 70vh
+      height: 40vh
       position: absolute
-      top: 35%
-      transform: rotate(54deg)
+      top: 32%
       z-index: 2
     .machine
       position: absolute
       width: 40%
-      top: 70%
+      top: 60%
       transform: rotate(5deg) scaleX(-1)
     .container-bar
       height: 100px
@@ -311,6 +308,17 @@ mouseHorizontal
           font-size: 1.25rem
         p
           font-size: .9rem
+    .feedback
+      .role3
+        height: 30vh
+        position: absolute
+        top: 35%
+        z-index: 2
+      .machine
+        position: absolute
+        width: 40%
+        top: 60%
+        transform: rotate(5deg) scaleX(-1)
     .gallery
       height: 270vh
       padding: 0%
@@ -360,6 +368,17 @@ mouseHorizontal
               font-size: 1.25rem
             p
               font-size: .9rem
+    .feedback
+      .role3
+        height: 25vh
+        position: absolute
+        top: 45%
+        z-index: 2
+      .machine
+        position: absolute
+        width: 50%
+        top: 60%
+        transform: rotate(5deg) scaleX(-1)
     .calendar
       height: 70%
       .btnRouter
@@ -374,13 +393,6 @@ mouseHorizontal
       padding: 0%
       .imgRow1, .imgRow2
         flex-direction: column
-    .feedback
-      .role3
-        height: 60vh
-        position: absolute
-        top: 30%
-        z-index: 2
-
     .footer
       font-size: 12px
       #pagetop
@@ -459,10 +471,15 @@ mouseHorizontal
           flex-direction: column
       .feedback
         .role3
-          height: 60vh
+          height: 25vh
           position: absolute
-          top: 30%
+          top: 45%
           z-index: 2
+        .machine
+          position: absolute
+          width: 50%
+          top: 60%
+          transform: rotate(5deg) scaleX(-1)
       .footer
         font-size: 12px
         #pagetop
@@ -544,10 +561,15 @@ mouseHorizontal
         flex-direction: column
     .feedback
       .role3
-        height: 60vh
+        height: 20vh
         position: absolute
-        top: 30%
+        top: 45%
         z-index: 2
+      .machine
+        position: absolute
+        width: 50%
+        top: 60%
+        transform: rotate(5deg) scaleX(-1)
     .footer
       font-size: 11px
       #pagetop

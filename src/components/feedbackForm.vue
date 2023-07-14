@@ -1,7 +1,7 @@
 <template lang="pug">
-v-form(
+v-form.Vform(
   @submit.prevent='addFeedback'   
-  style ="position: absolute; width: 45%; height: 0px; top: 420vh ; left: 30vw; background-color: pink; z-index: 10;")
+  )
   v-text-field(
     hide-details="true"
     density="comfortable"
@@ -19,9 +19,24 @@ v-form(
   v-btn(color='primary' 
     type='submit' 
     style="color: whitesmoke; width: 20%; padding: 20px; margin-top: 20px; border-radius: 15px; align-content: center; margin-left: 50%; transform: translateX(-50%);" ) 送出
-  //- v-btn.ml-5(color='success' 
-  //-   style="color: whitesmoke; width: 15%; margin-top: 20px; border-radius: 15px") 關閉
 </template>
+
+<style lang='sass' scoped>
+.Vform
+  position: absolute 
+  width: 45% 
+  height: 0px 
+  top: 420vh  
+  left: 30vw 
+  background-color: pink 
+  z-index: 10
+@media (max-width: 1050px)
+  .Vform
+    position: absolute 
+    top: 530vh
+</style>
+
+
 
 <script setup>
 
@@ -44,27 +59,6 @@ const addFeedback = () => {
     });
   };
 
-
-
-// form
-
-// const { handleSubmit, handleReset } = useForm({
-//   validationSchema: {
-//     name(value) {
-//       if (value?.length >= 2) return true
-
-//       return '名字至少需要兩個字元'
-//     },
-//     content(value) {
-//       if (value?.length >= 2 && value?.length <= 35) return true
-
-//       return '請概述您的問題內容'
-//     }
-//   },
-// })
-
-// const name = useField('name')
-// const content = useField('content')
 
 
 </script>

@@ -4,7 +4,7 @@
         .dot
         .title 卡姊瑜珈教室 
         .eng-title Welcome!
-    .scrollReminder 滑動來繼續看
+    .scrollReminder 向右滑動來看
     .image-area
         img.home-slider1-base2(data-swiper-parallax="10%" src="@/assets/images/home-slider3-base.webp")
         img.home-slider1-base(data-swiper-parallax="-10%" src="@/assets/images/home-slider1-base.webp")

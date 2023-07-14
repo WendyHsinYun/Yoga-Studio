@@ -6,7 +6,8 @@
     "serve": "vite preview",
     "build": "vite build",
     "dev": "vite",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "cd dist && cp index.html 404.html"
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
@@ -38,6 +39,7 @@
     "eslint": "^8.42.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-vue": "^9.14.1",
+    "gh-pages": "^5.0.0",
     "pug": "^3.0.2",
     "sass": "^1.63.3",
     "vite": "^4.3.9",
