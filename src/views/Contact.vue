@@ -21,9 +21,9 @@
           height="300" 
           center 
           style="transform: translateY(-30px)")
-            template(v-slot:placeholder='')
-              .d-flex.align-center.justify-center.fill-height
-                v-progress-circular(color='grey-lighten-4' indeterminate='')
+          template(v-slot:placeholder='')
+            .d-flex.align-center.justify-center.fill-height
+              v-progress-circular(color='grey-lighten-4' indeterminate='')
   section.sec2
     v-row(
       justify="center"

@@ -9,11 +9,14 @@ v-container.d-flex.flex-column.vC(style="height: 100vh; width: 100vw; background
     justify="center"
     align="center")
     .r-col.mx-auto(style=" background-color: none; width: 45vh; aspect-ratio: 1 ;  ")
-      .circular.mx-auto( style="border: 1rem solid #2DD98A; width: 100%; height: 100% ; border-radius: 50%;" )
-        v-img.ml-3.mt-5.spinning(
+      .circular.mx-auto( style="border: 0rem solid #2DD98A; width: 100%; height: 100% ; border-radius: 50%;" )
+        v-img.ml-3.mt-10.spinning(
           src="src/assets/images/loading.webp"
           center
-          style="{ width: '80%'}")
+          style="{ width: '70%'}")
+          template(v-slot:placeholder='')
+            .d-flex.align-center.justify-center.fill-height
+              v-progress-circular(color='green-lighten-4' :size="128" :width="12" indeterminate='')
   v-row.row3(justify="center" )
     .remind
       .warmup

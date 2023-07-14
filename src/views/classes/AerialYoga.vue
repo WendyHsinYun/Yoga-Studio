@@ -605,7 +605,6 @@ const imagesR2 = [
 ];
 
 
-
 // back to top
 
 

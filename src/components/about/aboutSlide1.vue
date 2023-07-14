@@ -4,7 +4,7 @@
         .dot
         .title 卡姊的故事 
         .eng-title About Jessica
-    .scrollReminder 滑動來繼續看
+    .scrollReminder 向右滑動來看
 
 </template>
 
