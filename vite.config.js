@@ -21,10 +21,12 @@ export default defineConfig({
       '@' : path.resolve(__dirname, './src')
     },
   },
-  base: process.env.NODE_ENV === 'production' ? '/Yoga-Studio/' : './',
+  // base: process.env.NODE_ENV === 'production' ? '/Yoga-Studio/' : './',
+  base: '/Yoga-Studio/', // for github pages
   plugins: [
 		vue(),
 		vuetify({ autoImport: true }),
-	],
+	]
+
 });
 
