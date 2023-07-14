@@ -2,12 +2,13 @@
   "name": "vue-yoga-app",
   "version": "0.0.0",
   "private": true,
+  "homepage": "https://wendyhsinyun.github.io/Yoga-Studio/",
   "scripts": {
     "serve": "vite preview",
-    "build": "vite build",
+    "build": "vite build --base=/Yoga-Studio/",
     "dev": "vite",
     "preview": "vite preview",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -d build",
     "predeploy": "npm run build"
   },
   "dependencies": {
