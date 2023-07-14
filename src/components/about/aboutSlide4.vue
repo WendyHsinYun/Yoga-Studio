@@ -92,13 +92,13 @@
 @media(min-height: 500px ) and (max-height: 590px )
     .slider-4
         .content
-            width: 70%
+            width: 50%
             transform: translateY(-5%)
             font-size: 13px
             height: 300px
             line-height: 28px
         .about-slider4-role
-            width: 45%
+            width: 30%
             left: 50%
 
 @media(min-height: 0px ) and (max-height: 500px )
