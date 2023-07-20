@@ -16,7 +16,9 @@
           .cardText phone : 0937849328 
           .cardText email : jt126129@gmail.com
         v-img(
-          :src= 'contactImg'
+          :src= 'contactImg'            
+          title='聯繫卡姊' 
+          alt='寫信聯繫卡姊'
           height="300" 
           center 
           style="transform: translateY(-30px)")

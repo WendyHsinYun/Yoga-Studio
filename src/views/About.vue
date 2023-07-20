@@ -21,18 +21,24 @@ swiper(
             img.about-slider2-role(
             data-swiper-parallax="15%" 
             :src="aboutImg1"
+            title='卡姊的故事' 
+            alt='卡姊中年退休後，投身瑜珈志業'
             )
         template(v-if="slide.component === 'aboutSlide3'")
             p {{ slide.data.content }}
             img.about-slider3-role(
             data-swiper-parallax="-20%" 
             :src="aboutImg2"
+            title='卡姊的故事' 
+            alt='卡姊中年退休後，投身瑜珈志業'
             )
         template(v-if="slide.component === 'aboutSlide4'")
             p {{ slide.data.content }}
             img.about-slider4-role(
             data-swiper-parallax="10%" 
             :src="aboutImg3"
+            title='卡姊的故事' 
+            alt='卡姊考取各類瑜珈證照'
             )
 
 mouseHorizontal

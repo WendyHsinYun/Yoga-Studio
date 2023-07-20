@@ -10,7 +10,7 @@ swiper(
   )
   .parallax-bg(
     slot="container-start"
-    :style="{'background': 'url(../src/assets/images/bg-line.webp) no-repeat' }"
+    :style="{'background': `url(${parallaxBg}) no-repeat` }"
     data-swiper-parallax='-20%')
   swiper-slide(v-for="(slide, index) in slides" :key="index")
     template(v-if="slide.component === 'homeSlide1'")
@@ -26,15 +26,18 @@ swiper(
         .image-area
           img.slider1-base2(
             data-swiper-parallax="10%"
-            :src="slide.image.base2"
+            :src="homeSlide1Base2"
+            alt='卡姊瑜珈教室'
           )
           img.slider1-base(
             data-swiper-parallax="-10%"
-            :src="slide.image.base1"
+            :src="homeSlide1Base1"
+            alt='卡姊瑜珈教室'
           )
           img.slider1-role(
             data-swiper-parallax="30%"
-            :src="slide.image.role"
+            :src="homeSlide1Role"
+            alt='卡姊瑜珈教室'
           )
     template(v-if="slide.component === 'homeSlide2'")
       .slide.slide2
@@ -49,10 +52,12 @@ swiper(
         .image-area
           img.slider2-base(
             data-swiper-parallax="-20%" 
-            :src="slide.image.base")
+            :src="homeSlide2Base"
+            alt='卡姊瑜珈教室')
           img.slider2-role(
             data-swiper-parallax="10%" 
-            :src="slide.image.role"
+            :src="homeSlide2Role"
+            alt='卡姊瑜珈教室'
           )
     template(v-if="slide.component === 'homeSlide3'")
       .slide.slide3
@@ -67,10 +72,13 @@ swiper(
         .image-area
           img.slider3-base(
             data-swiper-parallax="-20%" 
-            :src="slide.image.base")
+            :src="homeSlide3Base"
+            alt='瑜珈課'
+            )
           img.slider3-role(
             data-swiper-parallax="0%" 
-            :src="slide.image.role")
+            :src="homeSlide3Role"
+            alt='瑜珈課')
     template(v-if="slide.component === 'homeSlide4'")
       .slide.slide4
         .dot-container
@@ -84,15 +92,18 @@ swiper(
         .image-area  
           img.slider4-base(
             data-swiper-parallax="-10%" 
-            :src="slide.image.base"
+            :src="homeSlide4Base"
+            alt='機械皮拉提斯課'
             )
           img.slider4-role(
             data-swiper-parallax="0%" 
-            :src="slide.image.role"
+            :src="homeSlide4Role"
+            alt='機械皮拉提斯課'
             )
           img.slider4-machine(
             data-swiper-parallax="-30%" 
-            :src="slide.image.machine"
+            :src="homeSlide4Machine"
+            alt='機械皮拉提斯課'
             )
     template(v-if="slide.component === 'homeSlide5'")
       .slide.slide5
@@ -107,15 +118,18 @@ swiper(
         .image-area      
           img.slider5-role(
             data-swiper-parallax="0%" 
-            :src="slide.image.role"
+            :src="homeSlide5Role"
+            alt='空中瑜珈課'
             )
           img.slider5-base2(
             data-swiper-parallax="5%" 
-            :src="slide.image.base2"
+            :src="homeSlide5Base2"
+            alt='空中瑜珈課'
             )
           img.slider5-base(
             data-swiper-parallax="-20%"
-            :src="slide.image.base1"
+            :src="homeSlide5Base1"
+            alt='空中瑜珈課'
             ) 
 mouseHorizontal
 </template>
@@ -136,6 +150,23 @@ import mouseHorizontal from '@/components/mouseHorizontal.vue';
 import 'swiper/css';
 import "swiper/css/navigation";
 
+import parallaxBg from '/src/assets/images/bg-line.webp'
+
+import homeSlide1Base1 from '/src/assets/images/home-slider1-base.webp';
+import homeSlide1Base2 from '/src/assets/images/home-slider3-base.webp';
+import homeSlide1Role from '/src/assets/images/home-slider1-role.webp';
+import homeSlide2Base from '/src/assets/images/home-slider2-intro.webp';
+import homeSlide2Role from '/src/assets/images/intro.webp';
+import homeSlide3Base from '/src/assets/images/home-slider2-base.webp';
+import homeSlide3Role from '/src/assets/images/home-slider2-role.webp';
+import homeSlide4Base from '/src/assets/images/home-slider1-base2.webp';
+import homeSlide4Role from '/src/assets/images/home-slider3-role.webp';
+import homeSlide4Machine from '/src/assets/images/home-slider4-machine.webp';
+import homeSlide5Base1 from '/src/assets/images/home-slider4-base.webp';
+import homeSlide5Base2 from '/src/assets/images/home-slider4-base2.webp';
+import homeSlide5Role from '/src/assets/images/home-slider4-role.webp';
+
+
 const components = {
   Swiper,
   SwiperSlide,
@@ -154,30 +185,24 @@ function resetDot() {
     isDotScaled.value = false;
 }
 
-// dot router
-
 // slides component
 
 const slides = ref([
   { component: 'homeSlide1', 
     data:{ title: '卡姊瑜珈教室', engTitle: 'Welcome!', scrollReminder: '向右滑動來看', backgroundColor: '#2DD98A'}, 
-    image: { base1: '../src/assets/images/home-slider1-base.webp', base2: '../src/assets/images/home-slider3-base.webp', role: '../src/assets/images/home-slider1-role.webp'} },
+    },
   
   { component: 'homeSlide2', 
-    data:{ title: '卡姊師資經歷', experience: '<div class="experience">RYT 200 美國瑜珈聯盟瑜珈師資證照<br />AFAA 國際皮拉提斯師資證照<br />KX 機械皮拉提斯教練培訓<br />30 小時空瑜師資培訓<br />體育署初級體適能指導員</div>', backgroundColor: '#EB5F7D' }, 
-    image:{base:'../src/assets/images/home-slider2-intro.webp', role: '../src/assets/images/intro.webp'} },
+    data:{ title: '卡姊師資經歷', experience: '<div class="experience">RYT 200 美國瑜珈聯盟瑜珈師資證照<br />AFAA 國際皮拉提斯師資證照<br />KX 機械皮拉提斯教練培訓<br />30 小時空瑜師資培訓<br />體育署初級體適能指導員</div>', backgroundColor: '#EB5F7D' } },
  
   { component: 'homeSlide3', 
-    data: { title: '瑜珈課 Yoga', intro: '透過墊上運動，就能矯正體態、加強體能與消耗熱量。', backgroundColor: '#FFA245' }, 
-    image: {base: '../src/assets/images/home-slider2-base.webp', role: '../src/assets/images/home-slider2-role.webp'} },
+    data: { title: '瑜珈課 Yoga', intro: '透過墊上運動，就能矯正體態、加強體能與消耗熱量。', backgroundColor: '#FFA245' } },
 
   { component: 'homeSlide4', 
-    data: { title: '機械皮拉提斯 KX Pilates', intro: '利用器材輔助，提升身體感受力，針對局部的肌力加強。', backgroundColor: '#9f7f60' },  
-    image: { base: '../src/assets/images/home-slider1-base2.webp', role:'../src/assets/images/home-slider3-role.webp', machine:'../src/assets/images/home-slider4-machine.webp' } },
+    data: { title: '機械皮拉提斯 KX Pilates', intro: '利用器材輔助，提升身體感受力，針對局部的肌力加強。', backgroundColor: '#9f7f60' }},
 
   { component: 'homeSlide5', 
-    data: { title: '空中瑜珈 Aerial Yoga', intro: '利用懸吊的掛布，透過地心引力增加身體協調、平衡及穩定性。', backgroundColor: '#D2DA40'}, 
-    image: { base1: '../src/assets/images/home-slider4-base.webp', base2: '../src/assets/images/home-slider4-base2.webp', role: '../src/assets/images/home-slider4-role.webp' } },
+    data: { title: '空中瑜珈 Aerial Yoga', intro: '利用懸吊的掛布，透過地心引力增加身體協調、平衡及穩定性。', backgroundColor: '#D2DA40'} },
 ]);
 
 

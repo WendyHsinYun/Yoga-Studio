@@ -57,7 +57,7 @@
         location="start"
         style = "letter-spacing: 2px; border-radius: 20px; font-size: 16px;  white-space: wrap; padding: 50px;"
         ) 點擊！留言給卡姊
-    img.role2(src="@/assets/images/vertical-role2.webp")
+    img.role2(src="@/assets/images/vertical-role2.webp" title='留言給卡姊' alt='學生留言推薦卡姊瑜珈課')
     .container-bar
   section.calendar 
     CalendarVue

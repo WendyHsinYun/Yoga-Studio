@@ -57,8 +57,8 @@
         location="start"
         style = "letter-spacing: 2px; border-radius: 20px; font-size: 16px;  white-space: wrap; padding: 50px;"
         ) 點擊！留言給卡姊
-    img.role3(src="@/assets/images/loading.webp")
-    img.machine(src="@/assets/images/home-slider4-machine.webp")
+    img.role3(src="@/assets/images/loading.webp" title='留言給卡姊' alt='學生留言推薦卡姊瑜珈課')
+    img.machine(src="@/assets/images/home-slider4-machine.webp" title='留言給卡姊' alt='學生留言推薦卡姊瑜珈課' )
     .container-bar
   section.calendar 
     CalendarVue
@@ -679,7 +679,7 @@ onMounted(() => {
 
   dotAnimation = gsap.to(".dot", {
     scale: 12,
-    opacity: 0.3,
+    opacity: 0.2,
     scrollTrigger: {
       trigger: '.dot',
       pin: true,

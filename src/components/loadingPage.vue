@@ -12,6 +12,8 @@
       .circular.mx-auto
         v-img.ml-3.mt-10.spinning(
           :src="loadingImg"
+          title='卡姊瑜珈課' 
+          alt='卡姊瑜珈教室載入中'
           center
           style="{ width: '70%'}")
           template(v-slot:placeholder='')
@@ -47,8 +49,9 @@
     height: 40vh
     .circular
       border: 0rem solid #2DD98A
-      width: 100%
-      height: 100% 
+      width: 70%
+      height: auto
+      margin-top: 10%
       border-radius: 50%
       .spinning 
         animation: spin .8s ease-in-out infinite
@@ -90,16 +93,15 @@
 @media (min-width: 0px) and (max-width: 840px)
   .loading-container
     .row1
-      margin-top: 80px
+      margin-top: 120px
       .progress-num
         font-size: 28px
     .row2
       margin-top: 30px
       height: 40vh 
-      .circular
-        .spinning
-          width: 70%
-          left: 15%
+      .circular      
+        width: 70%
+        height: auto
 
 
 @media (min-height: 0px) and (max-height: 450px)
@@ -111,9 +113,11 @@
     .row2
       margin-top: 30px
       height: 40vh 
+      .circular      
+        width: 70%
+        height: auto
     .row3
       margin-top: 5%
-      // height: 40vh 
       .remind-container
         font-size: 16px
 
