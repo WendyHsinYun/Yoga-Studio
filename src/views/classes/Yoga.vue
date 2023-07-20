@@ -65,9 +65,9 @@
       v-btn.reserve-btn 預約課程
       
   section.footer
-    a.prev(:href="AerialYoga") 空中瑜珈
+    router-link.prev(to='/classes/AerialYoga') 空中瑜珈
     v-btn#pagetop(@click="toTop" variant="outlined") 回到頂端 
-    a.next(href="/classes/KXPilates") 機械式皮拉提斯
+    router-link.next(to='/classes/KXPilates') 機械式皮拉提斯
 
 mouseHorizontal
 </template>

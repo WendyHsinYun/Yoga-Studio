@@ -103,7 +103,6 @@ import emailjs from 'emailjs-com';
 
 import contactImg from '/src/assets/images/contact.webp'
 
-console.log(contactImg)
 
 const { handleSubmit, handleReset } = useForm({
   validationSchema: {

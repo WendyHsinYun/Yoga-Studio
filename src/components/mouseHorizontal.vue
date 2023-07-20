@@ -8,6 +8,9 @@
 
 import { ref, onMounted, onUnmounted, computed } from 'vue';
 
+import mouseRight from '/src/assets/images/mouse_right.svg'
+import mouseMiddle from '/src/assets/images/mouse_center.svg'
+import mouseClick from '/src/assets/images/mouse_click.svg'
 
 // mouse effect 
 const isMouseRight = ref(false);
@@ -59,7 +62,7 @@ const mouseClass = computed(() => {
   position: fixed
   width: 50px
   height: 50px
-  background-image: url('./src/assets/images/mouse_right.svg')
+  background-image: url(mouseRight)
   background-repeat: no-repeat
   background-position: center
   pointer-events: none 
@@ -69,7 +72,7 @@ const mouseClass = computed(() => {
   position: fixed
   width: 50px
   height: 50px
-  background-image: url('./src/assets/images/mouse_right.svg')
+  background-image: url(mouseRight)
   transform: scaleX(-1)
   background-repeat: no-repeat
   background-position: center
@@ -79,7 +82,7 @@ const mouseClass = computed(() => {
   position: fixed
   width: 50px
   height: 50px
-  background-image: url('./src/assets/images/mouse_center.svg')
+  background-image: url(mouseMiddle) 
   background-repeat: no-repeat
   background-position: center
   pointer-events: none 
@@ -91,7 +94,7 @@ const mouseClass = computed(() => {
   height: 50px
   right: 50%
   top: 30%
-  background-image: url('./src/assets/images/mouse_click.svg')
+  background-image: url(mouseClick)
   background-repeat: no-repeat
   background-position: center
   pointer-events: none 

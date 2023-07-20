@@ -22,11 +22,9 @@ let mouseStyle;
 
 onMounted(() => {
   const mouseStyle = (e) => {
-    const pageHeight = window.innerHeight * 6; // 600vh = 6倍的窗口高度
+    const pageHeight = window.innerHeight * 6;
     isMouseUp.value = e.clientY > pageHeight / 2;
     isMouseDown.value = e.clientY < pageHeight / 2;
-    // isMouseUp.value = e.clientY > window.innerHeight / 2;
-    // isMouseDown.value = e.clientY < window.innerHeight / 2;
     divLeft.value = e.clientX + 'px';
     divTop.value = e.clientY + 'px';
   };

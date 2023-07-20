@@ -16,11 +16,10 @@ swiper(
     template(v-if="slide.component === 'homeSlide1'")
       .slide.slide1
         .dot-container
-          router-link(to="/about")
-            .dot(:class="{ 'dot-scaled': isDotScaled }"
-              @mouseover="scaleDot"
-              @mouseleave="resetDot" 
-              :style="{ 'background-color': slide.data.backgroundColor }")
+          .dot(:class="{ 'dot-scaled': isDotScaled }"
+            @mouseover="scaleDot"
+            @mouseleave="resetDot" 
+            :style="{ 'background-color': slide.data.backgroundColor }")
           .title {{ slide.data.title }}
           .eng-title {{ slide.data.engTitle }}
         .scrollReminder {{ slide.data.scrollReminder }}
@@ -40,10 +39,11 @@ swiper(
     template(v-if="slide.component === 'homeSlide2'")
       .slide.slide2
         .dot-container
-          .dot(:class="{ 'dot-scaled': isDotScaled }"
-            @mouseover="scaleDot"
-            @mouseleave="resetDot" 
-            :style="{ 'background-color': slide.data.backgroundColor }")
+          router-link(to="/about")
+            .dot(:class="{ 'dot-scaled': isDotScaled }"
+              @mouseover="scaleDot"
+              @mouseleave="resetDot" 
+              :style="{ 'background-color': slide.data.backgroundColor }")
           .title {{ slide.data.title }}
           .experience(v-html="slide.data.experience")
         .image-area
@@ -57,10 +57,11 @@ swiper(
     template(v-if="slide.component === 'homeSlide3'")
       .slide.slide3
         .dot-container
-          .dot(:class="{ 'dot-scaled': isDotScaled }"
-            @mouseover="scaleDot"
-            @mouseleave="resetDot" 
-            :style="{ 'background-color': slide.data.backgroundColor }")
+          router-link(to='/classes/yoga')
+            .dot(:class="{ 'dot-scaled': isDotScaled }"
+              @mouseover="scaleDot"
+              @mouseleave="resetDot" 
+              :style="{ 'background-color': slide.data.backgroundColor }")
           .title {{ slide.data.title }}
           .intro {{ slide.data.intro }}
         .image-area
@@ -73,10 +74,11 @@ swiper(
     template(v-if="slide.component === 'homeSlide4'")
       .slide.slide4
         .dot-container
-          .dot(:class="{ 'dot-scaled': isDotScaled }"
-            @mouseover="scaleDot"
-            @mouseleave="resetDot" 
-            :style="{ 'background-color': slide.data.backgroundColor }")
+          router-link(to='/classes/KXPilates')
+            .dot(:class="{ 'dot-scaled': isDotScaled }"
+              @mouseover="scaleDot"
+              @mouseleave="resetDot" 
+              :style="{ 'background-color': slide.data.backgroundColor }")
           .title {{ slide.data.title }}
           .intro {{ slide.data.intro }}
         .image-area  
@@ -95,10 +97,11 @@ swiper(
     template(v-if="slide.component === 'homeSlide5'")
       .slide.slide5
         .dot-container
-          .dot(:class="{ 'dot-scaled': isDotScaled }"
-            @mouseover="scaleDot"
-            @mouseleave="resetDot" 
-            :style="{ 'background-color': slide.data.backgroundColor }")
+          router-link(to='/classes/AerialYoga')
+            .dot(:class="{ 'dot-scaled': isDotScaled }"
+              @mouseover="scaleDot"
+              @mouseleave="resetDot" 
+              :style="{ 'background-color': slide.data.backgroundColor }")
           .title {{ slide.data.title }}
           .intro {{ slide.data.intro }}
         .image-area      
