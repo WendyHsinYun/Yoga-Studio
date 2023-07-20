@@ -16,7 +16,7 @@
           .cardText phone : 0937849328 
           .cardText email : jt126129@gmail.com
         v-img(
-          src="../src/assets/images/contact.webp"
+          :src= 'contactImg'
           height="300" 
           center 
           style="transform: translateY(-30px)")
@@ -101,6 +101,9 @@ import { useField, useForm } from 'vee-validate'
 
 import emailjs from 'emailjs-com';
 
+import contactImg from '/src/assets/images/contact.webp'
+
+console.log(contactImg)
 
 const { handleSubmit, handleReset } = useForm({
   validationSchema: {

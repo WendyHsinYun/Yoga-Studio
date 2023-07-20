@@ -7,7 +7,7 @@ swiper(
     :mousewheel="true")
     .parallax-bg(
         slot="container-start"
-        :style="{'background': 'url(../src/assets/images/bg-line.webp) no-repeat' }"
+        :style="{ 'background': `url(${parallaxBg}) no-repeat` }"
         data-swiper-parallax='-45%')
     swiper-slide(v-for="(slide, index) in slides" :key="index")
         template(v-if="slide.component === 'aboutSlide1'")
@@ -20,19 +20,19 @@ swiper(
             p {{ slide.data.content }}
             img.about-slider2-role(
             data-swiper-parallax="15%" 
-            :src="slide.data.imageSrc"
+            :src="aboutImg1"
             )
         template(v-if="slide.component === 'aboutSlide3'")
             p {{ slide.data.content }}
             img.about-slider3-role(
             data-swiper-parallax="-20%" 
-            :src="slide.data.imageSrc"
+            :src="aboutImg2"
             )
         template(v-if="slide.component === 'aboutSlide4'")
             p {{ slide.data.content }}
             img.about-slider4-role(
             data-swiper-parallax="10%" 
-            :src="slide.data.imageSrc"
+            :src="aboutImg3"
             )
 
 mouseHorizontal
@@ -49,6 +49,13 @@ import "swiper/css/navigation";
 
 import mouseHorizontal from '@/components/mouseHorizontal.vue';
 
+import parallaxBg from '/src/assets/images/bg-line.webp'
+
+import aboutImg1 from '/src/assets/images/about-slider2-role.webp'
+import aboutImg2 from '/src/assets/images/about-slider3-role.webp'
+import aboutImg3 from '/src/assets/images/about-slider4-role.webp'
+
+
 const components = {
     Swiper,
     SwiperSlide,
@@ -61,9 +68,9 @@ import { ref } from 'vue';
 
 const slides = [
   { component: 'aboutSlide1', data: { title: '卡姊的故事', engTitle: 'About Jessica', scrollReminder: '向右滑動來看' } },
-  { component: 'aboutSlide2', data: { content: '卡姊 50 歲後從公關公司負責人退休後，考取中正大學成人教育研究所，積極推廣退休後的第二人生觀念，不只是要為自己的財富做規劃，也要對自己的「健康儲蓄」做規劃。才能在邁向高齡的生活更強壯、自由，於是卡姊積極地加入各種體育活動。', imageSrc: '../src/assets/images/about-slider2-role.webp' } },
-  { component: 'aboutSlide3', data: { content: '卡姊除了唸成人教育研究所之外，也去考了台科大的 EMBA 研究所，在此認識了許多運動的愛好者，每周末都投入馬拉松、單車、爬山等戶外運動。後來卡姊選擇以瑜珈作為志業，因為瑜珈是不受地點限制的運動，且對肌力及核心穩定度也有高度的要求，更能為身心平衡帶來益處。', imageSrc: '../src/assets/images/about-slider3-role.webp' } },
-  { component: 'aboutSlide4', data: { content: '現在的卡姊除了有 RYT200 美國瑜珈聯盟瑜珈師資證照、AFAA 國際皮拉提斯師資證照、初級體適能指導員資格，也通過了 KX 機械皮拉提斯教練培訓、30 小時空瑜師資培訓等等。此外，卡姊也積極參與各種體適能研習，2023 下半年更要進修運動科學研究所。\n\n讓我們跟卡姊一起擁抱瑜珈，讓身心優雅盛放。', imageSrc: '../src/assets/images/about-slider4-role.webp' } },
+  { component: 'aboutSlide2', data: { content: '卡姊 50 歲後從公關公司負責人退休後，考取中正大學成人教育研究所，積極推廣退休後的第二人生觀念，不只是要為自己的財富做規劃，也要對自己的「健康儲蓄」做規劃。才能在邁向高齡的生活更強壯、自由，於是卡姊積極地加入各種體育活動。'} },
+  { component: 'aboutSlide3', data: { content: '卡姊除了唸成人教育研究所之外，也去考了台科大的 EMBA 研究所，在此認識了許多運動的愛好者，每周末都投入馬拉松、單車、爬山等戶外運動。後來卡姊選擇以瑜珈作為志業，因為瑜珈是不受地點限制的運動，且對肌力及核心穩定度也有高度的要求，更能為身心平衡帶來益處。'} },
+  { component: 'aboutSlide4', data: { content: '現在的卡姊除了有 RYT200 美國瑜珈聯盟瑜珈師資證照、AFAA 國際皮拉提斯師資證照、初級體適能指導員資格，也通過了 KX 機械皮拉提斯教練培訓、30 小時空瑜師資培訓等等。此外，卡姊也積極參與各種體適能研習，2023 下半年更要進修運動科學研究所。\n\n讓我們跟卡姊一起擁抱瑜珈，讓身心優雅盛放。'} },
 ];
 
 </script>

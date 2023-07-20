@@ -11,7 +11,7 @@
     .r-col.mx-auto(style=" width: 45vh; aspect-ratio: 1 ;  ")
       .circular.mx-auto
         v-img.ml-3.mt-10.spinning(
-          src="src/assets/images/loading.webp"
+          :src="loadingImg"
           center
           style="{ width: '70%'}")
           template(v-slot:placeholder='')
@@ -123,6 +123,9 @@
 <script setup>
 
 import { ref, onMounted } from 'vue';
+
+import loadingImg from '/src/assets/images/loading.webp'
+
 
 const loading = ref(true);
 const progress = ref(0);
