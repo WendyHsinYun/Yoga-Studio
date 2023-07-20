@@ -50,10 +50,6 @@ const mouseClass = computed(() => {
   return '';
 });
 
-import mouseRight from '/mouse_right.svg'
-import mouseMiddle from '/mouse_center.svg'
-import mouseClick from '/mouse_click.svg'
-
 </script>
 
 <style lang="sass" scoped>

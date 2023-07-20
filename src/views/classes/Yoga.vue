@@ -63,13 +63,10 @@
     CalendarVue
     router-link.router-container(to="/contact")
       v-btn.reserve-btn 預約課程
-      
   section.footer
     router-link.prev(to='/classes/AerialYoga') 空中瑜珈
     v-btn#pagetop(@click="toTop" variant="outlined") 回到頂端 
     router-link.next(to='/classes/KXPilates') 機械式皮拉提斯
-
-mouseHorizontal
 </template>
  
 
@@ -85,8 +82,6 @@ import router from '@/router/router';
 import carouselSwiper from '@/components/carouselSwiper.vue'
 import feedbackForm from '@/components/feedbackForm.vue';
 import CalendarVue from '@/components/calendarVue.vue';
-import mouseHorizontal from '@/components/mouseHorizontal.vue';
-
 import AerialYoga from '@/views/classes/AerialYoga.vue';
 
 // image URL

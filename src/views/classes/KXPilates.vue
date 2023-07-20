@@ -69,9 +69,6 @@
     router-link.prev(to='/classes/yoga') 瑜珈
     v-btn#pagetop(@click="toTop" variant="outlined") 回到頂端 
     router-link.next(to='/classes/AerialYoga') 空中瑜珈
-
-
-mouseHorizontal
 </template>
   
     
@@ -623,7 +620,6 @@ import router from '@/router/router';
 import carouselSwiper from '@/components/carouselSwiper.vue'
 import feedbackForm from '@/components/feedbackForm.vue';
 import CalendarVue from '@/components/calendarVue.vue';
-import mouseHorizontal from '@/components/mouseHorizontal.vue';
 
 // image URL
 
