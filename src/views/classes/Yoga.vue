@@ -66,7 +66,8 @@
   section.footer
     router-link.prev(to='/classes/AerialYoga') 空中瑜珈
     v-btn#pagetop(@click="toTop" variant="outlined") 回到頂端 
-    router-link.next(to='/classes/KXPilates') 機械式皮拉提斯
+    a.next(href="/classes/KXPilates") 機械式皮拉提斯
+    
 </template>
  
 
@@ -83,6 +84,10 @@ import carouselSwiper from '@/components/carouselSwiper.vue'
 import feedbackForm from '@/components/feedbackForm.vue';
 import CalendarVue from '@/components/calendarVue.vue';
 import AerialYoga from '@/views/classes/AerialYoga.vue';
+
+const refreshPage = () => {
+  window.location.reload();
+};
 
 // image URL
 
@@ -142,7 +147,6 @@ onMounted(() => {
       trigger: '.dot',
       pin: true,
       scrub: true,
-      // markers: true,
       start: "-200px 10%",
       end: "+=3500px",
     },
