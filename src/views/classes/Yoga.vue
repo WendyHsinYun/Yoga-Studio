@@ -65,13 +65,222 @@
       v-btn.reserve-btn 預約課程
       
   section.footer
-    a.prev(href="/classes/AerialYoga") 空中瑜珈
+    a.prev(:href="AerialYoga") 空中瑜珈
     v-btn#pagetop(@click="toTop" variant="outlined") 回到頂端 
     a.next(href="/classes/KXPilates") 機械式皮拉提斯
 
 mouseHorizontal
 </template>
+ 
+
+
+<script setup>
+
+
+import { onMounted, onUnmounted, ref, onBeforeUnmount  } from 'vue';
+
+import { RouterLink } from 'vue-router';
+import router from '@/router/router';
+
+import carouselSwiper from '@/components/carouselSwiper.vue'
+import feedbackForm from '@/components/feedbackForm.vue';
+import CalendarVue from '@/components/calendarVue.vue';
+import mouseHorizontal from '@/components/mouseHorizontal.vue';
+
+import AerialYoga from '@/views/classes/AerialYoga.vue';
+
+// image URL
+
+const imagesR1 = [
+  new URL('../../assets/images/yoga/image1.webp', import.meta.url).href,
+  new URL('../../assets/images/yoga/image2.webp', import.meta.url).href,
+];
+
+const imagesR2 = [
+  new URL('../../assets/images/yoga/image3.webp', import.meta.url).href,
+  new URL('../../assets/images/yoga/image4.webp', import.meta.url).href
+];
+
+// back to top
+
+
+const scTimer = ref(0);
+const scY = ref(0);
+
+const handleScroll = () => {
+  if (scTimer.value) return;
+  scTimer.value = setTimeout(() => {
+    scY.value = window.scrollY;
+    clearTimeout(scTimer.value);
+    scTimer.value = 0;
+  }, 100);
+};
+
+const toTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+};
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+});
+
+
+// animation
+
+import gsap from 'gsap';
+
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+let dotAnimation;
+
+
+onMounted(() => {
+
+  dotAnimation = gsap.to(".dot", {
+    scale: 12,
+    scrollTrigger: {
+      trigger: '.dot',
+      pin: true,
+      scrub: true,
+      // markers: true,
+      start: "-200px 10%",
+      end: "+=3500px",
+    },
+    ease: 'power2.out'
+  });
+
+
+    gsap.fromTo(
+    ".fade-span",
+    { opacity: .9 },
+    { 
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".fade-span",
+        start: "-150px 50%",
+        // markers: true,
+        duration: 2
+      }
+    }
+  );
+
+  gsap.fromTo(
+    ".preface-content", 
+    { opacity: 0, y: 0 },
+    { 
+      opacity: .9,
+      y: -50,
+      scrollTrigger: {
+        trigger: ".preface-content",
+        start: "-50% 50%",
+        // markers: true,
+        toggleActions: "play pause resume reverse",
+        duration: 5
+      }
+    }
+  );
+
+  gsap.fromTo(
+    ".row1", 
+    { opacity: 0, y: -150 },
+    { 
+      opacity: .9,
+      y: -200,
+      scrollTrigger: {
+        trigger: ".row1",
+        start: "-200% 50%",
+        // markers: true,
+        toggleActions: "play pause resume reverse",
+        duration: 5
+      }
+    }
+  );
+
+  gsap.fromTo(
+    ".row2", 
+    { opacity: 0, y: -150 },
+    { 
+      opacity: .9,
+      y: -200,
+      scrollTrigger: {
+        trigger: ".row2",
+        start: "-200% 50%",
+        // markers: true,
+        toggleActions: "play pause resume reverse",
+        duration: 5
+      }
+    }
+  );
+
   
+  gsap.fromTo(
+    ".role2", 
+    { opacity: 0, x: 100 },
+    { 
+      opacity: 1,
+      x: 0,
+      scrollTrigger: {
+        trigger: ".role2",
+        start: "-400px 50%",
+        // markers: true,
+        toggleActions: "play pause resume reverse",
+        duration: 5
+      }
+    }
+  );
+
+  gsap.fromTo(
+    ".img-row1", 
+    { opacity: 0, x: 200 },
+    { 
+      opacity: 1,
+      x: 0,
+      scrollTrigger: {
+        trigger: ".img-row1",
+        start: "-150px 80%",
+        // markers: true,
+        toggleActions: "play pause resume reverse",
+        duration: 10
+      }
+    }
+  );
+
+
+  gsap.fromTo(
+    ".img-row2", 
+    { opacity: 0, x: -200 },
+    { 
+      opacity: 1,
+      x: 0,
+      scrollTrigger: {
+        trigger: ".img-row2",
+        start: "-150px 80%",
+        // markers: true,
+        toggleActions: "play pause resume reverse",
+        duration: 10
+      }
+    }
+  );
+  } 
+)
+
+
+
+// form
+
+const clicking = ref(false);
+
+const showForm = () => {
+  clicking.value = !clicking.value;
+}
+
+
+</script>
     
 <style lang='sass' scoped>
 * 
@@ -575,210 +784,3 @@ mouseHorizontal
 </style>
 
 
-
-
-<script setup>
-
-
-import { onMounted, onUnmounted, ref, onBeforeUnmount  } from 'vue';
-
-import { RouterLink } from 'vue-router';
-import router from '@/router/router';
-
-import carouselSwiper from '@/components/carouselSwiper.vue'
-import feedbackForm from '@/components/feedbackForm.vue';
-import CalendarVue from '@/components/calendarVue.vue';
-import mouseHorizontal from '@/components/mouseHorizontal.vue';
-
-// image URL
-
-const imagesR1 = [
-  new URL('../../assets/images/yoga/image1.webp', import.meta.url).href,
-  new URL('../../assets/images/yoga/image2.webp', import.meta.url).href,
-];
-
-const imagesR2 = [
-  new URL('../../assets/images/yoga/image3.webp', import.meta.url).href,
-  new URL('../../assets/images/yoga/image4.webp', import.meta.url).href
-];
-
-// back to top
-
-
-const scTimer = ref(0);
-const scY = ref(0);
-
-const handleScroll = () => {
-  if (scTimer.value) return;
-  scTimer.value = setTimeout(() => {
-    scY.value = window.scrollY;
-    clearTimeout(scTimer.value);
-    scTimer.value = 0;
-  }, 100);
-};
-
-const toTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-};
-
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
-});
-
-
-// animation
-
-import gsap from 'gsap';
-
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
-
-let dotAnimation;
-
-
-onMounted(() => {
-
-  dotAnimation = gsap.to(".dot", {
-    scale: 12,
-    scrollTrigger: {
-      trigger: '.dot',
-      pin: true,
-      scrub: true,
-      // markers: true,
-      start: "-200px 10%",
-      end: "+=3500px",
-    },
-    ease: 'power2.out'
-  });
-
-
-    gsap.fromTo(
-    ".fade-span",
-    { opacity: .9 },
-    { 
-      opacity: 0,
-      scrollTrigger: {
-        trigger: ".fade-span",
-        start: "-150px 50%",
-        // markers: true,
-        duration: 2
-      }
-    }
-  );
-
-  gsap.fromTo(
-    ".preface-content", 
-    { opacity: 0, y: 0 },
-    { 
-      opacity: .9,
-      y: -50,
-      scrollTrigger: {
-        trigger: ".preface-content",
-        start: "-50% 50%",
-        // markers: true,
-        toggleActions: "play pause resume reverse",
-        duration: 5
-      }
-    }
-  );
-
-  gsap.fromTo(
-    ".row1", 
-    { opacity: 0, y: -150 },
-    { 
-      opacity: .9,
-      y: -200,
-      scrollTrigger: {
-        trigger: ".row1",
-        start: "-200% 50%",
-        // markers: true,
-        toggleActions: "play pause resume reverse",
-        duration: 5
-      }
-    }
-  );
-
-  gsap.fromTo(
-    ".row2", 
-    { opacity: 0, y: -150 },
-    { 
-      opacity: .9,
-      y: -200,
-      scrollTrigger: {
-        trigger: ".row2",
-        start: "-200% 50%",
-        // markers: true,
-        toggleActions: "play pause resume reverse",
-        duration: 5
-      }
-    }
-  );
-
-  
-  gsap.fromTo(
-    ".role2", 
-    { opacity: 0, x: 100 },
-    { 
-      opacity: 1,
-      x: 0,
-      scrollTrigger: {
-        trigger: ".role2",
-        start: "-400px 50%",
-        // markers: true,
-        toggleActions: "play pause resume reverse",
-        duration: 5
-      }
-    }
-  );
-
-  gsap.fromTo(
-    ".img-row1", 
-    { opacity: 0, x: 200 },
-    { 
-      opacity: 1,
-      x: 0,
-      scrollTrigger: {
-        trigger: ".img-row1",
-        start: "-150px 80%",
-        // markers: true,
-        toggleActions: "play pause resume reverse",
-        duration: 10
-      }
-    }
-  );
-
-
-  gsap.fromTo(
-    ".img-row2", 
-    { opacity: 0, x: -200 },
-    { 
-      opacity: 1,
-      x: 0,
-      scrollTrigger: {
-        trigger: ".img-row2",
-        start: "-150px 80%",
-        // markers: true,
-        toggleActions: "play pause resume reverse",
-        duration: 10
-      }
-    }
-  );
-  } 
-)
-
-
-
-// form
-
-const clicking = ref(false);
-
-const showForm = () => {
-  clicking.value = !clicking.value;
-}
-
-
-</script>
