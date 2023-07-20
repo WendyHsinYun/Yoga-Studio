@@ -1,15 +1,15 @@
 <template lang="pug">
-v-container.d-flex.flex-column.vC(style="height: 100vh; width: 100vw; background-color: none ;")
+.loading-container
   v-row.row1.h-10(
     justify="center" 
     align="center")
-    .progressNum.pl-5 {{ progress }} %
+    .progress-num.pl-5 {{ progress }} %
   v-row.row2( 
     cols="6" 
     justify="center"
     align="center")
-    .r-col.mx-auto(style=" background-color: none; width: 45vh; aspect-ratio: 1 ;  ")
-      .circular.mx-auto( style="border: 0rem solid #2DD98A; width: 100%; height: 100% ; border-radius: 50%;" )
+    .r-col.mx-auto(style=" width: 45vh; aspect-ratio: 1 ;  ")
+      .circular.mx-auto
         v-img.ml-3.mt-10.spinning(
           src="src/assets/images/loading.webp"
           center
@@ -18,8 +18,8 @@ v-container.d-flex.flex-column.vC(style="height: 100vh; width: 100vw; background
             .d-flex.align-center.justify-center.fill-height
               v-progress-circular(color='green-lighten-4' :size="128" :width="12" indeterminate='')
   v-row.row3(justify="center" )
-    .remind
-      .warmup
+    .remind-container
+      .letter-content
         .letter-holder
           div(v-for='(letter, index) in letters' 
           :key='index' 
@@ -31,27 +31,31 @@ v-container.d-flex.flex-column.vC(style="height: 100vh; width: 100vw; background
 <style lang="sass" scoped>
 
 
-.vC
+.loading-container
   position: absolute
   top: 0
   left: 0
+  height: 100vh
+  width: 100vw
   .row1
-    background-color: none
     margin-top: 10%
-    .progressNum
+    .progress-num
       color: #2DD98A
       font-size: 32px
       font-family: 'Playfair Display'
   .row2
-    height: 40vh 
-    background-color: none
-    .spinning 
-      animation: spin .8s ease-in-out infinite
+    height: 40vh
+    .circular
+      border: 0rem solid #2DD98A
+      width: 100%
+      height: 100% 
+      border-radius: 50%
+      .spinning 
+        animation: spin .8s ease-in-out infinite
   .row3
-    height: 15vh 
-    background-color: none
+    height: 15vh
 
-    .remind
+    .remind-container
       color: #2DD98A
       font-size: 20px
       font-family: 'Playfair Display'
@@ -59,7 +63,7 @@ v-container.d-flex.flex-column.vC(style="height: 100vh; width: 100vw; background
       position: relative
       white-space: nowrap
       margin-top: 10px
-      .warmup
+      .letter-content
         animation-name: loading
         animation-duration: 1.2s
         animation-iteration-count: infinite
@@ -84,21 +88,25 @@ v-container.d-flex.flex-column.vC(style="height: 100vh; width: 100vw; background
   
 
 @media (min-width: 0px) and (max-width: 840px)
-  .vC
+  .loading-container
     .row1
       margin-top: 80px
-      .progressNum
+      .progress-num
         font-size: 28px
     .row2
       margin-top: 30px
       height: 40vh 
+      .circular
+        .spinning
+          width: 70%
+          left: 15%
 
 
 @media (min-height: 0px) and (max-height: 450px)
-  .vC
+  .loading-container
     .row1
       margin-top: 80px
-      .progressNum
+      .progress-num
         font-size: 24px
     .row2
       margin-top: 30px
@@ -106,7 +114,7 @@ v-container.d-flex.flex-column.vC(style="height: 100vh; width: 100vw; background
     .row3
       margin-top: 5%
       // height: 40vh 
-      .remind
+      .remind-container
         font-size: 16px
 
 </style>

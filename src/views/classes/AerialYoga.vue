@@ -4,46 +4,46 @@
     v-show="clicking"
     @click.stop="showForm")
     feedbackForm(v-show="clicking")
-  section.titleContainer
+  section.title-container
     .dot-container 
       .dot
       .title 空中瑜珈
       .eng-title Aerial Yoga
     .fade-span 向下滑動
   section.preface
-    .prefaceContent 
+    .preface-content 
       h2 課程介紹
       p 空中瑜珈是一種結合傳統瑜珈動作和懸吊器材的練習形式。透過將身體懸掛在吊帶或絲繩上，空中瑜珈提供了額外的挑戰和支持，同時加強了平衡、柔軟度和身體控制。這種練習形式可以增強肌肉力量、改善靈活性，同時提升身心的集中力和身體感知能力。
     .info-container
-      .infoRow.row1
-        .infoCard 
+      .info-row.row1
+        .info-card 
           h2 課程目標 
           p 藉由懸掛達到更多延伸 
             br 
             | 鍛鍊核心與全身肌力
             br 
             | 建立身體美感與自信心
-        .infoCard
+        .info-card
           h2 課程時間 
           p 請洽老師
-      .infoRow.row2
-        .infoCard 
+      .info-row.row2
+        .info-card 
           h2 課程人數 
           p 最少二人，最多五人
-        .infoCard
+        .info-card
           h2 課程收費
           p 請洽老師
   section.gallery
-    v-container.w-auto(style =" border: 1px solid none; ")
-      v-row.imgRow1.justify-center.align-center( style='border: 1px solid none; ')
-        v-col(v-for='image in imagesR1' :key='image' cols='6' style='border: 1px solid none;')
-          v-img.yogaImg.bg-grey-lighten-2.mr-2(:src='image' cover='' style='aspect-ratio: 4/3; box-shadow: -3px 3px 3px 0 rgba(0,0,0,0.3) ; width: 100%; border-radius: 5%;' lazy-src='https://picsum.photos/id/11/100/60')
+    v-container.w-auto
+      v-row.img-row1.justify-center.align-center 
+        v-col(v-for='image in imagesR1' :key='image' cols='6')
+          v-img.yoga-img.bg-grey-lighten-2.mr-2(:src='image' cover='' style='aspect-ratio: 4/3; box-shadow: -3px 3px 3px 0 rgba(0,0,0,0.3) ; width: 100%; border-radius: 5%;' lazy-src='https://picsum.photos/id/11/100/60')
             template(v-slot:placeholder='')
               .d-flex.align-center.justify-center.fill-height
                 v-progress-circular(color='grey-lighten-4' indeterminate='')
-      v-row.imgRow2.justify-center.align-center( style='border: 1px solid none;')
-        v-col(v-for='image in imagesR2' :key='image' cols='6' style='border: 1px solid none;')
-          v-img.yogaImg.bg-grey-lighten-2.mr-2(:src='image' cover='' style='aspect-ratio: 4/3; box-shadow: -3px 3px 3px 0 rgba(0,0,0,0.3) ; width: 100%; border-radius: 5%;' lazy-src='https://picsum.photos/id/11/100/60')
+      v-row.img-row2.justify-center.align-center
+        v-col(v-for='image in imagesR2' :key='image' cols='6')
+          v-img.yoga-img.bg-grey-lighten-2.mr-2(:src='image' cover='' style='aspect-ratio: 4/3; box-shadow: -3px 3px 3px 0 rgba(0,0,0,0.3) ; width: 100%; border-radius: 5%;' lazy-src='https://picsum.photos/id/11/100/60')
             template(v-slot:placeholder='')
               .d-flex.align-center.justify-center.fill-height
                 v-progress-circular(color='grey-lighten-4' indeterminate='')
@@ -61,8 +61,8 @@
     .container-bar
   section.calendar 
     CalendarVue
-    router-link.btnRouter(to="/contact" style="margin-bottom: 50px; margin-top: 100px;")
-      v-btn.reserveBtn 預約課程
+    router-link.router-container(to="/contact")
+      v-btn.reserve-btn 預約課程
       
   section.footer
     a.prev(href="/classes/KXPilates") 機械皮拉提斯
@@ -103,7 +103,7 @@ mouseHorizontal
     align-items: center
     flex-direction: column
     position: relative
-  .titleContainer
+  .title-container
     height: 130vh
     .dot-container
       width: 300px
@@ -143,7 +143,7 @@ mouseHorizontal
     flex-direction: column
     justify-content: center
     align-items: center
-    .prefaceContent
+    .preface-content
       position: relative
       display: flex
       flex-direction: column
@@ -168,7 +168,7 @@ mouseHorizontal
       flex-direction: column
       top: 300px
 
-      .infoRow
+      .info-row
         position: relative
         width: 100%
         height: 200px
@@ -177,7 +177,7 @@ mouseHorizontal
         align-items: center
         flex-direction: row
 
-        .infoCard
+        .info-card
           position: relative
           width: 200px
           height: 200px
@@ -199,9 +199,9 @@ mouseHorizontal
     justify-content: center
     align-items: center
     padding: 15%
-    .yogaImg:hover
+    .yoga-img:hover
       opacity: .9
-    .imgRow1
+    .img-row1
       flex-direction: row
 
   .feedback
@@ -226,8 +226,10 @@ mouseHorizontal
     justify-content: start
     height: auto
     padding: 50px 0px
-    .btnRouter
-      .reserveBtn
+    .router-container
+      margin-bottom: 50px
+      margin-top: 100px
+      .reserve-btn
         padding: 30px 50px
         text-align: center
         align-content: center
@@ -285,14 +287,14 @@ mouseHorizontal
     .gallery
       height: 280vh
       padding: 0%
-      .imgRow1, .imgRow2
+      .img-row1, .img-row2
         flex-direction: column
 
 
 @media (min-width: 700px) and (max-width: 790px)
   .root
     .preface
-      .prefaceContent
+      .preface-content
         width: 50%
         h2
           font-size: 1.25rem
@@ -306,12 +308,12 @@ mouseHorizontal
     .gallery
       height: 270vh
       padding: 0%
-      .imgRow1, .imgRow2
+      .img-row1, .img-row2
         flex-direction: column
     .calendar
       height: 80%
-      .btnRouter
-        .reserveBtn
+      .router-container
+        .reserve-btn
           font-size: 14px
           border-radius: 20px
           padding: 20px 20px
@@ -320,7 +322,7 @@ mouseHorizontal
       font-size: 14px
 @media (min-width: 600px) and (max-width: 700px)
   .root
-    .titleContainer
+    .title-container
       .dot-container
         .dot 
           width: 60px
@@ -332,7 +334,7 @@ mouseHorizontal
           margin-top: 20px
     .preface
       height: 200vh
-      .prefaceContent
+      .preface-content
         width: 50%
         h2
           font-size: 1.25rem
@@ -342,19 +344,19 @@ mouseHorizontal
         width: 100% 
         .row2
           margin-top: 50px       
-        .infoRow
+        .info-row
           flex-direction: column
           height: 300px        
 
-          .infoCard
+          .info-card
             h2
               font-size: 1.25rem
             p
               font-size: .9rem
     .calendar
       height: 70%
-      .btnRouter
-        .reserveBtn
+      .router-container
+        .reserve-btn
           font-size: 14px
           border-radius: 20px
           padding: 20px 20px
@@ -363,7 +365,7 @@ mouseHorizontal
       height: 200vh
       justify-content: center
       padding: 0%
-      .imgRow1, .imgRow2
+      .img-row1, .img-row2
         flex-direction: column
     .feedback
       .role4
@@ -403,7 +405,7 @@ mouseHorizontal
 
 @media (min-width: 470px) and (max-width: 600px)
   .root
-      .titleContainer
+      .title-container
         .dot-container
           .dot 
             width: 60px
@@ -415,15 +417,15 @@ mouseHorizontal
             margin-top: 20px
       .calendar
         height: 60%
-        .btnRouter
-          .reserveBtn
+        .router-container
+          .reserve-btn
             font-size: 14px
             border-radius: 20px
             padding: 20px 20px
             letter-spacing: 8px
       .preface
         height: 200vh
-        .prefaceContent
+        .preface-content
           width: 50%
           h2
             font-size: 1.25rem
@@ -433,11 +435,11 @@ mouseHorizontal
           width: 100%
           .row2
             margin-top: 50px       
-          .infoRow
+          .info-row
             flex-direction: column
             height: 300px        
 
-            .infoCard
+            .info-card
               h2
                 font-size: 1.25rem
               p
@@ -446,7 +448,7 @@ mouseHorizontal
         height: 160vh
         justify-content: center
         padding: 0%
-        .imgRow1, .imgRow2
+        .img-row1, .img-row2
           flex-direction: column
       .feedback
         .role4
@@ -487,7 +489,7 @@ mouseHorizontal
   
 @media (min-width: 0px) and (max-width: 470px)
   .root
-    .titleContainer
+    .title-container
       .dot-container
         .dot 
           width: 60px
@@ -499,8 +501,8 @@ mouseHorizontal
           margin-top: 20px
     .calendar
       height: 60%        
-      .btnRouter
-        .reserveBtn
+      .router-container
+        .reserve-btn
           font-size: 12px
           border-radius: 20px
           padding: 18px 18px
@@ -508,7 +510,7 @@ mouseHorizontal
 
     .preface
       height: 200vh
-      .prefaceContent
+      .preface-content
         width: 50%
         h2
           font-size: 1.25rem
@@ -516,14 +518,13 @@ mouseHorizontal
           font-size: .9rem
       .info-container
         width: 100% 
-        // border: 1px solid black
         .row2
           margin-top: 50px       
-        .infoRow
+        .info-row
           flex-direction: column
           height: 300px        
 
-          .infoCard
+          .info-card
             h2
               font-size: 1.25rem
             p
@@ -532,7 +533,7 @@ mouseHorizontal
       height: 160vh
       justify-content: center
       padding: 0%
-      .imgRow1, .imgRow2
+      .img-row1, .img-row2
         flex-direction: column
     .feedback
       .role4
@@ -607,7 +608,6 @@ const imagesR2 = [
 
 // back to top
 
-
 const scTimer = ref(0);
 const scY = ref(0);
 
@@ -631,7 +631,6 @@ onMounted(() => {
   window.addEventListener('scroll', handleScroll);
 });
 
-
 // animation
 
 import gsap from 'gsap';
@@ -641,7 +640,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 let dotAnimation;
-
 
 onMounted(() => {
 
@@ -674,13 +672,13 @@ onMounted(() => {
   );
 
   gsap.fromTo(
-    ".prefaceContent", 
+    ".preface-content", 
     { opacity: 0, y: 0 },
     { 
       opacity: .9,
       y: -50,
       scrollTrigger: {
-        trigger: ".prefaceContent",
+        trigger: ".preface-content",
         start: "-50% 50%",
         // markers: true,
         toggleActions: "play pause resume reverse",
@@ -739,13 +737,13 @@ onMounted(() => {
   );
 
   gsap.fromTo(
-    ".imgRow1", 
+    ".img-row1", 
     { opacity: 0, x: 200 },
     { 
       opacity: 1,
       x: 0,
       scrollTrigger: {
-        trigger: ".imgRow1",
+        trigger: ".img-row1",
         start: "-150px 80%",
         // markers: true,
         toggleActions: "play pause resume reverse",
@@ -756,13 +754,13 @@ onMounted(() => {
 
 
   gsap.fromTo(
-    ".imgRow2", 
+    ".img-row2", 
     { opacity: 0, x: -200 },
     { 
       opacity: 1,
       x: 0,
       scrollTrigger: {
-        trigger: ".imgRow2",
+        trigger: ".img-row2",
         start: "-150px 80%",
         // markers: true,
         toggleActions: "play pause resume reverse",
@@ -781,7 +779,6 @@ const clicking = ref(false);
 
 const showForm = () => {
   clicking.value = !clicking.value;
-  // console.log(`showform :  ${clicking.value}`);
 }
 
 
