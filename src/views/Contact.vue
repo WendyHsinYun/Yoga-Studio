@@ -3,11 +3,10 @@
   section.sec1
     v-row(
       justify="center"
-      style=" background-color: none; " 
       align="start" 
       )
       v-col.flex-column.text-center(
-        style="background-color: none; user-select: text; "
+        style="user-select: text; "
         justify="start"    
         cols="9"
         )
@@ -17,7 +16,9 @@
           .cardText phone : 0937849328 
           .cardText email : jt126129@gmail.com
         v-img(
-          src="src/assets/images/contact.webp" 
+          :src= 'contactImg'            
+          title='聯繫卡姊' 
+          alt='寫信聯繫卡姊'
           height="300" 
           center 
           style="transform: translateY(-30px)")
@@ -27,14 +28,12 @@
   section.sec2
     v-row(
       justify="center"
-      style=" background-color: none; " 
       align="start" 
       )
       v-col(
         justify="start"
         align="center"
         cols="9" 
-        style="background-color: none; " 
         )
         .formTitle 填寫表單
         v-form(
@@ -45,9 +44,9 @@
           v-text-field(
             density="compact" 
             variant="underlined" 
-            v-model='name.value.value' 
+            v-model='userName.value.value' 
             :counter='20' 
-            :error-messages='name.errorMessage.value' 
+            :error-messages='userName.errorMessage.value' 
             label='名字' 
             ref="nameField")
           v-text-field(
@@ -96,6 +95,107 @@
 
 </template>
 
+
+
+<script setup>
+import { ref } from 'vue'
+import { useField, useForm } from 'vee-validate'
+
+import emailjs from 'emailjs-com';
+
+import contactImg from '/src/assets/images/contact.webp'
+
+
+const { handleSubmit, handleReset } = useForm({
+  validationSchema: {
+    userName(value) {
+      if (value?.length >= 2) return true
+
+      return '名字至少需要兩個字元'
+    },
+    phone(value) {
+      if (value?.length > 9 && /[0-9-]+/.test(value)) return true
+
+      return '手機至少需要九個數字'
+    },
+    email(value) {
+      if (/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i.test(value)) return true
+
+      return '必須為有效的信箱地址'
+    },
+    select(value) {
+      if (value) return true
+
+      return '請選擇一堂課'
+    },
+    message(value) {
+      if (value?.length >= 2) return true
+
+      return '請概述您的問題內容'
+    }
+  },
+})
+
+
+const userName = useField('userName')
+const phone = useField('phone')
+const email = useField('email')
+const select = useField('select')
+const message = useField('message')
+
+const items = ref([
+  '瑜珈課', 
+  '機械皮拉提斯', 
+  '空中瑜珈', 
+  '其他（客製化課程）'
+])
+
+const nameField = ref('');
+const phoneField = ref('');
+const emailField = ref('');
+const selectField = ref('');
+const messageField = ref('');
+
+const formData = ref({})
+
+const submit = handleSubmit(values => {
+  formData.value = values;
+  console.log(JSON.stringify(formData.value, null, 2))
+})
+
+
+const sendEmail = () => {
+  submit().then(() => {
+    emailjs.send(
+      'service_f17lxl7', 
+      'template_3694268',     
+      {
+        user_email: formData.value.email,
+        from_name: formData.value.userName,
+        reply_to : "wendyhsinyun@gmail.com",
+        to_name: "卡姊",
+        phone: formData.value.phone,
+        select: formData.value.select,
+        message: formData.value.message,
+      }, 
+      'OUQqOz6igY5YaEUO8')
+      .then(() => {
+          alert('郵件已成功發送！請至信箱檢查您寄出的信件內容');
+      })
+      .then(() => {
+        handleReset()
+      })
+      .catch((error) => {
+        console.log('FAILED...', error.text);
+      });
+    });
+};
+
+
+</script>
+
+
+
 <style lang='sass' scoped>
 * 
   cursor: default
@@ -105,15 +205,10 @@
   height: 100%
   display: flex
   justify-content: center
-  align-items: start
-  flex-direction: row
-  // overflow: hidden
   background-color: #F9F9FB
   section
     position: relative
-    background-color: none
     width: 50% 
-    // height: 100%
     justify-content: center
     align-items: center
     padding-top: 100px
@@ -185,114 +280,4 @@
       .formTitle
         font-size: 18px
 
-
-// @media(min-height: 0px) and (max-height: 800px)
-//   .contact-container
-//     flex-direction: column
-//     height: auto
-//     section
-//       width: 70%
-//     .sec2
-//       padding-top: 50px
-//       padding-bottom: 100px 
-//       padding-right: 0px
-//       width: 70% 
 </style>
-
-
-
-<script setup>
-import { ref } from 'vue'
-import { useField, useForm } from 'vee-validate'
-
-import emailjs from 'emailjs-com';
-
-
-const { handleSubmit, handleReset } = useForm({
-  validationSchema: {
-    name(value) {
-      if (value?.length >= 2) return true
-
-      return '名字至少需要兩個字元'
-    },
-    phone(value) {
-      if (value?.length > 9 && /[0-9-]+/.test(value)) return true
-
-      return '手機至少需要九個數字'
-    },
-    email(value) {
-      if (/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i.test(value)) return true
-
-      return '必須為有效的信箱地址'
-    },
-    select(value) {
-      if (value) return true
-
-      return '請選擇一堂課'
-    },
-    message(value) {
-      if (value?.length >= 2) return true
-
-      return '請概述您的問題內容'
-    }
-  },
-})
-
-const name = useField('name')
-const phone = useField('phone')
-const email = useField('email')
-const select = useField('select')
-const message = useField('message')
-
-const items = ref([
-  '瑜珈課', 
-  '機械皮拉提斯', 
-  '空中瑜珈', 
-  '其他（客製化課程）'
-])
-
-
-const nameField = ref('');
-const phoneField = ref('');
-const emailField = ref('');
-const selectField = ref('');
-const messageField = ref('');
-
-const formData = ref({})
-
-const submit = handleSubmit(values => {
-  formData.value = values;
-  console.log(JSON.stringify(formData.value, null, 2))
-})
-
-
-
-const sendEmail = () => {
-  submit().then(() => {
-    emailjs.send(
-      'service_f17lxl7', 
-      'template_3694268',     
-      {
-        user_email: formData.value.email,
-        from_name: formData.value.name,
-        reply_to : "wendyhsinyun@gmail.com",
-        to_name: "卡姊",
-        phone: formData.value.phone,
-        select: formData.value.select,
-        message: formData.value.message,
-      }, 
-      'OUQqOz6igY5YaEUO8')
-      .then(() => {
-          alert('郵件已成功發送！請至信箱檢查您寄出的信件內容');
-      })
-      .then(() => {
-        handleReset()
-      })
-      .catch((error) => {
-        console.log('FAILED...', error.text);
-      });
-    });
-};
-
-
-</script>

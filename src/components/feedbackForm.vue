@@ -8,14 +8,16 @@ v-form.Vform(
     v-model='feedback.name' 
     label='您的名字'
     style=" background-color: #f4f4f4; border-radius: 15px; margin-top: 50px; "
-    :counter='20')
+    :counter='20'
+    @click.stop="showForm")
   v-textarea(
     v-model='feedback.content' 
     hide-details="true"
     density="comfortable"
     label='回饋（50字以內）' 
     style=" word-wrap: break-word; background-color: #f4f4f4; margin-top: 20px; border-radius: 15px"
-    :counter='50')
+    :counter='50'
+    @click.stop="showForm")
   v-btn(color='primary' 
     type='submit' 
     style="color: whitesmoke; width: 20%; padding: 20px; margin-top: 20px; border-radius: 15px; align-content: center; margin-left: 50%; transform: translateX(-50%);" ) 送出
@@ -44,12 +46,10 @@ import { ref } from 'vue';
 
 import axios from 'axios';
 
-
 const feedback = ref({
     name: '',
     content: '',
 });
-
 
 const addFeedback = () => {
   axios.post(`https://yoga-studio-4422e-default-rtdb.asia-southeast1.firebasedatabase.app/feedback.json`, feedback.value)

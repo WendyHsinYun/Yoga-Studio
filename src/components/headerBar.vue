@@ -80,7 +80,6 @@ const yogaClass = [
         margin-left: 70%
         display: flex
         justify-content: start
-        align-items: start
         color: #565151
 
         .link
