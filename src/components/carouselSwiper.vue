@@ -72,7 +72,6 @@ const formatData = (feedbacks) => {
 .swiper-container
   width: 100%
   height: 300px
-  // background-color: pink
   display: flex
   position: relative
   top: -15%
